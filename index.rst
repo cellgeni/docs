@@ -17,7 +17,7 @@ Indices and tables
 
 .. raw:: html
 
-    <iframe src="https://172.27.16.133/public/question/45e8c649-ac37-4626-bc92-576348505c36" frameborder="0" width="700" height="600" allowtransparency></iframe>
+    <iframe src="http://172.27.16.133/public/question/45e8c649-ac37-4626-bc92-576348505c36" frameborder="0" width="700" height="600" allowtransparency></iframe>
 
 * :ref:`genindex`
 * :ref:`modindex`
