@@ -3,12 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to CellGen Docs's documentation!
-========================================
+Welcome to CellGen IT Docs's documentation!
+===========================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   cram
    mlwarehouse
 
