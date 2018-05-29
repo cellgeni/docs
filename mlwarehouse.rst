@@ -2,6 +2,8 @@
 ML Warehouse
 ============
 
+To see the content below you need to be on the wired Sanger network and allow unsecure scripts in your browser.
+
 Study ID
 --------
 

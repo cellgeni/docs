@@ -12,4 +12,5 @@ Welcome to CellGen IT Docs's documentation!
 
    cram
    mlwarehouse
+   contact
 
