@@ -9,7 +9,8 @@ Welcome to CellGen IT Docs's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
+   
+   pipelines
    cram
    mlwarehouse
    contact
