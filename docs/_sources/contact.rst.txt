@@ -4,7 +4,14 @@ How to contact us
 Submit a ticket
 ---------------
 
-The main ticket portal is `here <https://cellgeni.atlassian.net/servicedesk/customer/portal/1>`_. To be able to access it please email to `vk6@sanger.ac.uk <mailto:vk6@sanger.ac.uk>`_.
+We operate using JIRA ticketing system. To be able to put in tickets you need to contact us by either emailing to vk6@sanger.ac.uk or using `our Mattermost channel <https://mattermost.sanger.ac.uk/cellgeninf/channels/jira-requests>`_ (please use your Sanger credentials to login).
+
+Once registered you can put in a ticket using either `our portal <https://cellgeni.atlassian.net/servicedesk/customer/portal/1>`_ or by emailing to support@cellgeni.atlassian.net.
+
+Coffee standups
+---------------
+
+We organise coffee standups every Wednesday at 2pm in the Morgan Building Atrium. Please come along, meet our group, have a cup of coffee and ask any question you may have.
 
 Chat
 ----
