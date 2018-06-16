@@ -13,5 +13,6 @@ Welcome to CellGen IT Docs's documentation!
    pipelines
    cram
    mlwarehouse
+   farm
    contact
 
