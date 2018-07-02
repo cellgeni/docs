@@ -23,3 +23,4 @@ help:
 	mkdir docs
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	cp -r _build/html/* docs/
+	touch docs/.nojekyll
