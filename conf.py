@@ -19,14 +19,14 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'CellGen IT Docs'
-copyright = u'2018, Vladimir Kiselev'
-author = u'Vladimir Kiselev'
+project = u'Cellular Genetics IT'
+copyright = u'2018, Cellular Genetics IT'
+author = u'Cellular Genetics IT'
 
 # The short X.Y version
-version = u'0.1'
+version = u'0.2'
 # The full version, including alpha/beta/rc tags
-release = u'0.1'
+release = u'0.2'
 
 
 # -- General configuration ---------------------------------------------------
@@ -134,7 +134,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'CellGenITDocs.tex', u'CellGen IT Docs Documentation',
-     u'Vladimir Kiselev', 'manual'),
+     u'Cellular Genetics IT', 'manual'),
 ]
 
 

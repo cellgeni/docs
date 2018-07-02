@@ -3,16 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to CellGen IT Docs's documentation!
-===========================================
+Cellular Genetics IT travel guide
+=================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
    
-   pipelines
-   cram
+   history
+   approach
+   remit
+   services
+   utils
    mlwarehouse
-   farm
    contact
 
+.. note:: The creation of this travel guide was inspired by `Patrick Kua <https://www.thekua.com/>`_

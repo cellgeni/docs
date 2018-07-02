@@ -1,5 +1,5 @@
-What we can do for you
-======================
+Services we provide
+===================
 
 Ticketing system
 ----------------
