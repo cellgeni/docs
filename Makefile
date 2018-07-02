@@ -19,5 +19,7 @@ help:
 %: Makefile
 	rm -r _build
 	mkdir _build
+	rm -r docs
+	mkdir docs
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	cp -r _build/html/* docs/
