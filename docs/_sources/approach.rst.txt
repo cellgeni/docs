@@ -8,8 +8,8 @@ No duplication of effort
 
 If something has been or can be done by others we will not develop our own tool for this.
 
-Agile / Scrum / Kanban
-----------------------
+Agile
+-----
 
 In our work we try use elements of the `Agile methodology <https://en.wikipedia.org/wiki/Agile_software_development>`_. We use `Jira <https://www.atlassian.com/software/jira>`_ as our main project management software.
 
