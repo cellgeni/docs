@@ -9,7 +9,12 @@ Study ID
 
 .. raw:: html
 
-    <iframe src="http://172.27.16.133/public/question/76bc6008-446e-45fe-af7b-3ab18b0be4f2" frameborder="0" width="700" height="600" allowtransparency></iframe>
+    <iframe
+    src="http://172.27.19.147:3000/public/question/2ad36302-b6e1-444d-9d6d-254743264ebf"
+    frameborder="0"
+    width="700"
+    height="600"
+    allowtransparency></iframe>
 
 
 Cost code
@@ -17,7 +22,12 @@ Cost code
 
 .. raw:: html
 
-    <iframe src="http://172.27.16.133/public/question/205d3a19-ee01-4ac1-badb-3daf932e4808" frameborder="0" width="700" height="600" allowtransparency></iframe>
+    <iframe
+    src="http://172.27.19.147:3000/public/question/6ddd1468-02c6-4042-a626-548e39f34be4"
+    frameborder="0"
+    width="800"
+    height="600"
+    allowtransparency></iframe>
 
 
 Sample ID
@@ -25,4 +35,9 @@ Sample ID
 
 .. raw:: html
 
-    <iframe src="http://172.27.16.133/public/question/45e8c649-ac37-4626-bc92-576348505c36" frameborder="0" width="700" height="400" allowtransparency></iframe>
+    <iframe
+    src="http://172.27.19.147:3000/public/question/47030518-c649-4764-8fc2-84a4e07ba516"
+    frameborder="0"
+    width="700"
+    height="300"
+    allowtransparency></iframe>
