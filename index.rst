@@ -10,8 +10,8 @@ Cellular Genetics IT travel guide
    :maxdepth: 2
    
    history
-   approach
    remit
+   approach
    services
    utils
    mlwarehouse
