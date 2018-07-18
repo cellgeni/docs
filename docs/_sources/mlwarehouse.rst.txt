@@ -25,7 +25,7 @@ Cost code
     <iframe
     src="http://172.27.19.147:3000/public/question/6ddd1468-02c6-4042-a626-548e39f34be4"
     frameborder="0"
-    width="800"
+    width="700"
     height="600"
     allowtransparency></iframe>
 
