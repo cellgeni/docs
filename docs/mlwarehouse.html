@@ -90,9 +90,9 @@
 <li class="toctree-l1"><a class="reference internal" href="services.html">Services we provide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utils.html">Useful information</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ML Warehouse</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#study-id">Study ID</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cost-code">Cost code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sample-id">Sample ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#show-me-information-for-all-the-samples-in-a-study">Show me information for all the samples in a study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#show-me-information-for-all-the-samples-with-a-cost-code">Show me information for all the samples with a cost code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#show-me-run-id-lane-number-and-tag-index-for-a-sample">Show me run ID, lane number and tag index for a sample</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contact.html">How to contact us</a></li>
@@ -162,31 +162,120 @@
             
   <div class="section" id="ml-warehouse">
 <h1>ML Warehouse<a class="headerlink" href="#ml-warehouse" title="Permalink to this headline">¶</a></h1>
-<p>To see the content below you need to be on the wired Sanger network and allow unsecure scripts in your browser.</p>
-<div class="section" id="study-id">
-<h2>Study ID<a class="headerlink" href="#study-id" title="Permalink to this headline">¶</a></h2>
+<p>To see the content below you need to use a Chrome web browser, be on the wired Sanger network and allow unsecure scripts in your browser.</p>
+<div class="section" id="show-me-information-for-all-the-samples-in-a-study">
+<h2>Show me information for all the samples in a study<a class="headerlink" href="#show-me-information-for-all-the-samples-in-a-study" title="Permalink to this headline">¶</a></h2>
 <iframe
 src="http://172.27.19.147:3000/public/question/2ad36302-b6e1-444d-9d6d-254743264ebf"
 frameborder="0"
 width="700"
 height="600"
-allowtransparency></iframe></div>
-<div class="section" id="cost-code">
-<h2>Cost code<a class="headerlink" href="#cost-code" title="Permalink to this headline">¶</a></h2>
+allowtransparency></iframe><p>MySQL query:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
+    <span class="n">study</span><span class="p">.</span><span class="n">id_study_lims</span><span class="p">,</span>
+    <span class="n">study</span><span class="p">.</span><span class="n">study_title</span><span class="p">,</span>
+    <span class="n">study</span><span class="p">.</span><span class="n">faculty_sponsor</span><span class="p">,</span>
+    <span class="n">study</span><span class="p">.</span><span class="n">ethically_approved</span><span class="p">,</span>
+    <span class="n">study</span><span class="p">.</span><span class="n">accession_number</span><span class="p">,</span>
+    <span class="n">sample</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
+    <span class="n">sample</span><span class="p">.</span><span class="n">supplier_name</span><span class="p">,</span>
+    <span class="n">sample</span><span class="p">.</span><span class="n">donor_id</span><span class="p">,</span>
+    <span class="n">sample</span><span class="p">.</span><span class="n">organism</span><span class="p">,</span>
+    <span class="n">sample</span><span class="p">.</span><span class="n">reference_genome</span><span class="p">,</span>
+    <span class="n">flowcell</span><span class="p">.</span><span class="n">cost_code</span><span class="p">,</span>
+    <span class="n">product_metrics</span><span class="p">.</span><span class="n">id_run</span><span class="p">,</span>
+    <span class="n">flowcell</span><span class="p">.</span><span class="n">position</span><span class="p">,</span>
+    <span class="n">flowcell</span><span class="p">.</span><span class="n">tag_index</span><span class="p">,</span>
+    <span class="n">flowcell</span><span class="p">.</span><span class="n">tag_sequence</span><span class="p">,</span>
+    <span class="n">flowcell</span><span class="p">.</span><span class="n">tag2_sequence</span>
+
+<span class="k">FROM</span> <span class="n">mlwarehouse</span><span class="p">.</span><span class="n">iseq_flowcell</span> <span class="k">as</span> <span class="n">flowcell</span>
+
+<span class="k">JOIN</span> <span class="p">(</span><span class="n">mlwarehouse</span><span class="p">.</span><span class="n">iseq_product_metrics</span> <span class="k">as</span> <span class="n">product_metrics</span><span class="p">,</span>
+    <span class="n">mlwarehouse</span><span class="p">.</span><span class="n">sample</span><span class="p">,</span>
+    <span class="n">mlwarehouse</span><span class="p">.</span><span class="n">study</span><span class="p">)</span>
+
+<span class="k">ON</span> <span class="p">(</span><span class="n">product_metrics</span><span class="p">.</span><span class="n">id_iseq_flowcell_tmp</span> <span class="o">=</span> <span class="n">flowcell</span><span class="p">.</span><span class="n">id_iseq_flowcell_tmp</span>
+    <span class="k">AND</span> <span class="n">sample</span><span class="p">.</span><span class="n">id_sample_tmp</span> <span class="o">=</span> <span class="n">flowcell</span><span class="p">.</span><span class="n">id_sample_tmp</span>
+    <span class="k">AND</span> <span class="n">flowcell</span><span class="p">.</span><span class="n">id_study_tmp</span> <span class="o">=</span> <span class="n">study</span><span class="p">.</span><span class="n">id_study_tmp</span><span class="p">)</span>
+
+<span class="k">WHERE</span> <span class="n">study</span><span class="p">.</span><span class="n">id_study_lims</span> <span class="o">=</span> <span class="mi">4775</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="show-me-information-for-all-the-samples-with-a-cost-code">
+<h2>Show me information for all the samples with a cost code<a class="headerlink" href="#show-me-information-for-all-the-samples-with-a-cost-code" title="Permalink to this headline">¶</a></h2>
 <iframe
 src="http://172.27.19.147:3000/public/question/6ddd1468-02c6-4042-a626-548e39f34be4"
 frameborder="0"
 width="700"
 height="600"
-allowtransparency></iframe></div>
-<div class="section" id="sample-id">
-<h2>Sample ID<a class="headerlink" href="#sample-id" title="Permalink to this headline">¶</a></h2>
+allowtransparency></iframe><p>MySQL query:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
+    <span class="n">study</span><span class="p">.</span><span class="n">id_study_lims</span><span class="p">,</span>
+    <span class="n">study</span><span class="p">.</span><span class="n">study_title</span><span class="p">,</span>
+    <span class="n">study</span><span class="p">.</span><span class="n">faculty_sponsor</span><span class="p">,</span>
+    <span class="n">study</span><span class="p">.</span><span class="n">ethically_approved</span><span class="p">,</span>
+    <span class="n">study</span><span class="p">.</span><span class="n">accession_number</span><span class="p">,</span>
+    <span class="n">sample</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
+    <span class="n">sample</span><span class="p">.</span><span class="n">supplier_name</span><span class="p">,</span>
+    <span class="n">sample</span><span class="p">.</span><span class="n">donor_id</span><span class="p">,</span>
+    <span class="n">sample</span><span class="p">.</span><span class="n">organism</span><span class="p">,</span>
+    <span class="n">sample</span><span class="p">.</span><span class="n">reference_genome</span><span class="p">,</span>
+    <span class="n">flowcell</span><span class="p">.</span><span class="n">cost_code</span><span class="p">,</span>
+    <span class="n">product_metrics</span><span class="p">.</span><span class="n">id_run</span><span class="p">,</span>
+    <span class="n">flowcell</span><span class="p">.</span><span class="n">position</span><span class="p">,</span>
+    <span class="n">flowcell</span><span class="p">.</span><span class="n">tag_index</span><span class="p">,</span>
+    <span class="n">flowcell</span><span class="p">.</span><span class="n">tag_sequence</span><span class="p">,</span>
+    <span class="n">flowcell</span><span class="p">.</span><span class="n">tag2_sequence</span>
+
+<span class="k">FROM</span> <span class="n">mlwarehouse</span><span class="p">.</span><span class="n">iseq_flowcell</span> <span class="k">as</span> <span class="n">flowcell</span>
+
+<span class="k">JOIN</span> <span class="p">(</span><span class="n">mlwarehouse</span><span class="p">.</span><span class="n">iseq_product_metrics</span> <span class="k">as</span> <span class="n">product_metrics</span><span class="p">,</span>
+    <span class="n">mlwarehouse</span><span class="p">.</span><span class="n">sample</span><span class="p">,</span>
+    <span class="n">mlwarehouse</span><span class="p">.</span><span class="n">study</span><span class="p">)</span>
+<span class="k">ON</span> <span class="p">(</span><span class="n">product_metrics</span><span class="p">.</span><span class="n">id_iseq_flowcell_tmp</span> <span class="o">=</span> <span class="n">flowcell</span><span class="p">.</span><span class="n">id_iseq_flowcell_tmp</span>
+    <span class="k">AND</span> <span class="n">sample</span><span class="p">.</span><span class="n">id_sample_tmp</span> <span class="o">=</span> <span class="n">flowcell</span><span class="p">.</span><span class="n">id_sample_tmp</span>
+    <span class="k">AND</span> <span class="n">flowcell</span><span class="p">.</span><span class="n">id_study_tmp</span> <span class="o">=</span> <span class="n">study</span><span class="p">.</span><span class="n">id_study_tmp</span><span class="p">)</span>
+
+<span class="k">WHERE</span> <span class="n">flowcell</span><span class="p">.</span><span class="n">cost_code</span> <span class="o">=</span> <span class="s1">&#39;S2435&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="show-me-run-id-lane-number-and-tag-index-for-a-sample">
+<h2>Show me run ID, lane number and tag index for a sample<a class="headerlink" href="#show-me-run-id-lane-number-and-tag-index-for-a-sample" title="Permalink to this headline">¶</a></h2>
 <iframe
 src="http://172.27.19.147:3000/public/question/47030518-c649-4764-8fc2-84a4e07ba516"
 frameborder="0"
 width="700"
-height="300"
-allowtransparency></iframe></div>
+height="600"
+allowtransparency></iframe><p>MySQL query:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">DISTINCT</span>
+    <span class="n">sample</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
+    <span class="n">run_status</span><span class="p">.</span><span class="n">id_run</span><span class="p">,</span>
+    <span class="n">flowcell</span><span class="p">.</span><span class="n">position</span><span class="p">,</span>
+    <span class="n">flowcell</span><span class="p">.</span><span class="n">tag_index</span><span class="p">,</span>
+    <span class="n">flowcell</span><span class="p">.</span><span class="n">tag_sequence</span><span class="p">,</span>
+    <span class="n">flowcell</span><span class="p">.</span><span class="n">tag2_sequence</span><span class="p">,</span>
+    <span class="n">run_status_dict</span><span class="p">.</span><span class="n">description</span><span class="p">,</span>
+    <span class="n">run_status</span><span class="p">.</span><span class="kt">date</span>
+
+<span class="k">FROM</span> <span class="n">mlwarehouse</span><span class="p">.</span><span class="n">sample</span>
+
+<span class="k">JOIN</span> <span class="p">(</span><span class="n">mlwarehouse</span><span class="p">.</span><span class="n">iseq_flowcell</span> <span class="k">as</span> <span class="n">flowcell</span><span class="p">,</span>
+    <span class="n">mlwarehouse</span><span class="p">.</span><span class="n">iseq_run_status</span> <span class="k">as</span> <span class="n">run_status</span><span class="p">,</span>
+    <span class="n">mlwarehouse</span><span class="p">.</span><span class="n">iseq_product_metrics</span> <span class="k">as</span> <span class="n">product_metrics</span><span class="p">,</span>
+    <span class="n">iseq_run_status_dict</span> <span class="k">as</span> <span class="n">run_status_dict</span><span class="p">)</span>
+
+<span class="k">ON</span> <span class="p">(</span><span class="n">flowcell</span><span class="p">.</span><span class="n">id_sample_tmp</span> <span class="o">=</span> <span class="n">sample</span><span class="p">.</span><span class="n">id_sample_tmp</span>
+    <span class="k">AND</span> <span class="n">product_metrics</span><span class="p">.</span><span class="n">id_iseq_flowcell_tmp</span> <span class="o">=</span> <span class="n">flowcell</span><span class="p">.</span><span class="n">id_iseq_flowcell_tmp</span>
+    <span class="k">AND</span> <span class="n">run_status</span><span class="p">.</span><span class="n">id_run</span> <span class="o">=</span> <span class="n">product_metrics</span><span class="p">.</span><span class="n">id_run</span>
+    <span class="k">AND</span> <span class="n">run_status</span><span class="p">.</span><span class="n">id_run_status_dict</span> <span class="o">=</span> <span class="n">run_status_dict</span><span class="p">.</span><span class="n">id_run_status_dict</span><span class="p">)</span>
+
+<span class="k">WHERE</span> <span class="n">sample</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;4775STDY6999295&#39;</span> <span class="k">AND</span> <span class="n">run_status</span><span class="p">.</span><span class="n">iscurrent</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
