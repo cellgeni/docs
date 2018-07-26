@@ -252,7 +252,8 @@ height="600"
 allowtransparency></iframe><p>MySQL query:</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">DISTINCT</span>
     <span class="n">sample</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
-    <span class="n">run_status</span><span class="p">.</span><span class="n">id_run</span><span class="p">,</span>
+    <span class="n">study</span><span class="p">.</span><span class="n">id_study_lims</span><span class="p">,</span>
+    <span class="n">flowcell</span><span class="p">.</span><span class="n">pipeline_id_lims</span><span class="p">,</span>
     <span class="n">flowcell</span><span class="p">.</span><span class="n">position</span><span class="p">,</span>
     <span class="n">flowcell</span><span class="p">.</span><span class="n">tag_index</span><span class="p">,</span>
     <span class="n">flowcell</span><span class="p">.</span><span class="n">tag_sequence</span><span class="p">,</span>
@@ -265,14 +266,16 @@ allowtransparency></iframe><p>MySQL query:</p>
 <span class="k">JOIN</span> <span class="p">(</span><span class="n">mlwarehouse</span><span class="p">.</span><span class="n">iseq_flowcell</span> <span class="k">as</span> <span class="n">flowcell</span><span class="p">,</span>
     <span class="n">mlwarehouse</span><span class="p">.</span><span class="n">iseq_run_status</span> <span class="k">as</span> <span class="n">run_status</span><span class="p">,</span>
     <span class="n">mlwarehouse</span><span class="p">.</span><span class="n">iseq_product_metrics</span> <span class="k">as</span> <span class="n">product_metrics</span><span class="p">,</span>
-    <span class="n">iseq_run_status_dict</span> <span class="k">as</span> <span class="n">run_status_dict</span><span class="p">)</span>
+    <span class="n">iseq_run_status_dict</span> <span class="k">as</span> <span class="n">run_status_dict</span><span class="p">,</span>
+    <span class="n">mlwarehouse</span><span class="p">.</span><span class="n">study</span> <span class="k">as</span> <span class="n">study</span><span class="p">)</span>
 
 <span class="k">ON</span> <span class="p">(</span><span class="n">flowcell</span><span class="p">.</span><span class="n">id_sample_tmp</span> <span class="o">=</span> <span class="n">sample</span><span class="p">.</span><span class="n">id_sample_tmp</span>
     <span class="k">AND</span> <span class="n">product_metrics</span><span class="p">.</span><span class="n">id_iseq_flowcell_tmp</span> <span class="o">=</span> <span class="n">flowcell</span><span class="p">.</span><span class="n">id_iseq_flowcell_tmp</span>
     <span class="k">AND</span> <span class="n">run_status</span><span class="p">.</span><span class="n">id_run</span> <span class="o">=</span> <span class="n">product_metrics</span><span class="p">.</span><span class="n">id_run</span>
-    <span class="k">AND</span> <span class="n">run_status</span><span class="p">.</span><span class="n">id_run_status_dict</span> <span class="o">=</span> <span class="n">run_status_dict</span><span class="p">.</span><span class="n">id_run_status_dict</span><span class="p">)</span>
+    <span class="k">AND</span> <span class="n">run_status</span><span class="p">.</span><span class="n">id_run_status_dict</span> <span class="o">=</span> <span class="n">run_status_dict</span><span class="p">.</span><span class="n">id_run_status_dict</span>
+    <span class="k">AND</span> <span class="n">flowcell</span><span class="p">.</span><span class="n">id_study_tmp</span> <span class="o">=</span> <span class="n">study</span><span class="p">.</span><span class="n">id_study_tmp</span><span class="p">)</span>
 
-<span class="k">WHERE</span> <span class="n">sample</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;4775STDY6999295&#39;</span> <span class="k">AND</span> <span class="n">run_status</span><span class="p">.</span><span class="n">iscurrent</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">WHERE</span> <span class="n">sample</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;QC1Hip-11155&#39;</span> <span class="k">AND</span> <span class="n">run_status</span><span class="p">.</span><span class="n">iscurrent</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>

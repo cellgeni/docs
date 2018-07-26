@@ -113,24 +113,27 @@ MySQL query:
 
     SELECT DISTINCT
         sample.name,
-        run_status.id_run, 
-        flowcell.position, 
+        study.id_study_lims,
+        flowcell.pipeline_id_lims,
+        flowcell.position,
         flowcell.tag_index,
-        flowcell.tag_sequence, 
+        flowcell.tag_sequence,
         flowcell.tag2_sequence,
-        run_status_dict.description, 
+        run_status_dict.description,
         run_status.date
 
-    FROM mlwarehouse.sample 
+    FROM mlwarehouse.sample
 
-    JOIN (mlwarehouse.iseq_flowcell as flowcell, 
-        mlwarehouse.iseq_run_status as run_status, 
-        mlwarehouse.iseq_product_metrics as product_metrics, 
-        iseq_run_status_dict as run_status_dict)
+    JOIN (mlwarehouse.iseq_flowcell as flowcell,
+        mlwarehouse.iseq_run_status as run_status,
+        mlwarehouse.iseq_product_metrics as product_metrics,
+        iseq_run_status_dict as run_status_dict,
+        mlwarehouse.study as study)
 
-    ON (flowcell.id_sample_tmp = sample.id_sample_tmp 
-        AND product_metrics.id_iseq_flowcell_tmp = flowcell.id_iseq_flowcell_tmp 
-        AND run_status.id_run = product_metrics.id_run 
-        AND run_status.id_run_status_dict = run_status_dict.id_run_status_dict)
+    ON (flowcell.id_sample_tmp = sample.id_sample_tmp
+        AND product_metrics.id_iseq_flowcell_tmp = flowcell.id_iseq_flowcell_tmp
+        AND run_status.id_run = product_metrics.id_run
+        AND run_status.id_run_status_dict = run_status_dict.id_run_status_dict
+        AND flowcell.id_study_tmp = study.id_study_tmp)
 
-    WHERE sample.name = '4775STDY6999295' AND run_status.iscurrent = 1;
+    WHERE sample.name = 'QC1Hip-11155' AND run_status.iscurrent = 1;
