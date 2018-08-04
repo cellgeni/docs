@@ -33,7 +33,7 @@ We use `Globus <https://www.globus.org/>`_ network to share the data with extern
 The sharing process consists of the following steps:
 
 1. We share the data with the user's personal/work email address
-2. The user creates/logs in their Globus account using the sharing email
+2. The user `creates/logs in their Globus account <https://docs.globus.org/how-to/get-started/>`_ using the sharing email
 3. The user needs to create a personal Globus endpoint either on their `Linux laptop / compute cluster <https://docs.globus.org/how-to/globus-connect-personal-linux/>`_ or on their `Mac laptop <https://docs.globus.org/how-to/globus-connect-personal-mac/>`_ or on their `Windows laptop <https://docs.globus.org/how-to/globus-connect-personal-windows/>`_.
 4. Once the users personal endpoint is setup they can transfer the data by simply `logging in to their Globus account using the sharing email address and drag and dropping the data <https://docs.globus.org/how-to/get-started/>`_.
 
