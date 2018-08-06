@@ -22,3 +22,6 @@ help:
 	rm -r docs
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	cp -r _build/html/ docs
+	cp *.rst docs
+	cp -r _themes docs
+	cp conf.py docs
