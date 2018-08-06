@@ -39,3 +39,5 @@ The sharing process consists of the following steps:
 5. Once the users personal endpoint is setup they can transfer the data by simply `logging in to their Globus account using the sharing email address and drag and dropping the data <https://docs.globus.org/how-to/get-started/>`_.
 
 For more information please visit the `Globus official documentation <https://docs.globus.org/how-to/>`_.
+
+.. note:: If the user would like to check MD5 hash, the MD5 sum files will be located in the same sharing folder with the data files.
