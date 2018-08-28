@@ -67,3 +67,8 @@ If this does not work, you could try running these first:
 
     unset REF_PATH
     unset REF_CACHE
+
+Data submission
+---------------
+
+To submit your data to a public repository, e.g. `EGA <https://www.ebi.ac.uk/ega/home>`_ or `ENA <https://www.ebi.ac.uk/ena>`_, please contact datahose@sanger.ac.uk. More information can be found `here <https://stackoverflow.sanger.ac.uk/question/935801792929730560/how-to-submit-data-to-a-public-repository>`_.
