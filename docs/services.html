@@ -89,6 +89,7 @@
 <li class="toctree-l1"><a class="reference internal" href="approach.html">Our vision</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Services we provide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#ticketing-system">Ticketing system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interactive-analysis-environment">Interactive analysis environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#run-a-pipeline">Run a pipeline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#share-data-with-external-collaborators">Share data with external collaborators</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#globus">Globus</a></li>
@@ -171,6 +172,19 @@
 <h2>Ticketing system<a class="headerlink" href="#ticketing-system" title="Permalink to this headline">¶</a></h2>
 <p>We operate using JIRA ticketing system. To be able to put in tickets you need to contact us by either emailing to <a class="reference external" href="mailto:vk6&#37;&#52;&#48;sanger&#46;ac&#46;uk">vk6<span>&#64;</span>sanger<span>&#46;</span>ac<span>&#46;</span>uk</a> or using <a class="reference external" href="https://mattermost.sanger.ac.uk/cellgeninf/channels/jira-requests">our Mattermost channel</a> (please use your Sanger credentials to login).</p>
 <p>Once registered you can put in a ticket using either <a class="reference external" href="https://cellgeni.atlassian.net/servicedesk/customer/portal/1">our portal</a> or by emailing to <a class="reference external" href="mailto:support&#37;&#52;&#48;cellgeni&#46;atlassian&#46;net">support<span>&#64;</span>cellgeni<span>&#46;</span>atlassian<span>&#46;</span>net</a>.</p>
+</div>
+<div class="section" id="interactive-analysis-environment">
+<h2>Interactive analysis environment<a class="headerlink" href="#interactive-analysis-environment" title="Permalink to this headline">¶</a></h2>
+<p>We support a Jupyter Hub server running on Sanger Cloud. It is available for everyone in our Programme. Jupyter allows you to run your analysis in multiple environments (<code class="docutils literal notranslate"><span class="pre">R</span></code>, <code class="docutils literal notranslate"><span class="pre">python</span></code>, <code class="docutils literal notranslate"><span class="pre">Julia</span></code>, etc.) and also to create and share notebooks containing your analysis, code, equations and visualisations. We think this is an ideal environment for any kind of downstream analysis. For more details please refer to <a class="reference external" href="http://jupyter.org/hub">Jupyterhub documentation</a></p>
+<p>Before logging in to JupyterHub please read our instructions here:
+<a class="reference external" href="https://github.com/cellgeni/notebooks#user-instructions">https://github.com/cellgeni/notebooks#user-instructions</a></p>
+<p>Once you read the instructions go ahead and login with you Sanger credentials here (it may take some time when you do it first time):
+<a class="reference external" href="https://jupyter.cellgeni.sanger.ac.uk">https://jupyter.cellgeni.sanger.ac.uk</a></p>
+<p>We provide some notebook templates with the pre-installed software. These are located in the <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> folder. Corresponding example data is located in the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder. Before running your analysis, please make a copy of a notebook template, save it to your home folder and work with the copy. At the moment we have the following notebook templates:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://github.com/cellgeni/notebooks/blob/master/files/notebooks/10X-scanpy.ipynb">scanpy notebook for analysis of 10X data</a></li>
+<li><cite>Seurat notebook for analysis of 10X data &lt;https://github.com/cellgeni/notebooks/blob/master/files/notebooks/10X-Seurat.Rmd&gt;</cite></li>
+</ol>
 </div>
 <div class="section" id="run-a-pipeline">
 <h2>Run a pipeline<a class="headerlink" href="#run-a-pipeline" title="Permalink to this headline">¶</a></h2>

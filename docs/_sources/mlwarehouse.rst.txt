@@ -2,7 +2,7 @@
 ML Warehouse
 ============
 
-To see the content below you need to be on the Sanger network.
+.. note:: To see the content below you need to be on the Sanger network (either cable or WTSI wifi). Also, we recommend to use either Chrome or Safari browser.
 
 Show me information for all the samples in a study
 --------------------------------------------------
