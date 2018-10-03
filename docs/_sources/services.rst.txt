@@ -22,7 +22,7 @@ https://jupyter.cellgeni.sanger.ac.uk
 We provide some notebook templates with the pre-installed software. These are located in the ``notebooks`` folder. Corresponding example data is located in the ``data`` folder. Before running your analysis, please make a copy of a notebook template, save it to your home folder and work with the copy. At the moment we have the following notebook templates:
 
 1. `scanpy notebook for analysis of 10X data <https://github.com/cellgeni/notebooks/blob/master/files/notebooks/10X-scanpy.ipynb>`_
-2. `Seurat notebook for analysis of 10X data <https://github.com/cellgeni/notebooks/blob/master/files/notebooks/10X-Seurat.Rmd>`
+2. `Seurat notebook for analysis of 10X data <https://github.com/cellgeni/notebooks/blob/master/files/notebooks/10X-Seurat.Rmd>`_
 
 
 Run a pipeline
