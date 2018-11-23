@@ -12,6 +12,7 @@ Cellular Genetics IT travel guide
    history
    remit
    approach
+   jupyterhub
    services
    utils
    mlwarehouse
