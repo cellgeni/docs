@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Useful information &mdash; Cellular Genetics IT 0.2 documentation</title>
+  <title>Nextflow pipelines &mdash; Cellular Genetics IT 0.2 documentation</title>
   
 
   
@@ -27,10 +27,11 @@
   
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="ML Warehouse" href="mlwarehouse.html" />
-    <link rel="prev" title="Services we provide" href="services.html" /> 
+    <link rel="prev" title="Data submission" href="submissions.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,19 +85,13 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="history.html">Our story</a></li>
-<li class="toctree-l1"><a class="reference internal" href="remit.html">Our remit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="approach.html">Our vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">The group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyterhub.html">Jupyter Hub</a></li>
-<li class="toctree-l1"><a class="reference internal" href="services.html">Services we provide</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Useful information</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#dealing-with-cram-files">Dealing with CRAM files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#farm-course">Farm course</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sanger-users-questions">Sanger users’ questions</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="sharing.html">Data sharing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submissions.html">Data submission</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Nextflow pipelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mlwarehouse.html">ML Warehouse</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contact.html">How to contact us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact us</a></li>
 </ul>
 
             
@@ -142,13 +137,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Useful information</li>
+      <li>Nextflow pipelines</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/utils.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/pipelines.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -161,19 +156,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="useful-information">
-<h1>Useful information<a class="headerlink" href="#useful-information" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="dealing-with-cram-files">
-<h2>Dealing with CRAM files<a class="headerlink" href="#dealing-with-cram-files" title="Permalink to this headline">¶</a></h2>
-<p>To be able to deal with Sanger cram files using <code class="docutils literal notranslate"><span class="pre">samtools</span></code>, please make sure you use samtools of version <strong>&gt;=1.8</strong>. In this case the <code class="docutils literal notranslate"><span class="pre">REF_PATH</span></code> variable will be automatically set for you.</p>
+  <div class="section" id="nextflow-pipelines">
+<h1>Nextflow pipelines<a class="headerlink" href="#nextflow-pipelines" title="Permalink to this headline">¶</a></h1>
+<p>We offer a range of sequencing processing pipelines. We develop them in two workflow languages: <a class="reference external" href="https://www.nextflow.io/">Nextflow</a> (very user-friendly) and <a class="reference external" href="https://www.commonwl.org/">CWL</a> (universal standard).</p>
+<p>For the end-users we offer Nextflow pipelines available to run on both Sanger <em>LSF</em> farm or <em>OpenStack</em> flexible compute environment. The pipelines can be run either by us or by the end-users themselves.</p>
+<p>Here is the list of pipelines we develop:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://github.com/cellgeni/rnaseq-noqc">RNA-seq</a> (both bulk and single cell)</li>
+<li><a class="reference external" href="https://github.com/cellgeni/chipseq">Chip-seq</a></li>
+<li><a class="reference external" href="https://github.com/cellgeni/atacseq">ATAC-seq</a></li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you would like to run <code class="docutils literal notranslate"><span class="pre">cellranger</span></code> by <em>10X</em> please put in a ticket for the NPG group by emailing to <a class="reference external" href="mailto:new-seq-pipe&#37;&#52;&#48;sanger&#46;ac&#46;uk">new-seq-pipe<span>&#64;</span>sanger<span>&#46;</span>ac<span>&#46;</span>uk</a> and specify which version of the cellranger and the genome you would like to use.</p>
 </div>
-<div class="section" id="farm-course">
-<h2>Farm course<a class="headerlink" href="#farm-course" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://helix.wtgc.org/system/files/users/wtsi/A/Admin/farm-users-intro-2.4.3.pdf">https://helix.wtgc.org/system/files/users/wtsi/A/Admin/farm-users-intro-2.4.3.pdf</a></p>
-</div>
-<div class="section" id="sanger-users-questions">
-<h2>Sanger users’ questions<a class="headerlink" href="#sanger-users-questions" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://stackoverflow.sanger.ac.uk">https://stackoverflow.sanger.ac.uk</a></p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Our pipelines start from aligned cram files and mostly concentrate on the downstream analysis (starting from the count matrix). Therefore, when submitting your experiment to sequencing please make sure you specify the correct aligner for your data.</p>
 </div>
 </div>
 
@@ -188,7 +187,7 @@
         <a href="mlwarehouse.html" class="btn btn-neutral float-right" title="ML Warehouse" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="services.html" class="btn btn-neutral" title="Services we provide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="submissions.html" class="btn btn-neutral" title="Data submission" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

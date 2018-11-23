@@ -1,5 +1,5 @@
-How to contact us
-=================
+Contact us
+==========
 
 Submit a ticket
 ---------------

@@ -9,12 +9,11 @@ Cellular Genetics IT travel guide
 .. toctree::
    :maxdepth: 2
    
-   history
-   remit
-   approach
+   about
    jupyterhub
-   services
-   utils
+   sharing
+   submissions
+   pipelines
    mlwarehouse
    contact
 
