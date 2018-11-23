@@ -15,10 +15,3 @@ To run our pipelines we use both the `LSF compute cluster <https://www.ibm.com/s
 .. image:: img/cellgeni-compute.png
    :width: 700
 
-Future vision
--------------
-
-The focus of our services is slowly shifting in the direction of web applications. We see our future structure as described in the following diagram:
-
-.. image:: img/diagram.png
-   :width: 700
