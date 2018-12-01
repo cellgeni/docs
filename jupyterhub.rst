@@ -3,14 +3,6 @@ Jupyter Hub
 
 We support a Jupyter Hub server running on Sanger Cloud. Jupyter allows you to run your analysis in multiple environments (``R``, ``python``, ``Julia``, etc.) and also to create and share notebooks containing your analysis, code, equations and visualizations. We think this is an ideal environment for any kind of downstream analysis. For more details please refer to `Jupyter Hub documentation <http://jupyter.org/hub>`_
 
-Demo
-----
-
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/fgM6GJYot6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
 How to login
 ------------
 
