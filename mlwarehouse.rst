@@ -115,6 +115,7 @@ MySQL query:
         sample.name,
         study.id_study_lims,
         flowcell.pipeline_id_lims,
+        product_metrics.id_run,
         flowcell.position,
         flowcell.tag_index,
         flowcell.tag_sequence,
