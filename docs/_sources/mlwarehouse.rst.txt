@@ -101,9 +101,9 @@ Show me run ID, lane number and tag index for a sample
 .. raw:: html
 
     <iframe
-    src="https://metabase.cellgeni.sanger.ac.uk/public/question/47030518-c649-4764-8fc2-84a4e07ba516"
+    src="https://metabase.cellgeni.sanger.ac.uk/public/question/20bebded-bdc1-4174-8881-476936122eaf"
     frameborder="0"
-    width="700"
+    width="800"
     height="600"
     allowtransparency></iframe>
 
