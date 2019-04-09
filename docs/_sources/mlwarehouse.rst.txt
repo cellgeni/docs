@@ -56,7 +56,7 @@ Show me information for all the samples with a cost code
 .. raw:: html
 
     <iframe
-    src="https://metabase.cellgeni.sanger.ac.uk/public/question/6ddd1468-02c6-4042-a626-548e39f34be4"
+    src="https://metabase.cellgeni.sanger.ac.uk/public/question/6b6d8fe2-f07f-4a68-b08a-701aefae418c"
     frameborder="0"
     width="700"
     height="600"
