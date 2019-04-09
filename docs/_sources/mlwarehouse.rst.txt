@@ -103,7 +103,7 @@ Show me run ID, lane number and tag index for a sample
     <iframe
     src="https://metabase.cellgeni.sanger.ac.uk/public/question/20bebded-bdc1-4174-8881-476936122eaf"
     frameborder="0"
-    width="800"
+    width="700"
     height="600"
     allowtransparency></iframe>
 
