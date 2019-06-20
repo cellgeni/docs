@@ -15,6 +15,7 @@ Cellular Genetics IT travel guide
    submissions
    pipelines
    mlwarehouse
+   visualisations
    contact
 
 .. note:: The creation of this travel guide was inspired by `Patrick Kua <https://www.thekua.com/>`_
