@@ -215,6 +215,10 @@
 </div>
 <p>When the metadata is <em>continuous</em>, the visualization will look like this:</p>
 <a class="reference internal image-reference" href="_images/continuous.png"><img alt="_images/continuous.png" src="_images/continuous.png" style="width: 700px;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note there is a continuous scale on the right of the plot.</p>
+</div>
 <p>To make your cell metadata continuous please use the following code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;metadata_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;metadata_name&#39;</span><span class="p">])</span>

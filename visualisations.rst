@@ -67,6 +67,8 @@ When the metadata is *continuous*, the visualization will look like this:
 .. image:: img/continuous.png
    :width: 700
 
+.. note:: Note there is a continuous scale on the right of the plot.
+
 To make your cell metadata continuous please use the following code:
 
 .. code-block:: python
