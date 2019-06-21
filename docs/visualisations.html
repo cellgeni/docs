@@ -93,7 +93,13 @@
 <li class="toctree-l1"><a class="reference internal" href="mlwarehouse.html">ML Warehouse</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Single Cell visualizations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cellxgene">cellxgene</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#anndata">AnnData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anndata">AnnData</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#x-slot">X slot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#obsm-slot">obsm slot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#obs-slot">obs slot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contact.html">Contact us</a></li>
@@ -174,11 +180,53 @@
 <p>AnnData format usually contains the following slots:</p>
 <ul class="simple">
 <li><strong>X</strong> contains the expression matrix.</li>
+<li><strong>obsm</strong> contains the embeddings data.</li>
 <li><strong>obs</strong> contains the cell metadata.</li>
 <li><strong>var</strong> contains the gene metadata.</li>
-<li><strong>obsm</strong> contains the embeddings data.</li>
 </ul>
 <a class="reference internal image-reference" href="_images/anndata.svg"><img alt="_images/anndata.svg" src="_images/anndata.svg" width="700" /></a>
+<p>When you work with <strong>cellxgene</strong> you only need to modify two of the slots above: <strong>obsm</strong> and <strong>obs</strong>.</p>
+<div class="section" id="x-slot">
+<h3>X slot<a class="headerlink" href="#x-slot" title="Permalink to this headline">¶</a></h3>
+<p><strong>cellxgene</strong> works faster when the expression matrix is stored in <code class="docutils literal notranslate"><span class="pre">CSC</span></code> (compressed sparse column) format instead of <code class="docutils literal notranslate"><span class="pre">CSR</span></code> (compressed sparse row) format.</p>
+<p>To convert your expression matrix into the <code class="docutils literal notranslate"><span class="pre">CSC</span></code> format please use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">tocsc</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="obsm-slot">
+<h3>obsm slot<a class="headerlink" href="#obsm-slot" title="Permalink to this headline">¶</a></h3>
+<p>To visualize your cells in 2D <strong>cellxgene</strong> uses <strong>obsm</strong> slot. If there are multiple embeddings stored in this slot they will all be available on the web interface.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>cellxgene</strong> requires that all of the embeddings’ names are prefixed with <code class="docutils literal notranslate"><span class="pre">X_</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">X_umap</span></code>, <code class="docutils literal notranslate"><span class="pre">X_pca</span></code> or <code class="docutils literal notranslate"><span class="pre">X_some_embedding</span></code>.</p>
+</div>
+</div>
+<div class="section" id="obs-slot">
+<h3>obs slot<a class="headerlink" href="#obs-slot" title="Permalink to this headline">¶</a></h3>
+<p>To highlight and colour your cells <strong>cellxgene</strong> uses <strong>obs</strong> slot. The colouring will depend on the type of you cell metadata contained in the <strong>obs</strong> slot.</p>
+<p>When the metadata is <em>categorical</em>, i.e. there is one colour per category, the visualization will look like this:</p>
+<a class="reference internal image-reference" href="_images/categorical.png"><img alt="_images/categorical.png" src="_images/categorical.png" style="width: 700px;" /></a>
+<p>To make your cell metadata categorical please use the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;metadata_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">metadata_name</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>When the metadata is <em>continuous</em>, the visualization will look like this:</p>
+<a class="reference internal image-reference" href="_images/continuous.png"><img alt="_images/continuous.png" src="_images/continuous.png" style="width: 700px;" /></a>
+<p>To make your cell metadata continuous please use the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;metadata_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;metadata_name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>We have already created a couple of websites for some our programme members. You can have a look at them at the following links:</p>
+<p><a class="reference external" href="https://www.kidneycellatlas.org/">https://www.kidneycellatlas.org</a>
+<a class="reference external" href="https://hemocytes.cellgeni.sanger.ac.uk/">https://hemocytes.cellgeni.sanger.ac.uk</a></p>
 </div>
 </div>
 
