@@ -42,8 +42,6 @@ https://jupyter-xl.cellgeni.sanger.ac.uk
 | vCPUs: 4-16
 | Disk: 150 Gb
 
-For special cases, we have  with 150 Gb of RAM, 150 Gb of storage and 4 to 16 CPU, this one is available upon request.
-
 Notebooks
 ---------
 
