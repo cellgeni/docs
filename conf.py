@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'Cellular Genetics IT'
-copyright = u'2018, Cellular Genetics IT'
+copyright = u'Cellular Genetics IT'
 author = u'Cellular Genetics IT'
 
 # The short X.Y version
