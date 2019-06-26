@@ -1,4 +1,4 @@
-Single Cell visualizations
+Single Cell Visualizations
 ==========================
 
 If you would like to make your single-cell cell RNA-seq data publicly available on a website, for example as a supplement for a publication, we can help you with that!
@@ -67,7 +67,7 @@ When the metadata is *continuous*, the visualization will look like this:
 .. image:: img/continuous.png
    :width: 700
 
-.. note:: Note there is a continuous scale on the right of the plot.
+.. note:: Note there is a continuous scale on the right side of the plot.
 
 To make your cell metadata continuous please use the following code:
 
@@ -81,6 +81,6 @@ Examples
 
 We have already created a couple of websites for some our programme members. You can have a look at them at the following links:
 
-`https://www.kidneycellatlas.org <https://www.kidneycellatlas.org/>`_
-`https://hemocytes.cellgeni.sanger.ac.uk <https://hemocytes.cellgeni.sanger.ac.uk/>`_
+| `https://www.kidneycellatlas.org <https://www.kidneycellatlas.org/>`_ 
+| `https://hemocytes.cellgeni.sanger.ac.uk <https://hemocytes.cellgeni.sanger.ac.uk/>`_
 
