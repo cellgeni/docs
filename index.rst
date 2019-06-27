@@ -6,6 +6,9 @@
 Cellular Genetics IT travel guide
 =================================
 
+.. image:: img/vladimirgroupphoto.png
+   :width: 700
+
 .. toctree::
    :maxdepth: 2
    

@@ -1,6 +1,9 @@
 The group
 =========
 
+.. image:: img/vladimirgroupphoto.png
+   :width: 700
+
 Our story
 ---------
 
