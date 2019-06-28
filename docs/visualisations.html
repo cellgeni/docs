@@ -99,6 +99,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#obs-slot">obs slot</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#seurat-h5ad">Seurat -&gt; h5ad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#singlecellexperiment-h5ad">SingleCellExperiment -&gt; h5ad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loom-h5ad">Loom -&gt; h5ad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
@@ -188,10 +191,13 @@
 <p>When you work with <strong>cellxgene</strong> you only need to modify two of the slots above: <strong>obsm</strong> and <strong>obs</strong>.</p>
 <div class="section" id="x-slot">
 <h3>X slot<a class="headerlink" href="#x-slot" title="Permalink to this headline">¶</a></h3>
-<p><strong>cellxgene</strong> works faster when the expression matrix is stored in <code class="docutils literal notranslate"><span class="pre">CSC</span></code> (compressed sparse column) format instead of <code class="docutils literal notranslate"><span class="pre">CSR</span></code> (compressed sparse row) format.</p>
+<p><strong>cellxgene</strong> works faster when the expression matrix is stored in <code class="docutils literal notranslate"><span class="pre">CSC</span></code> (compressed sparse column) format instead of <code class="docutils literal notranslate"><span class="pre">CSR</span></code> (compressed sparse row) format or dense Numpy array (which sometimes can create a smaller <code class="docutils literal notranslate"><span class="pre">h5ad</span></code> file depending on the sparsity of your data).</p>
 <p>To convert your expression matrix into the <code class="docutils literal notranslate"><span class="pre">CSC</span></code> format please use:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span>
-<span class="n">adata</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">tocsc</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To convert your expression matrix into the Numpy array please use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -224,6 +230,77 @@
 <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;metadata_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;metadata_name&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Before converting your data to h5ad format please make sure <strong>anndata</strong> library is installed on your system. Use the either of the following commands to install it: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">anndata</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">anndata</span> <span class="pre">-c</span> <span class="pre">bioconda</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="seurat-h5ad">
+<h2>Seurat -&gt; h5ad<a class="headerlink" href="#seurat-h5ad" title="Permalink to this headline">¶</a></h2>
+<p>To convert a <strong>Seurat</strong> object <code class="docutils literal notranslate"><span class="pre">seurat_object</span></code> to <code class="docutils literal notranslate"><span class="pre">h5ad</span></code> format, you can use the <strong>reticulate</strong> package:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>reticulate<span class="p">)</span>
+anndata <span class="o">&lt;-</span> import<span class="p">(</span><span class="s">&quot;anndata&quot;</span><span class="p">,</span> convert <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+adata <span class="o">&lt;-</span> anndata<span class="o">$</span>AnnData<span class="p">(</span>
+    X <span class="o">=</span> <span class="kp">t</span><span class="p">(</span>GetAssayData<span class="p">(</span>object <span class="o">=</span> seurat_object<span class="p">)),</span>
+    obs <span class="o">=</span> <span class="kt">data.frame</span><span class="p">(</span>seurat_object<span class="o">@</span>meta.data<span class="p">),</span>
+    obsm  <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>
+        <span class="s">&quot;X_emb1&quot;</span> <span class="o">=</span> Embeddings<span class="p">(</span>seurat_object<span class="p">[[</span><span class="s">&quot;emb1&quot;</span><span class="p">]]),</span>
+        <span class="s">&quot;X_emb2&quot;</span> <span class="o">=</span> Embeddings<span class="p">(</span>seurat_object<span class="p">[[</span><span class="s">&quot;emb2&quot;</span><span class="p">]])</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+anndata<span class="o">$</span>AnnData<span class="o">$</span><span class="kp">write</span><span class="p">(</span>adata<span class="p">,</span> <span class="s">&#39;filename.h5ad&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="singlecellexperiment-h5ad">
+<h2>SingleCellExperiment -&gt; h5ad<a class="headerlink" href="#singlecellexperiment-h5ad" title="Permalink to this headline">¶</a></h2>
+<p>To convert a <strong>SingleCellExperiment</strong> object <code class="docutils literal notranslate"><span class="pre">sce_object</span></code> to <code class="docutils literal notranslate"><span class="pre">h5ad</span></code> format, you can use the <strong>reticulate</strong> package:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>reticulate<span class="p">)</span>
+anndata <span class="o">&lt;-</span> import<span class="p">(</span><span class="s">&quot;anndata&quot;</span><span class="p">,</span> convert <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+adata <span class="o">&lt;-</span> anndata<span class="o">$</span>AnnData<span class="p">(</span>
+    X <span class="o">=</span> <span class="kp">t</span><span class="p">(</span>counts<span class="p">(</span>sce_object<span class="p">)),</span>
+    obs <span class="o">=</span> <span class="kt">data.frame</span><span class="p">(</span>colData<span class="p">(</span>sce_object<span class="p">)),</span>
+    obsm  <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>
+        <span class="s">&quot;X_emb1&quot;</span> <span class="o">=</span> <span class="kp">as.matrix</span><span class="p">(</span>reducedDim<span class="p">(</span>sce_object<span class="p">,</span> <span class="s">&quot;emb1&quot;</span><span class="p">)),</span>
+        <span class="s">&quot;X_emb2&quot;</span> <span class="o">=</span> <span class="kp">as.matrix</span><span class="p">(</span>reducedDim<span class="p">(</span>sce_object<span class="p">,</span> <span class="s">&quot;emb2&quot;</span><span class="p">))</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+anndata<span class="o">$</span>AnnData<span class="o">$</span><span class="kp">write</span><span class="p">(</span>adata<span class="p">,</span> <span class="s">&#39;filename.h5ad&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="loom-h5ad">
+<h2>Loom -&gt; h5ad<a class="headerlink" href="#loom-h5ad" title="Permalink to this headline">¶</a></h2>
+<p>To convert a <strong>loom</strong> file to <code class="docutils literal notranslate"><span class="pre">h5ad</span></code> format, you can use the following code (here we use an example dataset from <a class="reference external" href="http://loom.linnarssonlab.org/">Linnarson Lab</a> which can be downloaded using this <a class="reference external" href="http://loom.linnarssonlab.org/clone/Mousebrain.org.level6/L6_Immune_cells.loom">link</a>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">loompy</span>
+<span class="kn">import</span> <span class="nn">scanpy</span> <span class="kn">as</span> <span class="nn">sc</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+
+<span class="n">adata</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">read_loom</span><span class="p">(</span><span class="s1">&#39;L6_Immune_cells.loom&#39;</span><span class="p">)</span>
+
+<span class="c1"># Move embeddings info to the right place and right format</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;_X&#39;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;_Y&#39;</span><span class="p">])</span>
+<span class="n">xy</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_test&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">xy</span>
+
+<span class="c1"># Only include necessary metadata:</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;Clusters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;Clusters&#39;</span><span class="p">])</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">obs</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[{</span><span class="s1">&#39;Clusters&#39;</span><span class="p">,</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">}]</span>
+
+<span class="c1"># Change the matrix format</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Make variable and observation names unique</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">var_names_make_unique</span><span class="p">()</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">obs_names_make_unique</span><span class="p">()</span>
+
+<span class="c1"># Write h5ad file</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;filename.h5ad&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="examples">
