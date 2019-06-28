@@ -172,7 +172,8 @@
             
   <div class="section" id="single-cell-visualizations">
 <h1>Single Cell Visualizations<a class="headerlink" href="#single-cell-visualizations" title="Permalink to this headline">¶</a></h1>
-<p>If you would like to make your single-cell cell RNA-seq data publicly available on a website, for example as a supplement for a publication, we can help you with that!</p>
+<p><em>Authors</em>: <a class="reference external" href="https://www.sanger.ac.uk/people/directory/cakir-batuhan">Batuhan Cakir</a> and <a class="reference external" href="https://www.sanger.ac.uk/people/directory/kiselev-vladimir-yu">Vladimir Kiselev</a></p>
+<p>If you would like to make your single-cell RNA-seq data publicly available on a website, for example as a supplement for a publication, we can help you with that!</p>
 <div class="section" id="cellxgene">
 <h2>cellxgene<a class="headerlink" href="#cellxgene" title="Permalink to this headline">¶</a></h2>
 <p>We use <a class="reference external" href="https://chanzuckerberg.github.io/cellxgene/">cellxgene</a> to visualize single cell RNA-seq data. <strong>cellxgene</strong> is an interactive data explorer which is very scalable and flexible.</p>
@@ -216,7 +217,7 @@
 <a class="reference internal image-reference" href="_images/categorical.png"><img alt="_images/categorical.png" src="_images/categorical.png" style="width: 700px;" /></a>
 <p>To make your cell metadata categorical please use the following code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;metadata_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">metadata_name</span><span class="p">])</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;metadata_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;metadata_name&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>When the metadata is <em>continuous</em>, the visualization will look like this:</p>

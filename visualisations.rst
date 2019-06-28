@@ -1,7 +1,9 @@
 Single Cell Visualizations
 ==========================
 
-If you would like to make your single-cell cell RNA-seq data publicly available on a website, for example as a supplement for a publication, we can help you with that!
+*Authors*: `Batuhan Cakir <https://www.sanger.ac.uk/people/directory/cakir-batuhan>`_ and `Vladimir Kiselev <https://www.sanger.ac.uk/people/directory/kiselev-vladimir-yu>`_
+
+If you would like to make your single-cell RNA-seq data publicly available on a website, for example as a supplement for a publication, we can help you with that!
 
 cellxgene
 ---------
@@ -65,7 +67,7 @@ To make your cell metadata categorical please use the following code:
 .. code-block:: python
 
     import pandas as pd
-    adata.obs['metadata_name'] = pd.Categorical(adata.obs[metadata_name])
+    adata.obs['metadata_name'] = pd.Categorical(adata.obs['metadata_name'])
 
 When the metadata is *continuous*, the visualization will look like this:
 
