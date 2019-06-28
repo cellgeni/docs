@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Single Cell Visualizations &#8212; CellGenIT Docs 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contact us" href="contact.html" />
+    <link rel="prev" title="ML Warehouse" href="mlwarehouse.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="single-cell-visualizations">
+<h1>Single Cell Visualizations<a class="headerlink" href="#single-cell-visualizations" title="Permalink to this headline">¶</a></h1>
+<p><em>Authors</em>: <a class="reference external" href="https://www.sanger.ac.uk/people/directory/cakir-batuhan">Batuhan Cakir</a> and <a class="reference external" href="https://www.sanger.ac.uk/people/directory/kiselev-vladimir-yu">Vladimir Kiselev</a></p>
+<p>If you would like to make your single-cell RNA-seq data publicly available on a website, for example as a supplement for a publication, we can help you with that!</p>
+<div class="section" id="cellxgene">
+<h2>cellxgene<a class="headerlink" href="#cellxgene" title="Permalink to this headline">¶</a></h2>
+<p>We use <a class="reference external" href="https://chanzuckerberg.github.io/cellxgene/">cellxgene</a> to visualize single cell RNA-seq data. <strong>cellxgene</strong> is an interactive data explorer which is very scalable and flexible.</p>
+<p>To be able for us to create a <strong>cellxgene</strong> website for your data we need to have your data in the <a class="reference external" href="https://anndata.readthedocs.io">h5ad (AnnData)</a> format.</p>
+</div>
+<div class="section" id="anndata">
+<h2>AnnData<a class="headerlink" href="#anndata" title="Permalink to this headline">¶</a></h2>
+<p>AnnData format usually contains the following slots:</p>
+<ul class="simple">
+<li><p><strong>X</strong> contains the expression matrix.</p></li>
+<li><p><strong>obsm</strong> contains the embeddings data.</p></li>
+<li><p><strong>obs</strong> contains the cell metadata.</p></li>
+<li><p><strong>var</strong> contains the gene metadata.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/anndata.svg"><img alt="_images/anndata.svg" src="_images/anndata.svg" width="700" /></a>
+<p>When you work with <strong>cellxgene</strong> you only need to modify two of the slots above: <strong>obsm</strong> and <strong>obs</strong>.</p>
+<div class="section" id="x-slot">
+<h3>X slot<a class="headerlink" href="#x-slot" title="Permalink to this headline">¶</a></h3>
+<p><strong>cellxgene</strong> works faster when the expression matrix is stored in <code class="docutils literal notranslate"><span class="pre">CSC</span></code> (compressed sparse column) format instead of <code class="docutils literal notranslate"><span class="pre">CSR</span></code> (compressed sparse row) format or dense Numpy array (which sometimes can create a smaller <code class="docutils literal notranslate"><span class="pre">h5ad</span></code> file depending on the sparsity of your data).</p>
+<p>To convert your expression matrix into the <code class="docutils literal notranslate"><span class="pre">CSC</span></code> format please use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To convert your expression matrix into the Numpy array please use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="obsm-slot">
+<h3>obsm slot<a class="headerlink" href="#obsm-slot" title="Permalink to this headline">¶</a></h3>
+<p>To visualize your cells in 2D <strong>cellxgene</strong> uses <strong>obsm</strong> slot. If there are multiple embeddings stored in this slot they will all be available on the web interface.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>cellxgene</strong> requires that all of the embeddings’ names are prefixed with <code class="docutils literal notranslate"><span class="pre">X_</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">X_umap</span></code>, <code class="docutils literal notranslate"><span class="pre">X_pca</span></code> or <code class="docutils literal notranslate"><span class="pre">X_some_embedding</span></code>.</p>
+</div>
+</div>
+<div class="section" id="obs-slot">
+<h3>obs slot<a class="headerlink" href="#obs-slot" title="Permalink to this headline">¶</a></h3>
+<p>To highlight and colour your cells <strong>cellxgene</strong> uses <strong>obs</strong> slot. The colouring will depend on the type of you cell metadata contained in the <strong>obs</strong> slot.</p>
+<p>When the metadata is <em>categorical</em>, i.e. there is one colour per category, the visualization will look like this:</p>
+<a class="reference internal image-reference" href="_images/categorical.png"><img alt="_images/categorical.png" src="_images/categorical.png" style="width: 700px;" /></a>
+<p>To make your cell metadata categorical please use the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;metadata_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;metadata_name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>When the metadata is <em>continuous</em>, the visualization will look like this:</p>
+<a class="reference internal image-reference" href="_images/continuous.png"><img alt="_images/continuous.png" src="_images/continuous.png" style="width: 700px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note there is a continuous scale on the right side of the plot.</p>
+</div>
+<p>To make your cell metadata continuous please use the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;metadata_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;metadata_name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before converting your data to h5ad format please make sure <strong>anndata</strong> library is installed on your system. Use the either of the following commands to install it: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">anndata</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">anndata</span> <span class="pre">-c</span> <span class="pre">bioconda</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="seurat-h5ad">
+<h2>Seurat -&gt; h5ad<a class="headerlink" href="#seurat-h5ad" title="Permalink to this headline">¶</a></h2>
+<p>To convert a <strong>Seurat</strong> object <code class="docutils literal notranslate"><span class="pre">seurat_object</span></code> to <code class="docutils literal notranslate"><span class="pre">h5ad</span></code> format, you can use the <strong>reticulate</strong> package:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>reticulate<span class="p">)</span>
+anndata <span class="o">&lt;-</span> import<span class="p">(</span><span class="s">&quot;anndata&quot;</span><span class="p">,</span> convert <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+adata <span class="o">&lt;-</span> anndata<span class="o">$</span>AnnData<span class="p">(</span>
+    X <span class="o">=</span> <span class="kp">t</span><span class="p">(</span>GetAssayData<span class="p">(</span>object <span class="o">=</span> seurat_object<span class="p">)),</span>
+    obs <span class="o">=</span> <span class="kt">data.frame</span><span class="p">(</span>seurat_object<span class="o">@</span>meta.data<span class="p">),</span>
+    obsm  <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>
+        <span class="s">&quot;X_emb1&quot;</span> <span class="o">=</span> Embeddings<span class="p">(</span>seurat_object<span class="p">[[</span><span class="s">&quot;emb1&quot;</span><span class="p">]]),</span>
+        <span class="s">&quot;X_emb2&quot;</span> <span class="o">=</span> Embeddings<span class="p">(</span>seurat_object<span class="p">[[</span><span class="s">&quot;emb2&quot;</span><span class="p">]])</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+anndata<span class="o">$</span>AnnData<span class="o">$</span><span class="kp">write</span><span class="p">(</span>adata<span class="p">,</span> <span class="s">&#39;filename.h5ad&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="singlecellexperiment-h5ad">
+<h2>SingleCellExperiment -&gt; h5ad<a class="headerlink" href="#singlecellexperiment-h5ad" title="Permalink to this headline">¶</a></h2>
+<p>To convert a <strong>SingleCellExperiment</strong> object <code class="docutils literal notranslate"><span class="pre">sce_object</span></code> to <code class="docutils literal notranslate"><span class="pre">h5ad</span></code> format, you can use the <strong>reticulate</strong> package:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>reticulate<span class="p">)</span>
+anndata <span class="o">&lt;-</span> import<span class="p">(</span><span class="s">&quot;anndata&quot;</span><span class="p">,</span> convert <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+adata <span class="o">&lt;-</span> anndata<span class="o">$</span>AnnData<span class="p">(</span>
+    X <span class="o">=</span> <span class="kp">t</span><span class="p">(</span>counts<span class="p">(</span>sce_object<span class="p">)),</span>
+    obs <span class="o">=</span> <span class="kt">data.frame</span><span class="p">(</span>colData<span class="p">(</span>sce_object<span class="p">)),</span>
+    obsm  <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>
+        <span class="s">&quot;X_emb1&quot;</span> <span class="o">=</span> <span class="kp">as.matrix</span><span class="p">(</span>reducedDim<span class="p">(</span>sce_object<span class="p">,</span> <span class="s">&quot;emb1&quot;</span><span class="p">)),</span>
+        <span class="s">&quot;X_emb2&quot;</span> <span class="o">=</span> <span class="kp">as.matrix</span><span class="p">(</span>reducedDim<span class="p">(</span>sce_object<span class="p">,</span> <span class="s">&quot;emb2&quot;</span><span class="p">))</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+anndata<span class="o">$</span>AnnData<span class="o">$</span><span class="kp">write</span><span class="p">(</span>adata<span class="p">,</span> <span class="s">&#39;filename.h5ad&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="loom-h5ad">
+<h2>Loom -&gt; h5ad<a class="headerlink" href="#loom-h5ad" title="Permalink to this headline">¶</a></h2>
+<p>To convert a <strong>loom</strong> file to <code class="docutils literal notranslate"><span class="pre">h5ad</span></code> format, you can use the following code (here we use an example dataset from <a class="reference external" href="http://loom.linnarssonlab.org/">Linnarson Lab</a> which can be downloaded using this <a class="reference external" href="http://loom.linnarssonlab.org/clone/Mousebrain.org.level6/L6_Immune_cells.loom">link</a>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">loompy</span>
+<span class="kn">import</span> <span class="nn">scanpy</span> <span class="kn">as</span> <span class="nn">sc</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+
+<span class="n">adata</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">read_loom</span><span class="p">(</span><span class="s1">&#39;L6_Immune_cells.loom&#39;</span><span class="p">)</span>
+
+<span class="c1"># Move embeddings info to the right place and right format</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;_X&#39;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;_Y&#39;</span><span class="p">])</span>
+<span class="n">xy</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_test&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">xy</span>
+
+<span class="c1"># Only include necessary metadata:</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;Clusters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;Clusters&#39;</span><span class="p">])</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">obs</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[{</span><span class="s1">&#39;Clusters&#39;</span><span class="p">,</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">}]</span>
+
+<span class="c1"># Change the matrix format</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Make variable and observation names unique</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">var_names_make_unique</span><span class="p">()</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">obs_names_make_unique</span><span class="p">()</span>
+
+<span class="c1"># Write h5ad file</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;filename.h5ad&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>We have already created a couple of websites for some our programme members. You can have a look at them at the following links:</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://www.kidneycellatlas.org/">https://www.kidneycellatlas.org</a></div>
+<div class="line"><a class="reference external" href="https://hemocytes.cellgeni.sanger.ac.uk/">https://hemocytes.cellgeni.sanger.ac.uk</a></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">CellGenIT Docs</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">The group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyterhub.html">Jupyter Hub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sharing.html">Data sharing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submissions.html">Data submission</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipelines.html">Nextflow pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlwarehouse.html">ML Warehouse</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Single Cell Visualizations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cellxgene">cellxgene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anndata">AnnData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#seurat-h5ad">Seurat -&gt; h5ad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#singlecellexperiment-h5ad">SingleCellExperiment -&gt; h5ad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loom-h5ad">Loom -&gt; h5ad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact us</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="mlwarehouse.html" title="previous chapter">ML Warehouse</a></li>
+      <li>Next: <a href="contact.html" title="next chapter">Contact us</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, CellGenIT team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/visualisations.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

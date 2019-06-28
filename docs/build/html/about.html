@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>The group &#8212; CellGenIT Docs 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="author" title="About these documents" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Jupyter Hub" href="jupyterhub.html" />
+    <link rel="prev" title="Cellular Genetics IT travel guide" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-group">
+<h1>The group<a class="headerlink" href="#the-group" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="_images/vladimirgroupphoto.png"><img alt="_images/vladimirgroupphoto.png" src="_images/vladimirgroupphoto.png" style="width: 700px;" /></a>
+<div class="section" id="our-story">
+<h2>Our story<a class="headerlink" href="#our-story" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cellular-genetics-programme-2015">
+<h3>Cellular Genetics programme (2015)<a class="headerlink" href="#cellular-genetics-programme-2015" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://www.sanger.ac.uk/science/programmes/cellular-genetics">Cellular Genetics programme</a> at the Sanger Institute was created in 2015 by merging with the Computational Genomics programme. In the first two years the programme didn’t have any core facility groups. In 2017 it was decided to create several core facility groups including ours to help the faculty groups do their research.</p>
+</div>
+<div class="section" id="early-days">
+<h3>Early days<a class="headerlink" href="#early-days" title="Permalink to this headline">¶</a></h3>
+<p>In the early days of the programme (the first 2 years) all of the users analysed their data by themselves on the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSETD4/product_welcome_platform_lsf.html">LSF batch compute farm</a> available at the Sanger. This included both computational and non-computational users. Some people had never coded before. This introduced a lot of heterogeneity in the programme data.</p>
+</div>
+<div class="section" id="cloud-2017">
+<h3>Cloud (2017)<a class="headerlink" href="#cloud-2017" title="Permalink to this headline">¶</a></h3>
+<p>In 2017 it was decided by Wellcome Trust to adapt to the modern cloud technologies and to move their compute to the cloud. The Sanger Institute decided to start with having a private OpenStack cloud on premises and gradually move analysis from the LSF farm to the cloud. It created additional challenges for the end users and therefore it was decided to create the Cellular Genetics core facility informatics group which would standardize the analysis and help with transitioning to the cloud.</p>
+</div>
+<div class="section" id="cellular-genetics-informatics-group-2018">
+<h3>Cellular Genetics Informatics group (2018)<a class="headerlink" href="#cellular-genetics-informatics-group-2018" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://www.sanger.ac.uk/science/groups/cellular-genetics-informatics">Our group</a> was created in the beginning of 2018 and <a class="reference external" href="https://www.sanger.ac.uk/people/directory/vladimir-yu-kiselev">Vladimir Kiselev</a> started as the head of the group. <a class="reference external" href="https://www.sanger.ac.uk/people/directory/van-dongen-stijn">Stijn van Dongen</a> joined the group in May 2018 and <a class="reference external" href="https://www.sanger.ac.uk/people/directory/khodak-anton">Anton Khodak</a> joined the group in June 2018.</p>
+</div>
+</div>
+<div class="section" id="our-remit">
+<h2>Our remit<a class="headerlink" href="#our-remit" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="group">
+<h3>Group<a class="headerlink" href="#group" title="Permalink to this headline">¶</a></h3>
+<p>Our team provides efficient access to cutting-edge analysis methods for <a class="reference external" href="https://www.sanger.ac.uk/science/programmes/cellular-genetics">Cellular Genetics programme</a> at the Sanger Institute, which leads a number of world-class research initiatives including the Human Induced Pluripotent Stem Cell Initiative (<a class="reference external" href="http://www.hipsci.org/">HIPSCI</a>) and <a class="reference external" href="https://www.humancellatlas.org/">Human Cell Atlas</a>. Our team’s focus is the development and operation of workflows, tools and infrastructure for data analysis that support the programme’s research goals.</p>
+</div>
+<div class="section" id="compute-framework">
+<h3>Compute framework<a class="headerlink" href="#compute-framework" title="Permalink to this headline">¶</a></h3>
+<p>To run our pipelines we use both the <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/en/SSETD4/product_welcome_platform_lsf.html">LSF compute cluster</a> and <a class="reference external" href="https://www.openstack.org/">OpenStack private cloud</a> solutions. We extensively use <a class="reference external" href="https://kubernetes.io/">Kubernetes</a> to orchestrate pipelines on the cloud. To run the pipelines we use both <a class="reference external" href="https://www.nextflow.io/">Nextflow</a> and <a class="reference external" href="https://www.commonwl.org/">CWL</a>.</p>
+<p><a class="reference external" href="https://github.com/cellgeni">Our GitHub organisation</a></p>
+<a class="reference internal image-reference" href="_images/cellgeni-compute.png"><img alt="_images/cellgeni-compute.png" src="_images/cellgeni-compute.png" style="width: 700px;" /></a>
+</div>
+</div>
+<div class="section" id="our-vision">
+<h2>Our vision<a class="headerlink" href="#our-vision" title="Permalink to this headline">¶</a></h2>
+<p>When working on our projects and pipelines we follow several important principles.</p>
+<div class="section" id="no-duplication-of-effort">
+<h3>No duplication of effort<a class="headerlink" href="#no-duplication-of-effort" title="Permalink to this headline">¶</a></h3>
+<p>If something has been or can be done by others we will not develop our own tool for this.</p>
+</div>
+<div class="section" id="agile">
+<h3>Agile<a class="headerlink" href="#agile" title="Permalink to this headline">¶</a></h3>
+<p>In our work we try use elements of the <a class="reference external" href="https://en.wikipedia.org/wiki/Agile_software_development">Agile methodology</a>. We use <a class="reference external" href="https://www.atlassian.com/software/jira">Jira</a> as our main project management software.</p>
+</div>
+<div class="section" id="user-oriented">
+<h3>User-oriented<a class="headerlink" href="#user-oriented" title="Permalink to this headline">¶</a></h3>
+<p>We value our users not only as our customers (we use <a class="reference external" href="https://www.atlassian.com/software/jira/service-desk">Jira Service Desk</a> for all of the users’ requests) but also as the most important source of ideas and feedback. Anyone can either email us on <a class="reference external" href="mailto:vk6&#37;&#52;&#48;sanger&#46;ac&#46;uk">vk6<span>&#64;</span>sanger<span>&#46;</span>ac<span>&#46;</span>uk</a> or talk to us in <a class="reference external" href="https://mattermost.sanger.ac.uk/cellgeninf">our Mattermost group</a> (Sanger users can login using their Sanger credentials).</p>
+</div>
+<div class="section" id="feedback">
+<h3>Feedback<a class="headerlink" href="#feedback" title="Permalink to this headline">¶</a></h3>
+<p>We also have monthly meetings with faculty group’s representatives and weekly coffee standups where anyone can come, comment on our work, feedback or ask us any question.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">CellGenIT Docs</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The group</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#our-story">Our story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#our-remit">Our remit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#our-vision">Our vision</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jupyterhub.html">Jupyter Hub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sharing.html">Data sharing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submissions.html">Data submission</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipelines.html">Nextflow pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlwarehouse.html">ML Warehouse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualisations.html">Single Cell Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact us</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Cellular Genetics IT travel guide</a></li>
+      <li>Next: <a href="jupyterhub.html" title="next chapter">Jupyter Hub</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, CellGenIT team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/about.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
