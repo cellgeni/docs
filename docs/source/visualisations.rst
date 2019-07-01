@@ -111,7 +111,8 @@ To convert a **SingleCellExperiment** object ``sce_object`` to ``h5ad`` format, 
 
 .. code-block:: r
     
-    library(reticulate)   
+    library(reticulate)
+    library(SingleCellExperiment)
     anndata <- import("anndata", convert = FALSE)
     adata <- anndata$AnnData(
         X = t(counts(sce_object)),
