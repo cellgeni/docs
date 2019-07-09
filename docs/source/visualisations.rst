@@ -166,4 +166,5 @@ We have already created a couple of websites for some our programme members. You
 
 | `https://www.kidneycellatlas.org <https://www.kidneycellatlas.org/>`_ 
 | `https://hemocytes.cellgeni.sanger.ac.uk <https://hemocytes.cellgeni.sanger.ac.uk/>`_
+| `https://melanoma.cellgeni.sanger.ac.uk <https://melanoma.cellgeni.sanger.ac.uk/>`_
 

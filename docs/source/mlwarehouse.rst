@@ -10,7 +10,7 @@ Show me information for all the samples in a study
 .. raw:: html
 
     <iframe
-    src="https://metabase.cellgeni.sanger.ac.uk/public/question/dc1948c5-c121-4619-882c-f1ad24681374"
+    src="https://metabase.cellgeni.sanger.ac.uk/public/question/a0520869-7fb6-4ca1-b5a1-829bebe61cd0"
     frameborder="0"
     width="700"
     height="600"
