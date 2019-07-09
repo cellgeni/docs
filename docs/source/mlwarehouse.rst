@@ -56,7 +56,7 @@ Show me information for all the samples with a cost code
 .. raw:: html
 
     <iframe
-    src="https://metabase.cellgeni.sanger.ac.uk/public/question/6b6d8fe2-f07f-4a68-b08a-701aefae418c"
+    src="https://metabase.cellgeni.sanger.ac.uk/public/question/a8847ae9-7f4d-4c4f-bd76-941a7be7cc4e"
     frameborder="0"
     width="700"
     height="600"
@@ -101,7 +101,7 @@ Show me run ID, lane number and tag index for a sample
 .. raw:: html
 
     <iframe
-    src="https://metabase.cellgeni.sanger.ac.uk/public/question/20bebded-bdc1-4174-8881-476936122eaf"
+    src="https://metabase.cellgeni.sanger.ac.uk/public/question/0b32379b-741c-42b0-8d68-3563ab788983"
     frameborder="0"
     width="700"
     height="600"
