@@ -6,41 +6,20 @@ We support a Jupyter Hub server running on Sanger Cloud. Jupyter allows you to r
 How to get access
 -----------------
 
-Our Jupyter Hub service is available in a web browser on any computer anywhere in the world. You will need to provide us with your GitHub ID to be able to login. Once we notify you that your account is created you can login using your GitHub credentials.
+Our Jupyter Hub service is available in a web browser on any computer anywhere in the world. You will need to provide us with your GitHub ID to be able to login. Once we notify you that your account is created you can login using your GitHub credentials. 
+
+Jupyter Hub URL: https://jupyter-large.cellgeni.sanger.ac.uk
 
 Before logging in to JupyterHub please read `our instructions
 <https://github.com/cellgeni/notebooks#user-instructions>`_.
 
-Flavours
+Resources
 --------
 
-There are three flavours of Jupyter Hub that we provide. Please choose the one required for your needs and access ti via links below.
-
-.. note:: Please only use **Large** and **Extra Large** flavours when this much resources is really required because this might impact the availability of large instances to other users.
-
-Default
-^^^^^^^
-https://jupyter.cellgeni.sanger.ac.uk
-
-| RAM: 33 Gb
-| vCPUs: 2-4
-| Disk: 30 Gb
-
-Large
-^^^^^
-https://jupyter-large.cellgeni.sanger.ac.uk
-
-| RAM: 100 Gb
-| vCPUs: 4-16
+| RAM: up to 200 Gb
+| vCPUs: up to 16
 | Disk: 100 Gb
 
-Extra Large
-^^^^^^^^^^^
-https://jupyter-xl.cellgeni.sanger.ac.uk
-
-| RAM: 150 Gb
-| vCPUs: 4-16
-| Disk: 150 Gb
 
 Notebooks
 ---------
