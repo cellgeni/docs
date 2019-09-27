@@ -162,7 +162,7 @@ To convert a **loom** file to ``h5ad`` format, you can use the following code (h
 Examples
 --------
 
-We have already created a couple of websites for some our programme members. You can have a look at them at the following links:
+We have already created a couple of websites for some of our programme members. You can have a look at them at the following links:
 
 | `https://www.kidneycellatlas.org <https://www.kidneycellatlas.org/>`_ 
 | `https://hemocytes.cellgeni.sanger.ac.uk <https://hemocytes.cellgeni.sanger.ac.uk/>`_
