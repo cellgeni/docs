@@ -86,99 +86,96 @@ To make your cell metadata continuous please use the following code:
 Data Conversion
 ^^^^^^^^^^^^^^^
 
-For the following code we used a dataset from `10X Genomics <https://support.10xgenomics.com/single-cell-gene-expression/datasets/3.0.0/heart_1k_v3>`_ which can be downloaded using this `link <http://cf.10xgenomics.com/samples/cell-exp/3.0.0/heart_1k_v3/heart_1k_v3_filtered_feature_bc_matrix.h5>`_. 
+We have released the ``sceasy`` package on GitHub (https://github.com/cellgeni/sceasy) to easily convert other single-cell file types to AnnData format for visualization with cellxgene. Currently it supports converting **Seurat**, **SingleCellExperiment** and **Loom** objects to **AnnData**. By default it transfers expression matrices, cell and gene metadata table, and, if available, cell embeddings in reduced dimensions to **AnnData**. 
 
-.. warning:: Before converting your data please make sure the **reticulate** package is installed, this can be done using the following code.
+.. warning:: Before installing the conda packages below please first create a new conda environment ``EnvironmentName`` and activate it. Everything else can be installed in ``R``.
 
-.. code-block:: r
-
-    install.packages('reticulate')
-
-.. warning:: Before converting, ensure the installation of **anndata** (anndata version has to be < 0.6.20) is done using the following code. 
+``sceasy`` is installable either as a ``bioconda`` package:
 
 .. code-block:: python 
 
-    pip install anndata == 0.6.19 
+    conda install -c bioconda r-sceasy
 
-or 
+or as an ``R`` package:
 
-.. code-block:: python
+.. code-block:: r 
+
+    devtools::install_github("cellgeni/sceasy")
+
+To use ``sceasy`` ensure the ``anndata`` package (version has to be < 0.6.20) is installed:
+
+.. code-block:: python 
 
     conda install anndata == 0.6.19  -c bioconda
 
-.. warning:: Before converting, ensure the installation of **loompy** (loompy version < 3.0.0) is done using the following code.
-
-.. code-block:: python
-
-    pip install loompy == 2.0.17
-
-or
+In addition, please also ensure the ``loompy` package (loompy version < 3.0.0) is installed:
 
 .. code-block:: python
 
     conda install loompy == 2.0.17  -c bioconda
 
-In order to use the sceasy functionas, make sure to load the reticulate library. The R software must also be ran in the environment you installed **loompy** and **anndata**. To ensure all this is done run the following lines of code:
+You will also need to install ``reticulate`` package:
+
+.. code-block:: r
+
+    install.packages('reticulate')
+
+Finally, before converting your data please load the following libraries in your ``R`` session:
 
 .. code-block:: r
     
+    library(sceasy)
     library(reticulate)   
     use_condaenv('EnvironmentName')
     loompy <- reticulate::import('loompy')
     
-**Seurat to Anndata (.h5ad)**
-
-Convert a **Seurat** object ``seurat_object`` to ``h5ad`` format:
-
-.. code-block:: r
-    
-   sceasy:::convertFormat(SeuratData, from="seurat", to="anndata",
-                             outFile='filename.h5ad')
-
-**Seurat to SingleCellExperiment(.rds)**
-
-Convert a **Seurat** object ``seurat_object`` to ``rds`` format:
-
-.. code-block:: r
-
-   sceasy:::convertFormat(SeuratData, from="seurat", to="sce",
-                            outFile='filename.rds')
-
-**SingleCellExperiment to Anndata (.h5ad)**
-
-Converting a **SingleCellExperiment** object ``rds`` to ``h5ad`` format:
+Seurat to AnnData
+~~~~~~~~~~~~~~~~~
 
 .. code-block:: r
     
-   sceasy:::convertFormat(SceData, from="sce", to="anndata", 
-                            outFile='filename.h5ad')
+   sceasy:::convertFormat(seurat_object, from="seurat", to="anndata",
+                          outFile='filename.h5ad')
 
-**SingleCellExperiment to Loom (.loom)**
-
-Convert a **SingleCellExperiment** object ``rds`` to ``loom`` format:
+Seurat to SingleCellExperiment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: r
 
-   sce_loom <- sceasy:::convertFormat(SceData, from="sce", to="loom",
-                                         outFile='filename.loom')
+   sceasy:::convertFormat(seurat_object, from="seurat", to="sce",
+                          outFile='filename.rds')
 
-**Loom to Anndata (.h5ad)**
+SingleCellExperiment to AnnData
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Convert a **Loom** object ``loom`` to ``h5ad`` format:
+.. code-block:: r
+    
+   sceasy:::convertFormat(sce_object, from="sce", to="anndata", 
+                          outFile='filename.h5ad')
+
+SingleCellExperiment to Loom
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: r
+
+   sceasy:::convertFormat(sce_object, from="sce", to="loom",
+                          outFile='filename.loom')
+
+Loom to AnnData
+~~~~~~~~~~~~~~~
 
 .. code-block:: r
 
    sceasy:::convertFormat('filename.loom', from="loom", to="anndata",
-                             outFile='filename.h5ad')
+                          outFile='filename.h5ad')
 
-**Loom to SingleCellExperiment (.rds)**
-
-Convert a **Loom** object ``loom`` to ``rds`` format:
+Loom to SingleCellExperiment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: r
 
    sceasy:::convertFormat('filename.loom', from="loom", to="sce", 
-                            outFile='filename.rds')
+                          outFile='filename.rds')
 
 Examples
 --------
