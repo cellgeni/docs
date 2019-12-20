@@ -8,7 +8,7 @@ How to get access
 
 Our Jupyter Hub service is available in a web browser on any computer anywhere in the world. You will need to provide us with your GitHub ID to be able to login. Once we notify you that your account is created you can login using your GitHub credentials. 
 
-Jupyter Hub URL: https://jupyter-large.cellgeni.sanger.ac.uk
+Jupyter Hub URL: https://jupyter.cellgeni.sanger.ac.uk
 
 Before logging in to JupyterHub please read `our instructions
 <https://github.com/cellgeni/notebooks#user-instructions>`_.
