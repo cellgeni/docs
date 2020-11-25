@@ -64,6 +64,7 @@ To have a persistent conda environment create one inside ``/home/jovyan/`` folde
 
   .. code-block:: bash
 
+    source activate base
     conda create --name myenv python=3.8
     source activate myenv
 
@@ -116,6 +117,8 @@ From a terminal ``RScript`` can be used to install pacakges **(don't install pac
     Rscript -e 'install.packages("packageName")'
 
 
+.. warning:: **Try not to mix conda r-* packages with R CRAN pacakges**. For example, if you've installed your own R using conda like this ``conda install r-recommended r-irkernel``, install packages using conda ``conda install r-hdf5r`` instead of ``install.packages("hdf5r")``.
+
 
 
 Kernels
@@ -136,7 +139,8 @@ When the kernel list is located outside your home directory it can be reseted. I
 
 R Kernel
 ^^^^^^^^^
-If you want to run R code straight from JupyterLab without using RStudio you need to install the ``iRkernel`` package. Install the package and the spec:
+If you want to run R code straight from JupyterLab without using RStudio you can use the ``R`` kernel. If you don't see it on the select list, you need to install the ``iRkernel`` package. 
+Install the package and the spec:
 
 .. code-block:: r
 
@@ -280,32 +284,26 @@ Sharing notebooks
 
 
 iRODS
-^^^^^
+-----------------
 
-Open a new terminal on your Jupyter and follow this steps:
-1. Install icommands:
+iRODS support is provided using a wrapper script and a singularity image already copied to your home profile. 
+Before start using iRODS, you'll need to copy your environment file from the farm to your jupyter. Open a Terminal and please follow this steps:
 
-.. code-block:: bash
-
-    wget https://files.renci.org/pub/irods/releases/4.1.10/ubuntu14/irods-icommands-4.1.10-ubuntu14-x86_64.deb
-    apt-get install ./irods-icommands-4.1.10-ubuntu14-x86_64.deb
+1. Use ``mount-farm`` and input your credentials when promted.
  
-2. Create the ``.irods`` folder on your home directory:
+2. Copy ``irods_environment.json`` from your home directory on the farm to your Jupyter instance:
 
 .. code-block:: bash
 
-    mkdir -p ~/.irods
- 
-3. Copy your irods_environment.json from your home directory on the farm to your Jupyter instance:
+    cp /nfs/users/nfs_a/ak27/.irods/* ~/.irods/
 
-.. code-block:: bash
+3. Run ``irods iinit``, it will ask for your PAM password *(Sanger password, same as the one you use for the farm).*
 
-    scp ak27@farm4-login:/nfs/users/nfs_a/ak27/.irods/irods_environment.json ~/.irods/
+4. Run all `icommands avaiable <https://docs.irods.org/master/icommands/user/>`_ using ``irods <icommand_name>``. For example: ``irods ils`` or ``irods ihelp``.
 
-4. Run ``iinit``, if asked for password input your iRODS password. 
+.. note:: **"irods iinit" also asked for iRODS password?** Go to the farm and type: ``head -1 ~/.irods/irods_password``, the output is your password.
 
-.. note:: **Don't know your iRODS password?** Go to the farm and type: ``head -1 ~/.irods/irods_password``, the output is your password.
-
+.. warning:: These instructions asume you already have an iRODS account setup on the farm, if you don't please contact ServiceDesk.
 
 Running containers
 ------------------
