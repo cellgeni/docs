@@ -9,4 +9,4 @@ To submit to ArrayExpress please follow their `instructions <https://www.ebi.ac.
 EGA/ENA
 -------
 
-To submit your data to a public repository, e.g. `EGA <https://www.ebi.ac.uk/ega/home>`_ or `ENA <https://www.ebi.ac.uk/ena>`_, please contact datahose@sanger.ac.uk.
+To submit your data to a public repository, e.g. `EGA <https://www.ebi.ac.uk/ega/home>`_ or `ENA <https://www.ebi.ac.uk/ena>`_, please contact data-release@sanger.ac.uk.
