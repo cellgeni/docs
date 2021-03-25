@@ -3,9 +3,9 @@ Nextflow pipelines
 
 We offer a range of sequencing processing pipelines. We develop them using `Nextflow <https://www.nextflow.io/>`_ workflow language.
 
-For the end-users we offer Nextflow pipelines available to run on both Sanger *LSF* farm or *OpenStack* flexible compute environment. The pipelines can be run either by us or by the end-users themselves.
+We run Nextflow pipelines on both Sanger *LSF* farm and on public Clouds using `Netflow Tower <https://tower.nf/>`_.
 
-Here is the list of pipelines we develop:
+Here is the list of pipelines we maintain and support:
 
 1. `scRNAseq (10X cellranger) <https://github.com/cellgeni/10xcellranger>`_
 2. `RNA-seq (for Smartseq2 and bulk data) <https://github.com/cellgeni/rnaseq-noqc>`_
