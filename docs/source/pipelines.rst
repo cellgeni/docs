@@ -16,6 +16,7 @@ Here is the list of pipelines we develop:
 7. `cellSNP (for 10X data) <https://github.com/single-cell-genetics/cellSNP>`_
 8. `velocyto (for 10X data) <http://velocyto.org/velocyto.py/tutorial/index.html#running-the-cli>`_
 9. `STARsolo (for 10X data) <https://github.com/alexdobin/STAR>`_
+10. `Data Sharing <https://github.com/cellgeni/guitar>`_
 
 .. note:: If you would like to run ``cellranger`` by *10X* please put in a ticket for the NPG group by emailing to new-seq-pipe@sanger.ac.uk and specify which version of the cellranger and the genome you would like to use.
 
