@@ -63,3 +63,14 @@ types of integration. The types of integration covered in this notebook are:
 * Insert
 * Topics
 * Here
+
+SoupX
+-----
+
+`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
+
+SoupX is an R package that attempts to remove mRNA that is contaminating results in drople based single-cell RNA-seq data. For more information visit their `GitHub Repository <https://github.com/constantAmateur/SoupX>`_. The topics covered in this notebook are:
+
+* Insert
+* Topics
+* Here
