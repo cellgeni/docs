@@ -273,15 +273,15 @@ If that it is not enough, the easiest way is to install the whole texlive packag
 Sharing notebooks
 -----------------
 
-#. Go to your `API Tokens page <https://jupyter.cellgeni.sanger.ac.uk/hub/token>`_ or go to `hub/home <https://jupyter.cellgeni.sanger.ac.uk/hub/home>`_ and then click  **"Token"**  on the top menu.
+#. Go to your `API Tokens page <https://jhub.cellgeni.sanger.ac.uk/hub/token>`_ or go to `hub/home <https://jhub.cellgeni.sanger.ac.uk/hub/home>`_ and then click  **"Token"**  on the top menu.
 #. Type in a note like **"Shared with collaborator X"**
 #. Click the orange button **"Request new API token"**
 #. Copy the token that shows up under **"Your new API Token"**. (i.e. ``ba5eba11b01dfaceca55e77ecacaca11``)
-#. Go to your jupyter instance, but using the **"tree"** view instead of the "lab" view:  ``https://jupyter.cellgeni.sanger.ac.uk/user/<your username>/tree``
-#. Find your notebook and open it. You should be on a link that looks like:  ``https://jupyter.cellgeni.sanger.ac.uk/user/<your username>/notebooks/some_notebook.ipynb``
+#. Go to your jupyter instance, but using the **"tree"** view instead of the "lab" view:  ``https://jhub.cellgeni.sanger.ac.uk/user/<your username>/tree``
+#. Find your notebook and open it. You should be on a link that looks like:  ``https://jhub.cellgeni.sanger.ac.uk/user/<your username>/notebooks/some_notebook.ipynb``
 #. Add this to the end of the link: ``?token=<your API token>`` and copy that link. (i.e.: ``?token=ba5eba11b01dfaceca55e77ecacaca11``)
-#. Share what you have copied. It should be something like: ``https://jupyter.cellgeni.sanger.ac.uk/user/<your username>/notebooks/some_notebook.ipynb?token=<your API token>``
-#. Onace you have finished the collaboration. Go to your `API Tokens page <https://jupyter.cellgeni.sanger.ac.uk/hub/token>`_ and click **"Revoke"** to delete that access token.
+#. Share what you have copied. It should be something like: ``https://jhub.cellgeni.sanger.ac.uk/user/<your username>/notebooks/some_notebook.ipynb?token=<your API token>``
+#. Once you have finished the collaboration. Go to your `API Tokens page <https://jhub.cellgeni.sanger.ac.uk/hub/token>`_ and click **"Revoke"** to delete that access token.
 
 
 iRODS
