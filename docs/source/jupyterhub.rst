@@ -19,7 +19,7 @@ Resources
 +-------------+------------+-----------+
 
 
-We provide open usage metrics of our Jupyter cluster using `Grafana Dashboard <https://grafana.cellgeni.sanger.ac.uk/d/OlWXRnvWk/jupyter-pods?orgId=1>`_
+We provide open usage metrics of our Jupyter cluster using `metrics <metrics.cellgeni.sanger.ac.uk>`_
 
 Quick Start Guide
 -----------------
