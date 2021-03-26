@@ -25,11 +25,11 @@ Quick Start Guide
 -----------------
 JupyterHub website is public, so you don't need to turn on VPN to use it. However, it is only available to users who messaged us their Github usernames and have been whitelisted. 
 
-#. In your browser go to https://jupyter.cellgeni.sanger.ac.uk
+#. In your browser go to https://jhub.cellgeni.sanger.ac.uk
 #. Use your Github credentials for authentication. It may take some time to load first time.
 #. Now you are ready to run your notebooks! 
-#. **RStudio** is also available on JupyterHub. A new R session can be started from the Launcher or change the word `lab` in your adress bar to the word `rstudio`: ```https://jupyter.cellgeni.sanger.ac.uk/user/<your-username>/rstudio```
-#. You can switch to a classic Jupyter interface by change the word `lab` in your adress bar to the word `tree`: ```https://jupyter.cellgeni.sanger.ac.uk/user/<your-username>/tree```
+#. **RStudio** is also available on JupyterHub. A new R session can be started from the Launcher or change the word `lab` in your adress bar to the word `rstudio`: ```https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/rstudio```
+#. You can switch to a classic Jupyter interface by change the word `lab` in your adress bar to the word `tree`: ```https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/tree```
 
 
 .. warning:: **JupyterHub environment and storage are not backed up**. Please only use for computations and download your results (and notebooks) afterwards. You've been warned!
