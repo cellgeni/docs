@@ -6,7 +6,7 @@ We support a Jupyter Hub server running on Sanger Cloud. Jupyter allows you to r
 How to get access
 -----------------
 
-Our Jupyter Hub service is available in a web browser on any computer anywhere in the world. You will need to provide us with your GitHub ID to be able to login. Once we notify you that your account is created you can login using your GitHub credentials. 
+Our Jupyter Hub service is available in a web browser on any computer anywhere in the world. You will need to provide us with your GitHub ID to be able to login. Once we notify you that your account is created you can login using your GitHub credentials. Please note only Sanger employees are eligible for access.
 
 
 Resources
