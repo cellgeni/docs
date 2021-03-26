@@ -65,9 +65,8 @@ To have a persistent conda environment create one inside ``/home/jovyan/`` folde
 
   .. code-block:: bash
 
-    source activate base
     conda create --name myenv python=3.8
-    source activate myenv
+    conda activate myenv
 
 3. Install ``ipython kernel`` to use as a python kernel inside your jupyter environment:
 
