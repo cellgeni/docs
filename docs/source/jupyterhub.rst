@@ -27,6 +27,7 @@ JupyterHub website is public, so you don't need to turn on VPN to use it. Howeve
 
 #. In your browser go to https://jhub.cellgeni.sanger.ac.uk
 #. Use your Github credentials for authentication. It may take some time to load first time.
+#. Select your CPU number, RAM number and Image you would like to spawn your instance with.
 #. Now you are ready to run your notebooks! 
 #. **RStudio** is also available on JupyterHub. A new R session can be started from the Launcher or change the word `lab` in your adress bar to the word `rstudio`: ```https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/rstudio```
 #. You can switch to a classic Jupyter interface by change the word `lab` in your adress bar to the word `tree`: ```https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/tree```
