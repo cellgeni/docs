@@ -19,7 +19,7 @@ Resources
 +-------------+------------+-----------+
 
 
-We provide open usage metrics of our Jupyter cluster using `metrics <https://metrics.cellgeni.sanger.ac.uk>`_.
+We provide open usage metrics of our Jupyter cluster using `Graphana Dashboard <https://metrics.cellgeni.sanger.ac.uk>`_.
 
 Quick Start Guide
 -----------------
@@ -161,7 +161,7 @@ You can copy files to and from Jupyter directly in a web interface (Menu and a b
 
 Copying data to/from other hosts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-You can also copy data to/from other hosts, like the farm, using a terminal (click on the ``Terminal`` icon in the Launcher). In this example we copy from the farm for the user ``ak27``.
+You can also copy data to/from other hosts, like the farm, using a terminal (click on the ``Terminal`` icon in the Launcher).
 
 **Using rsync**
 
@@ -169,13 +169,13 @@ Copy from the farm to the local environment:
 
 .. code-block:: bash
 
-    rsync -avzh ak27@farm5-login:/nfs/users/nfs_a/ak27/<some-path>/ farm/
+    rsync -avzh USER@farm5-login:/nfs/users/nfs_u/USER/<some-path>/ farm/
 
 Copy from the local environment to the farm:
 
 .. code-block:: bash
 
-    rsync -avzh <some-path> ak27@farm5-login:/nfs/users/nfs_a/ak27/
+    rsync -avzh <some-path> USER@farm5-login:/nfs/users/nfs_u/USER/
 
 **Using scp**
 
@@ -183,13 +183,13 @@ Copy from the farm to the local environment:
 
 .. code-block:: bash
 
-      scp -r ak27@farm5-login:/nfs/users/nfs_a/ak27/<some-path>/ farm/
+      scp -r USER@farm5-login:/nfs/users/nfs_u/USER/<some-path>/ farm/
 
 Copy from the local environment to the farm:
 
 .. code-block:: bash
 
-    scp -r farm/ ak27@farm5-login:/nfs/users/nfs_a/ak27/<some-path>/ 
+    scp -r farm/ USER@farm5-login:/nfs/users/nfs_u/USER/<some-path>/ 
 
 
 Mounting the farm on jupyter (sshfs)
@@ -295,7 +295,7 @@ Before start using iRODS, you'll need to copy your environment file from the far
 
 .. code-block:: bash
 
-    cp /nfs/users/nfs_a/ak27/.irods/* ~/.irods/
+    cp /nfs/users/nfs_u/USER/.irods/* ~/.irods/
 
 3. Run ``irods iinit``, it will ask for your PAM password *(Sanger password, same as the one you use for the farm).*
 
