@@ -302,7 +302,7 @@ Before start using iRODS, you'll need to copy your environment file from the far
 
 4. Run all `icommands avaiable <https://docs.irods.org/master/icommands/user/>`_ using ``irods <icommand_name>``. For example: ``irods ils`` or ``irods ihelp``.
 
-.. note:: **"irods iinit" also asked for iRODS password?** Go to the farm and type: ``head -1 ~/.irods/irods_password``, the output is your password.
+.. note:: **"irods init" also asked for iRODS password?** Go to the farm and type: ``head -1 ~/.irods/irods_password``, the output is your password.
 
 .. warning:: These instructions asume you already have an iRODS account setup on the farm, if you don't please contact ServiceDesk.
 
