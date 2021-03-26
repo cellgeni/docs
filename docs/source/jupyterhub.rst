@@ -321,13 +321,13 @@ Restart your instance
 
 Sometimes, a server restart might solve an issue. For that:
 
-#. Go to the menu "File" > "Hub Control Panel" or browse to your `Hub Home <https://jupyter.cellgeni.sanger.ac.uk/hub/home>`_
+#. Go to the menu "File" > "Hub Control Panel" or browse to your `Hub Home <https://jhub.cellgeni.sanger.ac.uk/hub/home>`_
 
 #. Click ``Stop My Server``
 
 #. Wait 2 minutes and reload the page.
 
-#. Access `https://jupyter.cellgeni.sanger.ac.uk/ <https://jupyter.cellgeni.sanger.ac.uk/>`_ to get your instance up and running again.
+#. Access `https://jhub.cellgeni.sanger.ac.uk/ <https://jhub.cellgeni.sanger.ac.uk/>`_ to get your instance up and running again.
 
 
 Check storage usage
