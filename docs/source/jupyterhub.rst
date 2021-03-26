@@ -19,7 +19,7 @@ Resources
 +-------------+------------+-----------+
 
 
-We provide open usage metrics of our Jupyter cluster using `metrics <metrics.cellgeni.sanger.ac.uk>`_
+We provide open usage metrics of our Jupyter cluster using `metrics <https://metrics.cellgeni.sanger.ac.uk>`_.
 
 Quick Start Guide
 -----------------
