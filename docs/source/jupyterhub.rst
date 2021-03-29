@@ -6,31 +6,46 @@ We support a Jupyter Hub server running on Sanger Cloud. Jupyter allows you to r
 How to get access
 -----------------
 
-Our Jupyter Hub service is available in a web browser on any computer anywhere in the world. You will need to provide us with your GitHub ID to be able to login. Once we notify you that your account is created you can login using your GitHub credentials. Please note only Sanger employees are eligible for access.
+Our Jupyter Hub service is available in a web browser on any computer anywhere in the world. You will need to provide us with your GitHub ID to be able to login. Once we notify you that your account is created you can login using your GitHub credentials. 
+
+.. note::
+    **Only Sanger employees and their collaborators are eligible for access**.
 
 
 Resources
 ---------
 
-+-------------+------------+-----------+
-| RAM         | vCPUs      | Storage   |
-+=============+============+===========+
-| up to 200 Gb| up to 16   | 100 Gb    |
-+-------------+------------+-----------+
+Our cluster allows for single user Jupyter instances to be spawned with up to 400GB RAM and 30 CPUs, but this depends on our cluster's load at that time.
+By default we provide users with 30GB of RAM and a dynamic limit of 10 CPUs. We guarantee each jupyter will have at least 1 core and they can use up to 10 if they need to without changing their resource configuration.
+
+If you require more resources, you'll have to :ref:`Restart your instance` and request for more. Un-check the default resources and input what you need, if there are enough resources on the cluster they'll be reserved for your Jupyter.
+
+Jupyter's storage is 100GB. Try no to keep big files on jupyter and instead read them from the farm. Only ``/home/jovyan`` is persistent, anything outside your home folder will be lost when your session is terminated.
+
+Please have in mind the following considerations: 
+
+- Only input custom CPU resources if you require more than 10 CPUs or if you're performing a benchmark and you need exactly a specific number of CPUs.
+
+- After you've finished your analysis with custom resources, please :ref:`Restart your instance` and go back to the defaults to free those resources and allow other users to access them.
+
+- If you're only going to be checking on your farm jobs please use custom 8GB RAM (*default CPU is just fine for this*).
+
+- Jupyter's cull time is 24 hours, if you have not access your jupyter at least once in the past 24 hours your session will be terminated.
+
 
 
 We provide open usage metrics of our Jupyter cluster using `Graphana Dashboard <https://metrics.cellgeni.sanger.ac.uk>`_.
 
 Quick Start Guide
 -----------------
-JupyterHub website is public, so you don't need to turn on VPN to use it. However, it is only available to users who messaged us their Github usernames and have been whitelisted. 
+JupyterHub website is public, so you don't need to turn on VPN to use it. However, it is only available to users who messaged us their GitHub usernames and have been whitelisted. 
 
 #. In your browser go to https://jhub.cellgeni.sanger.ac.uk
-#. Use your Github credentials for authentication. It may take some time to load first time.
-#. Select your CPU number, RAM number and Image you would like to spawn your instance with.
+#. Use your GitHub credentials for authentication. It may take some time to load first time.
+#. Select your CPU number, RAM number and Image you would like to spawn your instance with *(or use the defaults)*.
 #. Now you are ready to run your notebooks! 
-#. **RStudio** is also available on JupyterHub. A new R session can be started from the Launcher or change the word `lab` in your adress bar to the word `rstudio`: ```https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/rstudio```
-#. You can switch to a classic Jupyter interface by change the word `lab` in your adress bar to the word `tree`: ```https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/tree```
+#. **RStudio** is also available on JupyterHub. A new R session can be started from the Launcher or change the word `lab` in your address bar to the word `rstudio`: ```https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/rstudio```
+#. You can switch to a classic Jupyter interface by change the word `lab` in your address bar to the word `tree`: ```https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/tree```
 
 
 .. warning:: **JupyterHub environment and storage are not backed up**. Please only use for computations and download your results (and notebooks) afterwards. You've been warned!
@@ -42,13 +57,11 @@ JupyterHub website is public, so you don't need to turn on VPN to use it. Howeve
 Notebook templates
 ------------------
 
-We provide some notebook templates with the pre-installed software. These are located in the ``notebooks`` folder. Corresponding example data is located in the ``data`` folder. Before running your analysis, please make a copy of a notebook template, save it to your home folder and work with the copy. At the moment we have the following notebook templates:
+We provide some notebook templates with the pre-installed software. These are located in the ``notebooks`` folder in Jupyter or in our `Notebook GitHub repositry <https://github.com/cellgeni/notebooks/>`_. Corresponding example data is located in the ``data`` folder. 
 
-#. `scanpy notebook for analysis of 10X data <https://github.com/cellgeni/notebooks/blob/master/files/notebooks/10X-scanpy.ipynb>`_
-#. `Seurat notebook for analysis of 10X data <https://github.com/cellgeni/notebooks/blob/master/files/notebooks/10X-Seurat.Rmd>`_
-#. `Batch correction notebook 1 <https://github.com/cellgeni/notebooks/blob/master/files/notebooks/10X-batch-correction-bbknn-scanorama.ipynb>`_
-#. `Batch correction notebook 2 <https://github.com/cellgeni/notebooks/blob/master/files/notebooks/10X-batch-correction-harmony-mnn-cca-other.Rmd>`_
+We recommend that before running your analysis, you make a copy of a notebook template, save it to your home folder and work with the copy. 
 
+Read more about our notebooks in the `Notebook section <https://cellgeni.readthedocs.io/en/latest/notebooks.html>`_
 
 
 Installing packages
@@ -68,11 +81,12 @@ To have a persistent conda environment create one inside ``/home/jovyan/`` folde
     conda create --name myenv python=3.8
     conda activate myenv
 
-3. Install ``ipython kernel`` to use as a python kernel inside your jupyter environment:
+3. Install ``ipython kernel`` to use as a python kernel inside your jupyter environment, ``--display-name`` is optional, if not provided the conda environment name will be used:
 
   .. code-block:: bash
 
     python -m ipykernel install --user --name myenv --display-name "Python (MyEnv)"
+
 
 4. Install all the packages you need, for example:
 
@@ -110,14 +124,14 @@ or multiple packages at once:
 .. code-block:: r
     install.packages(c("packageOne", "packageTwo", "packageThree"))
 
-From a terminal ``RScript`` can be used to install pacakges **(don't install packages as sudo)**:
+From a terminal ``RScript`` can be used to install packages **(don't install packages as sudo)**:
 
 .. code-block:: bash
 
     Rscript -e 'install.packages("packageName")'
 
 
-.. warning:: **Try not to mix conda r-* packages with R CRAN pacakges**. For example, if you've installed your own R using conda like this ``conda install r-recommended r-irkernel``, install packages using conda ``conda install r-hdf5r`` instead of ``install.packages("hdf5r")``.
+.. warning:: **Try not to mix conda r-* packages with R CRAN packages**. For example, if you've installed your own R using conda like this ``conda install r-recommended r-irkernel``, install packages using conda ``conda install r-hdf5r`` instead of ``install.packages("hdf5r")``.
 
 
 
@@ -148,7 +162,7 @@ Install the package and the spec:
     IRkernel::installspec() 
 
 
-Mangaing your data
+Managing your data
 ------------------
 
 .. note:: Any data outside ``/home/jovyan`` will be lost when the environment is restarted. Make sure you keep the files you don't want to lose somewhere inside the home folder.
@@ -205,23 +219,32 @@ To mount the farm's base paths (``/nfs``, ``/lustre`` and ``/warehouse``) on you
 
 
 The three folders will be mounted on the root folder of your instance. 
-Try opening a new terminal and change directory to your farm home ``cd /nfs/users/nfs_u/usr99`` or your team's lustre ``cd /lustre/scratch11X/team999`` and then type ``ls`` to see the files. You can use the same paths in your notebooks.
+Try opening a new terminal and change directory to your farm home ``cd /nfs/users/nfs_u/USER`` or your team's lustre ``cd /lustre/scratch11X/team999`` and then type ``ls`` to see the files. You can use the same paths in your notebooks.
 
 .. note:: You will not see these folders in Jupyter's File Browser because it only shows ``/home/jovyan``, if you really want to see them on your File Browser you need to **create symlinks** from the mounted folders to your home folder.
     For example: ``ln -s /nfs /home/jovyan/nfs``
 
-.. warning:: Mounting folders with many files/folders inside them may affect Jupyter. We redommend to only link particular folders and not the whole mounting point.
+.. warning:: Mounting folders with many files/folders inside them may affect Jupyter. We recommend to only link particular folders and not the whole mounting point.
 
-.. Mounting NFS storages
-.. ^^^^^^^^^^^^^^^^^^^^^
 
-.. 1. Create a folder where to mount the share: ``mkdir -p ~/home/jovyan/shared``
+Mounting other NFS storages
+^^^^^^^^^^^^^^^^^^^^^
 
-.. 2. Mount the storage:
+1. Create a folder where to mount the share: ``mkdir -p ~/home/jovyan/shared``
 
-.. .. code-block:: bash
+2. Create credentials file ``/jovyan/.nfs-credentials``:
 
-..     sudo mount.cifs //network/path/to/share/ /home/jovyan/shared -o rw,file_mode=0777,dir_mode=0777,credentials=/root/.cifs
+.. code-block:: bash
+
+    username=YOUR_USER
+    password=YOUR_PASSWORD
+    domain=sanger
+  
+3. Mount the storage:
+
+.. code-block:: bash
+
+   sudo mount.cifs //network/path/to/share/ /home/jovyan/shared -o rw,file_mode=0777,dir_mode=0777,credentials=/jovyan/.nfs-credentials
 
 
 Downloading data
@@ -289,7 +312,7 @@ iRODS
 iRODS support is provided using a wrapper script and a singularity image already copied to your home profile. 
 Before start using iRODS, you'll need to copy your environment file from the farm to your jupyter. Open a Terminal and please follow this steps:
 
-1. Use ``mount-farm`` and input your credentials when promted.
+1. Use ``mount-farm`` and input your credentials when prompted.
  
 2. Copy ``irods_environment.json`` from your home directory on the farm to your Jupyter instance:
 
@@ -303,7 +326,7 @@ Before start using iRODS, you'll need to copy your environment file from the far
 
 .. note:: **"irods iinit" also asked for iRODS password?** Go to the farm and type: ``head -1 ~/.irods/irods_password``, the output is your password.
 
-.. warning:: These instructions asume you already have an iRODS account setup on the farm, if you don't please contact ServiceDesk.
+.. warning:: These instructions assume you already have an iRODS account setup on the farm, if you don't please contact ServiceDesk.
 
 Running containers
 ------------------
