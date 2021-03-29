@@ -6,7 +6,7 @@ We support a Jupyter Hub server running on Sanger Cloud. Jupyter allows you to r
 How to get access
 -----------------
 
-Our Jupyter Hub service is available in a web browser on any computer anywhere in the world. You will need to provide us with your GitHub ID to be able to login. Once we notify you that your account is created you can login using your GitHub credentials. 
+Our Jupyter Hub service is available in a web browser on any computer anywhere in the world. You will need to provide us with your GitHub ID to be able to login. Once we notify you that your account is created you can login using your GitHub credentials. Please note only Sanger employees are eligible for access.
 
 
 Resources
@@ -19,17 +19,18 @@ Resources
 +-------------+------------+-----------+
 
 
-We provide open usage metrics of our Jupyter cluster using `Grafana Dashboard <https://grafana.cellgeni.sanger.ac.uk/d/OlWXRnvWk/jupyter-pods?orgId=1>`_
+We provide open usage metrics of our Jupyter cluster using `Graphana Dashboard <https://metrics.cellgeni.sanger.ac.uk>`_.
 
 Quick Start Guide
 -----------------
 JupyterHub website is public, so you don't need to turn on VPN to use it. However, it is only available to users who messaged us their Github usernames and have been whitelisted. 
 
-#. In your browser go to https://jupyter.cellgeni.sanger.ac.uk
+#. In your browser go to https://jhub.cellgeni.sanger.ac.uk
 #. Use your Github credentials for authentication. It may take some time to load first time.
+#. Select your CPU number, RAM number and Image you would like to spawn your instance with.
 #. Now you are ready to run your notebooks! 
-#. **RStudio** is also available on JupyterHub. A new R session can be started from the Launcher or change the word `lab` in your adress bar to the word `rstudio`: ```https://jupyter.cellgeni.sanger.ac.uk/user/<your-username>/rstudio```
-#. You can switch to a classic Jupyter interface by change the word `lab` in your adress bar to the word `tree`: ```https://jupyter.cellgeni.sanger.ac.uk/user/<your-username>/tree```
+#. **RStudio** is also available on JupyterHub. A new R session can be started from the Launcher or change the word `lab` in your adress bar to the word `rstudio`: ```https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/rstudio```
+#. You can switch to a classic Jupyter interface by change the word `lab` in your adress bar to the word `tree`: ```https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/tree```
 
 
 .. warning:: **JupyterHub environment and storage are not backed up**. Please only use for computations and download your results (and notebooks) afterwards. You've been warned!
@@ -64,9 +65,8 @@ To have a persistent conda environment create one inside ``/home/jovyan/`` folde
 
   .. code-block:: bash
 
-    source activate base
     conda create --name myenv python=3.8
-    source activate myenv
+    conda activate myenv
 
 3. Install ``ipython kernel`` to use as a python kernel inside your jupyter environment:
 
@@ -161,7 +161,7 @@ You can copy files to and from Jupyter directly in a web interface (Menu and a b
 
 Copying data to/from other hosts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-You can also copy data to/from other hosts, like the farm, using a terminal (click on the ``Terminal`` icon in the Launcher). In this example we copy from the farm for the user ``ak27``.
+You can also copy data to/from other hosts, like the farm, using a terminal (click on the ``Terminal`` icon in the Launcher).
 
 **Using rsync**
 
@@ -169,13 +169,13 @@ Copy from the farm to the local environment:
 
 .. code-block:: bash
 
-    rsync -avzh ak27@farm5-login:/nfs/users/nfs_a/ak27/<some-path>/ farm/
+    rsync -avzh USER@farm5-login:/nfs/users/nfs_u/USER/<some-path>/ farm/
 
 Copy from the local environment to the farm:
 
 .. code-block:: bash
 
-    rsync -avzh <some-path> ak27@farm5-login:/nfs/users/nfs_a/ak27/
+    rsync -avzh <some-path> USER@farm5-login:/nfs/users/nfs_u/USER/
 
 **Using scp**
 
@@ -183,13 +183,13 @@ Copy from the farm to the local environment:
 
 .. code-block:: bash
 
-      scp -r ak27@farm5-login:/nfs/users/nfs_a/ak27/<some-path>/ farm/
+      scp -r USER@farm5-login:/nfs/users/nfs_u/USER/<some-path>/ farm/
 
 Copy from the local environment to the farm:
 
 .. code-block:: bash
 
-    scp -r farm/ ak27@farm5-login:/nfs/users/nfs_a/ak27/<some-path>/ 
+    scp -r farm/ USER@farm5-login:/nfs/users/nfs_u/USER/<some-path>/ 
 
 
 Mounting the farm on jupyter (sshfs)
@@ -272,15 +272,15 @@ If that it is not enough, the easiest way is to install the whole texlive packag
 Sharing notebooks
 -----------------
 
-#. Go to your `API Tokens page <https://jupyter.cellgeni.sanger.ac.uk/hub/token>`_ or go to `hub/home <https://jupyter.cellgeni.sanger.ac.uk/hub/home>`_ and then click  **"Token"**  on the top menu.
+#. Go to your `API Tokens page <https://jhub.cellgeni.sanger.ac.uk/hub/token>`_ or go to `hub/home <https://jhub.cellgeni.sanger.ac.uk/hub/home>`_ and then click  **"Token"**  on the top menu.
 #. Type in a note like **"Shared with collaborator X"**
 #. Click the orange button **"Request new API token"**
 #. Copy the token that shows up under **"Your new API Token"**. (i.e. ``ba5eba11b01dfaceca55e77ecacaca11``)
-#. Go to your jupyter instance, but using the **"tree"** view instead of the "lab" view:  ``https://jupyter.cellgeni.sanger.ac.uk/user/<your username>/tree``
-#. Find your notebook and open it. You should be on a link that looks like:  ``https://jupyter.cellgeni.sanger.ac.uk/user/<your username>/notebooks/some_notebook.ipynb``
+#. Go to your jupyter instance, but using the **"tree"** view instead of the "lab" view:  ``https://jhub.cellgeni.sanger.ac.uk/user/<your username>/tree``
+#. Find your notebook and open it. You should be on a link that looks like:  ``https://jhub.cellgeni.sanger.ac.uk/user/<your username>/notebooks/some_notebook.ipynb``
 #. Add this to the end of the link: ``?token=<your API token>`` and copy that link. (i.e.: ``?token=ba5eba11b01dfaceca55e77ecacaca11``)
-#. Share what you have copied. It should be something like: ``https://jupyter.cellgeni.sanger.ac.uk/user/<your username>/notebooks/some_notebook.ipynb?token=<your API token>``
-#. Onace you have finished the collaboration. Go to your `API Tokens page <https://jupyter.cellgeni.sanger.ac.uk/hub/token>`_ and click **"Revoke"** to delete that access token.
+#. Share what you have copied. It should be something like: ``https://jhub.cellgeni.sanger.ac.uk/user/<your username>/notebooks/some_notebook.ipynb?token=<your API token>``
+#. Once you have finished the collaboration. Go to your `API Tokens page <https://jhub.cellgeni.sanger.ac.uk/hub/token>`_ and click **"Revoke"** to delete that access token.
 
 
 iRODS
@@ -295,7 +295,7 @@ Before start using iRODS, you'll need to copy your environment file from the far
 
 .. code-block:: bash
 
-    cp /nfs/users/nfs_a/ak27/.irods/* ~/.irods/
+    cp /nfs/users/nfs_u/USER/.irods/* ~/.irods/
 
 3. Run ``irods iinit``, it will ask for your PAM password *(Sanger password, same as the one you use for the farm).*
 
@@ -320,13 +320,13 @@ Restart your instance
 
 Sometimes, a server restart might solve an issue. For that:
 
-#. Go to the menu "File" > "Hub Control Panel" or browse to your `Hub Home <https://jupyter.cellgeni.sanger.ac.uk/hub/home>`_
+#. Go to the menu "File" > "Hub Control Panel" or browse to your `Hub Home <https://jhub.cellgeni.sanger.ac.uk/hub/home>`_
 
 #. Click ``Stop My Server``
 
 #. Wait 2 minutes and reload the page.
 
-#. Access `https://jupyter.cellgeni.sanger.ac.uk/ <https://jupyter.cellgeni.sanger.ac.uk/>`_ to get your instance up and running again.
+#. Access `https://jhub.cellgeni.sanger.ac.uk/ <https://jhub.cellgeni.sanger.ac.uk/>`_ to get your instance up and running again.
 
 
 Check storage usage
