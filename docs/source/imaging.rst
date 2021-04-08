@@ -4,14 +4,14 @@ Imaging Data
 Introduction
 ------------
 
-Blah blah
+Imaging data are the images produced by microscopy of cells, organelles, tissues etc and their associated metadata. Our pipeline can produce and segment 2D or 3D images ready for your analysis. 
 
 OME
 ---
 
-Blah blah
+Open Miscroscopy Environment (OME) produce open source software for the analysis of microscope imaging data. OME maintains the OMERO software which can be used by scientists, developers or institutes to host imaging data remotely. Remote storage requires exporting of data which is a procedure Cellular Genetics Informatics provide. For more information on the OME software, including OMERO, check out their `Website <https://www.openmicroscopy.org>`_.
 
-Processing
-----------
+Pipeline
+--------
 
-Blah Blah
+Our imaging pipeline can work on GPU or CPU depending on availability. The pipeline is ran remotely on cloud hardware hosted by (Sorry can't remember name). 
