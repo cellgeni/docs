@@ -14,4 +14,4 @@ Open Miscroscopy Environment (OME) produce open source software for the analysis
 Pipeline
 --------
 
-Our imaging pipeline can work on GPU or CPU depending on availability. The pipeline is ran remotely on cloud hardware hosted by (Sorry can't remember name). It uses the software from `Cellpose <https://github.com/MouseLand/cellpose>`_ in order to produce 2D or 3D images of cells and nuclei with segmentation for downstream analysis.
+Our imaging pipeline can work on GPU or CPU depending on availability. The pipeline is ran remotely on cloud hardware hosted by Google. It uses the software from `Cellpose <https://github.com/MouseLand/cellpose>`_ in order to produce 2D or 3D images of cells and nuclei with segmentation for downstream analysis.
