@@ -9,7 +9,7 @@ Seurat
 
 `Seurat Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-Seurat.Rmd>`_
 
-`Seurat Notebook HTML <https://github.com/cellgeni/notebooks/html/new-10kPBMC-Seurat.html>`_
+`Seurat Notebook HTML <https://cellgeni.github.io/notebooks/html/new-10kPBMC-Seurat.html>`_
 
 Seurat is an R package designed for the analysis of single-cell RNA-seq data. For more information visit their `homepage <https://satijalab.org/seurat/>`_.
 Our Seurat notebook covers the following topics:
@@ -71,7 +71,7 @@ SoupX
 
 `Soupx Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-SoupX.Rmd>`_
 
-`Soupx Notebook HTML <https://github.com/cellgeni/notebooks/html/new-10kPBMC-SoupX.html>`_
+`Soupx Notebook HTML <https://cellgeni.github.io/notebooks/html/new-10kPBMC-SoupX.html>`_
 
 SoupX is an R package that attempts to remove mRNA that is contaminating results in drople based single-cell RNA-seq data. For more information visit their `GitHub Repository <https://github.com/constantAmateur/SoupX>`_. The topics covered in this notebook are:
 
@@ -84,7 +84,7 @@ scrublet
 
 `scrublet Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-doublets-scrublet.ipynb>`_
 
-`scrublet Notebook HTML <https://github.com/cellgeni/notebooks/html/new-doublets-scrublet.html>`_
+`scrublet Notebook HTML <https://cellgeni.github.io/notebooks/html/new-doublets-scrublet.html>`_
 
 scrublet is a Python package that attempts to identify doublets within samples in scRNA-seq data. For more information visit their `GitHub Repository <https://github.com/swolock/scrublet>`_. The topics covered in this notebook are:
 
