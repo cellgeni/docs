@@ -7,7 +7,7 @@ and to aid them is inspecting their own data. We have five notebooks available e
 Seurat
 ------
 
-`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
+`Seurat Notebook <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-Seurat.Rmd>`_
 
 Seurat is an R package designed for the analysis of single-cell RNA-seq data. For more information visit their `homepage <https://satijalab.org/seurat/>`_.
 Our Seurat notebook covers the following topics:
@@ -67,9 +67,20 @@ types of integration. The types of integration covered in this notebook are:
 SoupX
 -----
 
-`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
+`Soupx Notebook <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-SoupX.Rmd>`_
 
 SoupX is an R package that attempts to remove mRNA that is contaminating results in drople based single-cell RNA-seq data. For more information visit their `GitHub Repository <https://github.com/constantAmateur/SoupX>`_. The topics covered in this notebook are:
+
+* Insert
+* Topics
+* Here
+
+scrublet
+--------
+
+`scrublet Notebook <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-doublets-scrublet.ipynb>`_
+
+scrublet is a Python package that attempts to identify doublets within samples in scRNA-seq data. For more information visit their `GitHub Repository <https://github.com/swolock/scrublet>`_. The topics covered in this notebook are:
 
 * Insert
 * Topics
