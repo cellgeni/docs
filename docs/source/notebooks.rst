@@ -68,6 +68,8 @@ Monocle3
 
 `Monocle3 Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/monocle3-example.Rmd>`_
 
+`Monocle3 Notebook HTML <https://cellgeni.github.io/notebooks/html/monocle3-example.html>`_
+
 This notebook gives a basic example of scRNAseq processing using Monocle3. 
 
 SoupX
