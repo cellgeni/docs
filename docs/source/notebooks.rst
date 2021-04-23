@@ -4,94 +4,6 @@ Notebooks
 We have a set of premade notebooks available to users on JupyterHub. These notebooks are designed to guide users through various stages of downstream analysis
 and to aid them is inspecting their own data. We have five notebooks available each of which we believe to cover an important aspect of downstream analysis.
 
-Seurat
-------
-
-`Seurat Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-Seurat.Rmd>`_
-
-`Seurat Notebook HTML <https://cellgeni.github.io/notebooks/html/new-10kPBMC-Seurat.html>`_
-
-Seurat is an R package designed for the analysis of single-cell RNA-seq data. For more information visit their `homepage <https://satijalab.org/seurat/>`_.
-Our Seurat notebook covers the following topics:
-
-* Insert
-* Topics
-* Here
-
-Scanpy
-------
-
-`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
-
-Scanpy is an Python package designed for the analysis of single-cell RNA-seq data. For more information visit their `homepage <https://scanpy.readthedocs.io/en/stable/>`_.
-Our Scanpy notebook covers the following topics:
-
-* Insert
-* Topics
-* Here
-
-Object Exploration
-------------------
-
-`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
-
-An important part of downstream analysis is understanding what the data represents and how it is structured. In this notebook we explore and explain the 
-various components in various objects. The object types we explore are:
-
-* Insert
-* Topics
-* Here
-
-Integration in R
-----------------
-
-`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
-
-One of the most significant areas of downstream analysis is integrating data together. This involves a variety of steps needed to prepare the data and different
-types of integration. The types of integration covered in this notebook are:
-
-* Insert
-* Topics
-* Here
-
-Integration in Python
----------------------
-
-`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
-
-One of the most significant areas of downstream analysis is integrating data together. This involves a variety of steps needed to prepare the data and different
-types of integration. The types of integration covered in this notebook are:
-
-* Insert
-* Topics
-* Here
-
-SoupX
------
-
-`Soupx Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-SoupX.Rmd>`_
-
-`Soupx Notebook HTML <https://cellgeni.github.io/notebooks/html/new-10kPBMC-SoupX.html>`_
-
-SoupX is an R package that attempts to remove mRNA that is contaminating results in drople based single-cell RNA-seq data. For more information visit their `GitHub Repository <https://github.com/constantAmateur/SoupX>`_. The topics covered in this notebook are:
-
-* Insert
-* Topics
-* Here
-
-scrublet
---------
-
-`scrublet Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-doublets-scrublet.ipynb>`_
-
-`scrublet Notebook HTML <https://cellgeni.github.io/notebooks/html/new-doublets-scrublet.html>`_
-
-scrublet is a Python package that attempts to identify doublets within samples in scRNA-seq data. For more information visit their `GitHub Repository <https://github.com/swolock/scrublet>`_. The topics covered in this notebook are:
-
-* Insert
-* Topics
-* Here
-
 .. graphviz::
 
         digraph foo {
@@ -110,3 +22,88 @@ scrublet is a Python package that attempts to identify doublets within samples i
                 f -> g [label=" Python-based integration methods "];
         }
 
+SoupX
+-----
+
+`Soupx Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-SoupX.Rmd>`_
+
+`Soupx Notebook HTML <https://cellgeni.github.io/notebooks/html/new-10kPBMC-SoupX.html>`_
+
+This notebook describes the usage of soupX R package for ambient RNA (“soup”) removal. We start from dual-indexed 10k PBMC dataset from `10X Genomics website <https://support.10xgenomics.com/single-cell-gene-expression/datasets>`_, processed by CellRanger with `GRCh38 reference 2020-A <https://support.10xgenomics.com/single-cell-gene-expression/software/release-notes/build>`_. Since soupX requires clustering, we use basic Seurat functionality to quickly normalize and cluster the expression data; detailed explanations of Seurat workflow will be given later. Corrected data matrix is written and is used in all further processing. 
+
+scrublet
+--------
+
+`Scrublet Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-doublets-scrublet.ipynb>`_
+
+`Scrublet Notebook HTML <https://cellgeni.github.io/notebooks/html/new-doublets-scrublet.html>`_
+
+This notebook describes the usage of scrublet Python package for doublet detection. Scrublet performed very well in a `recent benchmark <https://pubmed.ncbi.nlm.nih.gov/33338399/>`_, and is also very intuitive and computationally efficient. The results (doublet scores and binary “singlet/doublet” assignments) are saved as a text file and will be used in downstream processing with Seurat or Scanpy. 
+
+Seurat/Scanpy/SCE object exploration and interconversion
+--------------------------------------------------------
+
+`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
+
+This notebook highlights some of the properties of three objects widely used to work with scRNAseq data: Seurat object (Seurat/R), SingleCellExperiment (SingleCellExperiment/R), and AnnData (Scanpy/Python). We also show how these objects can be converted into each other. 
+
+Seurat
+------
+
+`Seurat Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-Seurat.Rmd>`_
+
+`Seurat Notebook HTML <https://cellgeni.github.io/notebooks/html/new-10kPBMC-Seurat.html>`_
+
+This is a basic `Seurat <https://satijalab.org/seurat/>`_ workflow R notebook that describes all key steps of scRNA-seq processing, using 10k PBMC dual-indexed dataset from 10X Genomics. Ambient RNA removal (soupX) and doublet detection (scrublet) should be ran before starting this workflow. After this, the following steps are performed:
+
+Creation of Seurat object, and some basic exploration of its properties; 
+Estimation of mitochondrial and ribosomal protein percentage among all reads; 
+Calculation of cell cycle scores for each cell; 
+Log-normalization, highly variable genes selection, dimensionality reduction, clustering, and general exploration of the dataset; 
+Quality control and careful removal of low quality cells; 
+Normalization, scaling, and highly variable genes selection via SCTransform; 
+Clustering with parameter tuning allowing identification of smaller clusters; 
+Marker gene identification for each cluster; 
+Automated cell type annotation using singleR. 
+
+
+Scanpy
+------
+
+`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
+
+This is a basic `Scanpy <https://scanpy.readthedocs.io/en/stable/>`_ workflow Python notebook that describes all key steps of scRNA-seq processing, using 10k PBMC dual-indexed dataset from 10X Genomics. Ambient RNA removal (soupX) and doublet detection (scrublet) should be ran before starting this workflow. After this, the following steps are performed:
+
+Creation of Scanpy object, and some basic exploration of its properties; 
+Estimation of mitochondrial and ribosomal protein percentage among all reads; 
+Calculation of cell cycle scores for each cell; 
+Log-normalization, highly variable genes selection, dimensionality reduction, clustering, and general exploration of the dataset; 
+Quality control and careful removal of low quality cells; 
+Normalization, scaling, and highly variable genes selection in the filtered dataset; 
+Clustering with parameter tuning allowing identification of smaller clusters; 
+Marker gene identification for each cluster; 
+Automated cell type annotation using CellO. 
+
+
+Integration in R
+----------------
+
+`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
+
+This notebook shows how batch correction (for one dataset) or integration (for multiple datasets) can be performed using tools available in R. Used packages include: Harmony, batchelor, Seurat, ComBat, and Limma. 
+
+Integration in Python
+---------------------
+
+`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
+
+This notebook shows how batch correction (for one dataset) or integration (for multiple datasets) can be performed using tools available in Python. Used packages include: BBKNN and Scanorama.
+
+Monocle3
+--------
+
+`Monocle3 Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/monocle3-example.Rmd>`_
+
+`Monocle3 Notebook HTML <https://cellgeni.github.io/notebooks/html/monocle3-example.html>`_
+
+This notebook gives a basic example of scRNAseq processing using Monocle3. 
