@@ -4,6 +4,49 @@ Notebooks
 We have a set of premade notebooks available to users on JupyterHub. These notebooks are designed to guide users through various stages of downstream analysis
 and to aid them is inspecting their own data. We have five notebooks available each of which we believe to cover an important aspect of downstream analysis.
 
+.. graphviz::
+
+        digraph foo {
+                a [shape=rectangle, style=filled, fillcolor=grey, label="10k PBMC dataset\nfrom 10X Genomics"];
+                b [shape=rectangle, style=filled, fillcolor=grey, label="10k PBMC with\nambient RNA\nremoved"];
+                c [shape=rectangle, style=filled, fillcolor=grey, label="10k PBMC\ndetected doublets"];
+                d [shape=rectangle, style=filled, fillcolor=orange, label="10k PBMC\n-QC and filtering\n-clustering\n-UMAP/TSNE\n-marker selection\n-cell type annotation"];
+                e [shape=rectangle, style=filled, fillcolor=cyan, label="10k PBMC\n-multiple integrated datasets\n-unified clustering\n-marker selection"];
+                f [shape=rectangle, style=filled, fillcolor=orange, label="10k PBMC\n-QC and filtering\n-clustering\n-UMAP/TSNE\n-marker selection\n-cell type annotation"];
+                g [shape=rectangle, style=filled, fillcolor=cyan, label="10k PBMC\n-multiple integrated datasets\n-unified clustering\n-marker selection"];
+                a -> b [label=" soupX (R) ", href="https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-SoupX.Rmd", target="_blank"];
+                b -> c [label=" scrublet (Python) ", href="https://github.com/cellgeni/notebooks/blob/master/notebooks/new-doublets-scrublet.ipynb", target="_blank"];
+                c -> d [xlabel=" Seurat (R) full basic workflow ", href="https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-Seurat.Rmd", target="_blank"];
+                d -> e [xlabel=" R-based integration methods "];
+                c -> f [label=" scanpy (Python) full basic workflow "];
+                f -> g [label=" Python-based integration methods "];
+        }
+
+SoupX
+-----
+
+`Soupx Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-SoupX.Rmd>`_
+
+`Soupx Notebook HTML <https://cellgeni.github.io/notebooks/html/new-10kPBMC-SoupX.html>`_
+
+This notebook describes the usage of soupX R package for ambient RNA (“soup”) removal. We start from dual-indexed 10k PBMC dataset from `10X Genomics website <https://support.10xgenomics.com/single-cell-gene-expression/datasets>`_, processed by CellRanger with `GRCh38 reference 2020-A <https://support.10xgenomics.com/single-cell-gene-expression/software/release-notes/build>`_. Since soupX requires clustering, we use basic Seurat functionality to quickly normalize and cluster the expression data; detailed explanations of Seurat workflow will be given later. Corrected data matrix is written and is used in all further processing. 
+
+scrublet
+--------
+
+`Scrublet Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-doublets-scrublet.ipynb>`_
+
+`Scrublet Notebook HTML <https://cellgeni.github.io/notebooks/html/new-doublets-scrublet.html>`_
+
+This notebook describes the usage of scrublet Python package for doublet detection. Scrublet performed very well in a `recent benchmark <https://pubmed.ncbi.nlm.nih.gov/33338399/>`_, and is also very intuitive and computationally efficient. The results (doublet scores and binary “singlet/doublet” assignments) are saved as a text file and will be used in downstream processing with Seurat or Scanpy. 
+
+Seurat/Scanpy/SCE object exploration and interconversion
+--------------------------------------------------------
+
+`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
+
+This notebook highlights some of the properties of three objects widely used to work with scRNAseq data: Seurat object (Seurat/R), SingleCellExperiment (SingleCellExperiment/R), and AnnData (Scanpy/Python). We also show how these objects can be converted into each other. 
+
 Seurat
 ------
 
@@ -42,13 +85,6 @@ Marker gene identification for each cluster;
 Automated cell type annotation using CellO. 
 
 
-Seurat/Scanpy?SCE object exploration and interconversion
---------------------------------------------------------
-
-`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
-
-This notebook highlights some of the properties of three objects widely used to work with scRNAseq data: Seurat object (Seurat/R), SingleCellExperiment (SingleCellExperiment/R), and AnnData (Scanpy/Python). We also show how these objects can be converted into each other. 
-
 Integration in R
 ----------------
 
@@ -71,40 +107,3 @@ Monocle3
 `Monocle3 Notebook HTML <https://cellgeni.github.io/notebooks/html/monocle3-example.html>`_
 
 This notebook gives a basic example of scRNAseq processing using Monocle3. 
-
-SoupX
------
-
-`Soupx Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-SoupX.Rmd>`_
-
-`Soupx Notebook HTML <https://cellgeni.github.io/notebooks/html/new-10kPBMC-SoupX.html>`_
-
-This notebook describes the usage of soupX R package for ambient RNA (“soup”) removal. We start from dual-indexed 10k PBMC dataset from `10X Genomics website <https://support.10xgenomics.com/single-cell-gene-expression/datasets>`_, processed by CellRanger with `GRCh38 reference 2020-A <https://support.10xgenomics.com/single-cell-gene-expression/software/release-notes/build>`_. Since soupX requires clustering, we use basic Seurat functionality to quickly normalize and cluster the expression data; detailed explanations of Seurat workflow will be given later. Corrected data matrix is written and is used in all further processing. 
-
-scrublet
---------
-
-`Scrublet Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-doublets-scrublet.ipynb>`_
-
-`Scrublet Notebook HTML <https://cellgeni.github.io/notebooks/html/new-doublets-scrublet.html>`_
-
-This notebook describes the usage of scrublet Python package for doublet detection. Scrublet performed very well in a `recent benchmark <https://pubmed.ncbi.nlm.nih.gov/33338399/>`_, and is also very intuitive and computationally efficient. The results (doublet scores and binary “singlet/doublet” assignments) are saved as a text file and will be used in downstream processing with Seurat or Scanpy. 
-
-.. graphviz::
-
-        digraph foo {
-                a [shape=rectangle, style=filled, fillcolor=grey, label="10k PBMC dataset\nfrom 10X Genomics"];
-                b [shape=rectangle, style=filled, fillcolor=grey, label="10k PBMC with\nambient RNA\nremoved"];
-                c [shape=rectangle, style=filled, fillcolor=grey, label="10k PBMC\ndetected doublets"];
-                d [shape=rectangle, style=filled, fillcolor=orange, label="10k PBMC\n-QC and filtering\n-clustering\n-UMAP/TSNE\n-marker selection\n-cell type annotation"];
-                e [shape=rectangle, style=filled, fillcolor=cyan, label="10k PBMC\n-multiple integrated datasets\n-unified clustering\n-marker selection"];
-                f [shape=rectangle, style=filled, fillcolor=orange, label="10k PBMC\n-QC and filtering\n-clustering\n-UMAP/TSNE\n-marker selection\n-cell type annotation"];
-                g [shape=rectangle, style=filled, fillcolor=cyan, label="10k PBMC\n-multiple integrated datasets\n-unified clustering\n-marker selection"];
-                a -> b [label=" soupX (R) ", href="https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-SoupX.Rmd", target="_blank"];
-                b -> c [label=" scrublet (Python) ", href="https://github.com/cellgeni/notebooks/blob/master/notebooks/new-doublets-scrublet.ipynb", target="_blank"];
-                c -> d [xlabel=" Seurat (R) full basic workflow ", href="https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-Seurat.Rmd", target="_blank"];
-                d -> e [xlabel=" R-based integration methods "];
-                c -> f [label=" scanpy (Python) full basic workflow "];
-                f -> g [label=" Python-based integration methods "];
-        }
-
