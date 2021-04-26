@@ -56,15 +56,15 @@ Seurat
 
 This is a basic `Seurat <https://satijalab.org/seurat/>`_ workflow R notebook that describes all key steps of scRNA-seq processing, using 10k PBMC dual-indexed dataset from 10X Genomics. Ambient RNA removal (soupX) and doublet detection (scrublet) should be ran before starting this workflow. After this, the following steps are performed:
 
-Creation of Seurat object, and some basic exploration of its properties; 
-Estimation of mitochondrial and ribosomal protein percentage among all reads; 
-Calculation of cell cycle scores for each cell; 
-Log-normalization, highly variable genes selection, dimensionality reduction, clustering, and general exploration of the dataset; 
-Quality control and careful removal of low quality cells; 
-Normalization, scaling, and highly variable genes selection via SCTransform; 
-Clustering with parameter tuning allowing identification of smaller clusters; 
-Marker gene identification for each cluster; 
-Automated cell type annotation using singleR. 
+* Creation of Seurat object, and some basic exploration of its properties; 
+* Estimation of mitochondrial and ribosomal protein percentage among all reads; 
+* Calculation of cell cycle scores for each cell; 
+* Log-normalization, highly variable genes selection, dimensionality reduction, clustering, and general exploration of the dataset; 
+* Quality control and careful removal of low quality cells; 
+* Normalization, scaling, and highly variable genes selection via SCTransform; 
+* Clustering with parameter tuning allowing identification of smaller clusters; 
+* Marker gene identification for each cluster; 
+* Automated cell type annotation using singleR. 
 
 
 Scanpy
@@ -74,15 +74,15 @@ Scanpy
 
 This is a basic `Scanpy <https://scanpy.readthedocs.io/en/stable/>`_ workflow Python notebook that describes all key steps of scRNA-seq processing, using 10k PBMC dual-indexed dataset from 10X Genomics. Ambient RNA removal (soupX) and doublet detection (scrublet) should be ran before starting this workflow. After this, the following steps are performed:
 
-Creation of Scanpy object, and some basic exploration of its properties; 
-Estimation of mitochondrial and ribosomal protein percentage among all reads; 
-Calculation of cell cycle scores for each cell; 
-Log-normalization, highly variable genes selection, dimensionality reduction, clustering, and general exploration of the dataset; 
-Quality control and careful removal of low quality cells; 
-Normalization, scaling, and highly variable genes selection in the filtered dataset; 
-Clustering with parameter tuning allowing identification of smaller clusters; 
-Marker gene identification for each cluster; 
-Automated cell type annotation using CellO. 
+* Creation of Scanpy object, and some basic exploration of its properties; 
+* Estimation of mitochondrial and ribosomal protein percentage among all reads; 
+* Calculation of cell cycle scores for each cell; 
+* Log-normalization, highly variable genes selection, dimensionality reduction, clustering, and general exploration of the dataset; 
+* Quality control and careful removal of low quality cells; 
+* Normalization, scaling, and highly variable genes selection in the filtered dataset; 
+* Clustering with parameter tuning allowing identification of smaller clusters; 
+* Marker gene identification for each cluster; 
+* Automated cell type annotation using CellO. 
 
 
 Integration in R
