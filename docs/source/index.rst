@@ -15,6 +15,7 @@ Cellular Genetics IT travel guide
    about
    jupyterhub
    notebooks
+   raw
    imaging
    sharing
    submissions
