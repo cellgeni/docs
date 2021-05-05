@@ -1,5 +1,5 @@
-Getting raw fastq files from GEO/ArrayExpress/SRA/ENA databases
-===============================================================
+Getting raw fastq files
+=======================
 
 Databases and manual file download
 ----------------------------------
