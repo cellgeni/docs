@@ -24,6 +24,7 @@ find which SRR IDs correspond to your sample, and download them using wget or a 
 If you click on the first sample (GSM2902375) and scroll to the bottom of the page, you will see the following:
 
 .. image:: img/AlexImage1.png
+   :align: center 
 
 Clicking on the link next to SRA will get you to this page: 
 
