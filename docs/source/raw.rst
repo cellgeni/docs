@@ -1,7 +1,8 @@
 Getting raw fastq files from GEO/ArrayExpress/SRA/ENA databases
----------------------------------------------------------------
- 
-**Databases and manual file download**
+===============================================================
+
+Databases and manual file download
+----------------------------------
 
 RNA-seq and scRNA-seq data are often deposited into Gene Expression Omnibus database `GEO <https://www.ncbi.nlm.nih.gov/geo/info/>`_, 
 which is maintained by NCBI. More generally, next-generation sequencing data are deposited to the Sequence Read Archive database
@@ -58,7 +59,8 @@ Right-click will show you the fastq file full address, which you can then downlo
      
      wget -b ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR641/008/SRR6417898/SRR6417898.fastq.gz
  
-**SRA formats and NCBI SRA tools**
+SRA formats and NCBI SRA tools
+------------------------------
 
 In order to automate the process, we need to learn a bit about NCBI file formats and database organization. 
 Raw reads are stored in the SRA database in the proprietary SRA format. In order to work with it, 
@@ -89,7 +91,8 @@ checking that all samples downloaded correctly. This can be done as follows:
      
      nohup fastq-dump --split-e SRR6417898 &> SRR6417898.fqdump.log 
  
-**Automation: fetching many samples at once** 
+Automation: fetching many samples at once 
+-----------------------------------------
 
 If you’re interested in getting a whole dataset (many GSM IDs), there are several ways to do so. First of all, check if the study is present in 
 ArrayExpress (see section below). Second, there’s a regularly updated metadata dump that can be downloaded from 
@@ -128,7 +131,8 @@ The URL present in the 10th column of this output (separated by comma) can be us
 These scripts can be used to automate the download of many files. Try to not do more than 4 downloads of any kind at the same time, since you will get timeouts 
 and errors. 
 
-**Downloading single cell datasets from SRA**
+Downloading single cell datasets from SRA
+-----------------------------------------
 
 Unfortunately, SRA processing is done very poorly for 10x scRNA-seq datasets, and they are often deposited as single-end files, losing the important 
 read 1 that contains cell barcode and UMI. For this reason, one should download BAM files instead of SRA or fastq. The procedure here can be as follows: 
@@ -151,7 +155,8 @@ read 1 that contains cell barcode and UMI. For this reason, one should download 
 
 3) Process the resulting fastq files with STARsolo or other read aligner of choice. 
 
-**Using ArrayExpress or ENA** 
+Using ArrayExpress or ENA 
+-------------------------
 
 ArrayExpress/ENA make everything easier because they have a metadata file that contains explicit URL for all gzipped fastq files, and they do not use the obscene horrific inconvenient sra format. They also do not lose the second read for 10x experiments. Let’s see the process given two examples: dataset E-MTAB-9489, and dataset GSE138266.
 
@@ -175,7 +180,8 @@ There are no fastq files, but the same BAM files you were finding with srapath (
 Download the file marked with the arrow, get the URLs with BAM files, and download them with wget. After this, follow the steps described above 
 (convert bam to fastq using 10x’s bamtofastq, and quantify the reads using STARsolo or a similar tool). 
 
-**Brief summary**
+Brief summary
+-------------
 
 ArrayExpress/ENA is the best way to get data - they are downloaded quickly and often are already in fastq.gz form. If you can’t find the requested data there, 
 use `fastq-dump` for bulk RNA-seq, or get BAM files for 10x scRNA-seq. In the latter case, BAM file can be converted to 10x fastq files using 10x’s version of bamtofastq. Following this, you can run cellranger, STARsolo, kallisto/bustools, or alevin to obtain a counts matrix. 
