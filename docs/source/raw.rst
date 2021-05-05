@@ -148,6 +148,33 @@ read 1 that contains cell barcode and UMI. For this reason, one should download 
         
 2) Convert them to read files using 10x version of `bamtofastq <https://support.10xgenomics.com/docs/bamtofastq>`_; 
 
-3) Process the resulting fastq files with STARsolo or other read aligner of choice. Using ArrayExpress or ENA. ArrayExpress/ENA make everything easier because they have a metadata file that contains explicit URL for all gzipped fastq files, and they do not use the obscene horrific inconvenient sra format. They also do not lose the second read for 10x experiments. Let’s see the process given two examples: dataset E-MTAB-9489, and dataset GSE138266.
+3) Process the resulting fastq files with STARsolo or other read aligner of choice. 
 
-4) Dataset E-MTAB-9489 was submitted directly to ArrayExpress, so the reads are available in the correct format. To get them, click on “Samples and data” link, and then export the table as tab-delimited text file (marked with arrow): 
+**Using ArrayExpress or ENA** 
+
+ArrayExpress/ENA make everything easier because they have a metadata file that contains explicit URL for all gzipped fastq files, and they do not use the obscene horrific inconvenient sra format. They also do not lose the second read for 10x experiments. Let’s see the process given two examples: dataset E-MTAB-9489, and dataset GSE138266.
+
+1) Dataset E-MTAB-9489 was submitted directly to ArrayExpress, so the reads are available in the correct format. To get them, click on “Samples and data” link, and then export the table as tab-delimited text file (marked with arrow): 
+
+INSERT IMAGE 5
+
+After this, you can parse the text file as follows to get the list of URLs for download:
+
+ .. code-block:: bash
+ 
+   cat sample_table.tsv | tr '\t' '\n' | grep ftp | grep fastq
+
+This gives you an URL list that can be subsequently downloaded with wget or other similar tools.
+
+2) Dataset GSE138266 was originally submitted to GEO, so searching ArrayExpress or ENA for it returns nothing. However, if we check the associated bio-project, SRP223886, we can see that there is an ENA entry linked to it: 
+
+INSERT IMAGE 6
+
+There are no fastq files, but the same BAM files you were finding with srapath (see above) are also available here via EBI ftp. 
+Download the file marked with the arrow, get the URLs with BAM files, and download them with wget. After this, follow the steps described above 
+(convert bam to fastq using 10x’s bamtofastq, and quantify the reads using STARsolo or a similar tool). 
+
+**Brief summary**
+
+ArrayExpress/ENA is the best way to get data - they are downloaded quickly and often are already in fastq.gz form. If you can’t find the requested data there, 
+use `fastq-dump` for bulk RNA-seq, or get BAM files for 10x scRNA-seq. In the latter case, BAM file can be converted to 10x fastq files using 10x’s version of bamtofastq. Following this, you can run cellranger, STARsolo, kallisto/bustools, or alevin to obtain a counts matrix. 
