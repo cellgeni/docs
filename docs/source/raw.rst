@@ -23,7 +23,7 @@ find which SRR IDs correspond to your sample, and download them using wget or a 
 `Study GSE108503 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE108503>`_ consists of 14 samples, GSM2902375 - GSM2902388. 
 If you click on the first sample (GSM2902375) and scroll to the bottom of the page, you will see the following:
 
-.. image:: img/AlexImage1-resized.png
+.. image:: img/AlexImage1.png
 
 Clicking on the link next to SRA will get you to this page: 
 
