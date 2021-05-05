@@ -14,6 +14,7 @@ Cellular Genetics IT travel guide
    
    about
    jupyterhub
+   cloud-gpu-notebooks
    notebooks
    raw
    imaging
