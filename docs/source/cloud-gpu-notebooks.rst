@@ -2,7 +2,7 @@ GPU Notebooks on the Cloud
 ===========
 
 .. note::
-    **Only members of the `Cellular Genetics Programme <https://www.sanger.ac.uk/programme/cellular-genetics/>`_ and their collaborators are eligible for access**.
+    **Only members of the Cellular Genetics Programme and their collaborators are eligible for access**.
 
 Cloud GPU Notebooks is a new service provided by CellGen IT team. The service utilizes Cloud resources and is paid for by the `Cellular Genetics Programme <https://www.sanger.ac.uk/programme/cellular-genetics/>`_. We intend to provide this service in three tiers.
 
