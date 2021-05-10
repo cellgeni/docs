@@ -20,13 +20,18 @@ Bespoke notebooks could have all available GPU types (T4, V100, P100, and A100),
 
 See `official list <https://cloud.google.com/compute/docs/gpus#gpus-list>`_ for specs.
 
-Accessing your instance
------------
+(Tier 3) Requesting a notebook
+^^^^^^^^
+
+Please fill in `this form <https://forms.gle/NLdvCHnzjgZXcXPD7>`_ and we will action on your request the same or the next day.
+
+(Tier 3) Accessing your instance
+^^^^^^^^
 
 You’ll receive a link similar to: https://xxx.yyy..notebooks.googleusercontent.com/ you need to make sure that your user@sanger.ac.uk Sanger Google Account is used to login. We suggest using Incognito/Private mode in your web browser to access the link so it does not get mixed with your Personal Google Account.
 
 Installed software
-------------
+--------
 
 The cloud notebook probably won't have the same setup as you've got on your Jupyter. Some packages are installed by default (python, cuda, pytorch, tensorflow). The best thing is to have a list of all your required packages so it's easier to install them all in a new compute instance. 
 Should you require more packages, you can install them yourself. It’s a good idea to add install steps or scripts to your notebooks. 
@@ -60,8 +65,6 @@ Use `rclone <https://rclone.org/drive/>`_ to copy data from the farm to Google D
 
 You can also use `rclone mount <https://rclone.org/commands/rclone_mount/>`_ to make Google Drive show up in your path. Quick guide for setting up rclone `here <https://gitlab.internal.sanger.ac.uk/mp33/random-guides/-/blob/master/rclone.md>`_. 
 
-Checking your instance
-----------------------
 
 Shutting down your instance
 ---------------------------
