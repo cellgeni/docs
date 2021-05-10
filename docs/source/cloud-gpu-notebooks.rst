@@ -20,15 +20,16 @@ Bespoke notebooks could have all available GPU types (T4, V100, P100, and A100),
 
 See `official list <https://cloud.google.com/compute/docs/gpus#gpus-list>`_ for specs.
 
-(Tier 3) Requesting a notebook
-^^^^^^^^
-
-Please fill in `this form <https://forms.gle/NLdvCHnzjgZXcXPD7>`_ and we will action on your request the same or the next day.
-
 (Tier 3) Accessing your instance
 ^^^^^^^^
 
 You’ll receive a link similar to: https://xxx.yyy..notebooks.googleusercontent.com/ you need to make sure that your user@sanger.ac.uk Sanger Google Account is used to login. We suggest using Incognito/Private mode in your web browser to access the link so it does not get mixed with your Personal Google Account.
+
+
+Request a notebook
+-------
+
+Please fill in `this form <https://forms.gle/NLdvCHnzjgZXcXPD7>`_ and we will action on your request and be in touch with you the same or the next day.
 
 Installed software
 --------
