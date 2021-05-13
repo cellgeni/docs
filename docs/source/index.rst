@@ -16,6 +16,7 @@ Cellular Genetics IT travel guide
    jupyterhub
    cloud-gpu-notebooks
    notebooks
+   rclone
    raw
    imaging
    sharing
