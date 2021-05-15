@@ -139,9 +139,9 @@ The message will look something like:
 
   .. code-block :: bash
   
-  If your browser doesn't open automatically go to the following link: http://127.0.0.1:53682/auth?state=V_bmyC_dSCuuBc6uYbFE7w
-  Log in and authorize rclone for access
-  Waiting for code...
+    If your browser doesn't open automatically go to the following link: http://127.0.0.1:53682/auth?state=V_bmyC_dSCuuBc6uYbFE7w
+    Log in and authorize rclone for access
+    Waiting for code...
   
 The URL needs to have the `http://127.0.0.1:` part replaced depending on where you are running the command from.
 
@@ -160,8 +160,18 @@ The URL needs to have the `http://127.0.0.1:` part replaced depending on where y
 .. note::
     **Please note GitHub makes all usernames lowercase for the purposes of this URL**.
     
-Once that has occurred there will be a sign in page. Once you sign in you will be redirected again and shown an error message. That is ok, take the URL from the webpage, which will look something like this: 
-``http://127.0.0.1:53682/?code=M.R3_BAY.6cbffffd-7232-af3d-4b73-fa56f97e32be&state=V_bmyC_dSCuuBc6uYbFE7w`` 
-and again replace the ``http://127.0.0.1`` with the correct option from the above list i.e. if you were using JupyterHub the final URL would be: ``https://jhub.cellgeni.sanger.ac.uk/user/<USERNAME>/proxy/53682/?code=M.R3_BAY.6cbffffd-7232-af3d-4b73-fa56f97e32be&state=V_bmyC_dSCuuBc6uYbFE7w``
+Once that has occurred there will be a sign in page. Once you sign in you will be redirected again and shown an error message. That is ok, take the URL from the webpage, which will look something like this:
+
+  .. code-block :: bash
+    
+    http://127.0.0.1:53682/?code=M.R3_BAY.6cbffffd-7232-af3d-4b73-fa56f97e32be
+    &state=V_bmyC_dSCuuBc6uYbFE7w
+    
+and again replace the ``http://127.0.0.1`` with the correct option from the above list i.e. if you were using JupyterHub the final URL would be: 
+
+  .. code-block :: bash
+  
+    https://jhub.cellgeni.sanger.ac.uk/user/<USERNAME>/proxy/53682/
+    ?code=M.R3_BAY.6cbffffd-7232-af3d-4b73-fa56f97e32be&state=V_bmyC_dSCuuBc6uYbFE7w
 
 You can then return to the terminal.
