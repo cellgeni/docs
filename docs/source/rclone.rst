@@ -93,7 +93,7 @@ If you want to copy files without mounting an entire file system then use `copy 
   
 **sync**
 
-The ``sync`` command is a similar command to ``clone`` except it does not transfer unchanged files, the website link is `this <https://rclone.org/commands/rclone_sync/>`_. It works in the exact same manner. 
+The ``sync`` command is a similar command to ``clone`` except it deletes files that are in the destination directory that are not in the source directory. The website link is `this <https://rclone.org/commands/rclone_sync/>`_. It works in the exact same manner. 
 
   .. code-block:: bash
   
