@@ -91,33 +91,6 @@ If you want to copy files without mounting an entire file system then use `copy 
 .. note::
   **Track progress.** Add the ``--progress`` option at the end of any command to view real time statistics of the transfer.
   
-**sync**
-
-The ``sync`` command is a similar command to ``clone`` except it deletes files that are in the destination directory but not in the source directory. The website link is `this <https://rclone.org/commands/rclone_sync/>`_. It works in the exact same manner. 
-
-  .. code-block:: bash
-  
-    rclone sync source destination
-
-* To copy a local directory called "data" to a Google Drive directory called "backup"
-
-``rclone sync /home/local/data gdrive:backup``
-
-* Copy a local directory called "data" to a Google Drive directory that someone shared with you named "collaboration", it is under the "Shared with me" section of your google drive page.
-
-``rclone sync /home/local/data  gdrive:collaboration --drive-shared-with-me``
-
-* Copy a Google Drive directory called "latest" to a local directory called "data"
-
-``rclone sync gdrive:latest  /home/local/data``
-
-* Copy a Google Drive directory that someone shared with you named "collaboration" to a local directory called "data". The drive directory is under the "Shared with me" section of your google drive page.
-
-``rclone sync gdrive:collaboration /home/local/data --drive-shared-with-me``
-
-.. note::
-  **Track progress.** Add the ``--progress`` option at the end of any command to view real time statistics of the transfer.
-
 **ls**
 
 The ``ls`` command allows you to list a remote file system and see the structure within it, the website link is `this <https://rclone.org/commands/rclone_ls/>`_. TheThe standard command looks like this:
