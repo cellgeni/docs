@@ -10,10 +10,6 @@ Tier 1
 ------
 `Free version of Google Colab <https://colab.research.google.com/>`_ has only the K80 GPU type, up to 12GB RAM and 12 hours of execution time. 
 
-Tier 2
-------
-`Google Colab Pro <https://colab.research.google.com/signup#>`_ has K80 and T4 GPU types, up to 25GB RAM and 24 hours of execution time.
-
 Tier 3
 ------
 Bespoke notebooks could have all available GPU types (T4, V100, P100, and A100), up to 624GB RAM and longer execution times. In addition up to 8 GPUs can be attached to an instance.
