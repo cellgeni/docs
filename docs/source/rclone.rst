@@ -29,7 +29,7 @@ Configuration
 
 This is a guide through the configuration process of rclone. We will be using Google Drive as the example remote storage we want to access.
 
-#. Open a new Terminal and type ``~/rclone`` config, it will show you a list of options
+#. Open a new Terminal and type ``~/rclone config``, it will show you a list of options
 #. When prompted with ``e/n/d/r/c/s/q>``, write ``n``
 #. Next it will ask you for the name of storage remote you want to set up, next to ``name>``, write gdrive
 #. After that it willl want to know the type of storage remote you want to configure, next to ``Storage>``, write ``drive`` for Google Drive (the types of storage available are listed for you)
@@ -49,28 +49,15 @@ This is a guide through the configuration process of rclone. We will be using Go
 Usage Examples
 --------------
 
-**Mount**
-
 For all the examples we will be using Google Drive.
-
-Mounting allows you to access your remote file system from your local filesystem. The official mount documentation can be found on their `website <https://rclone.org/commands/rclone_mount/>`_. 
-
-#. Firstly, you want to create a directory to be mounted ``mkdir -p ~/mount/gdrive/``
-#. Next, you want to mount the remote storage file system to this path ``rclone mount gdrive:/ ~/mount/gdrive/ --daemon --vfs-cache-mode full``
-#. Check is works by doing ``ls ~/mount/gdrive/`` and you should see your remote storage files linked.
-
-.. note::
-    **Mount can be slow.** Mounting does a lot of copying back a forth, if you are going to edit large files this may end up being slow. To solve this it's better to copy the files first and work on them locally.
-    
-* To unmount your remote storage, do ``fusermount -u ~/mount/gdrive/``
 
 **Copy** 
 
-If you want to copy files without mounting an entire file system then use `copy <https://rclone.org/commands/rclone_copy/>`_. The basic layout is as followed"
+The `copy command<https://rclone.org/commands/rclone_copy/>`_ copies files from a source source to a destination. This process doesn't transfer unchanged files, testing by size and modification time or MD5SUM and it doesn't delete files from the destination. The basic layout is as followed:
 
   .. code-block:: bash
   
-    rclone copy source destination
+    rclone copy <source> <destination>
 
 * To copy a local directory called "data" to a Google Drive directory called "backup"
 
@@ -90,7 +77,20 @@ If you want to copy files without mounting an entire file system then use `copy 
 
 .. note::
   **Track progress.** Add the ``--progress`` option at the end of any command to view real time statistics of the transfer.
-  
+
+**Mount**
+
+Mounting allows you to access your remote file system from your local filesystem. The official mount documentation can be found on their `website <https://rclone.org/commands/rclone_mount/>`_. 
+
+#. Firstly, you want to create a directory to be mounted ``mkdir -p ~/mount/gdrive/``
+#. Next, you want to mount the remote storage file system to this path ``rclone mount gdrive:/ ~/mount/gdrive/ --daemon --vfs-cache-mode full``
+#. Check is works by doing ``ls ~/mount/gdrive/`` and you should see your remote storage files linked.
+
+.. note::
+    **Mount can be slow.** Mounting does a lot of copying back a forth, if you are going to edit large files this may end up being slow. To solve this it's better to copy the files first and work on them locally.
+    
+* To unmount your remote storage, do ``fusermount -u ~/mount/gdrive/``
+
 **ls**
 
 The ``ls`` command allows you to list a remote file system and see the structure within it, the website link is `this <https://rclone.org/commands/rclone_ls/>`_. TheThe standard command looks like this:
