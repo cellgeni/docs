@@ -122,6 +122,7 @@ Packages can be installed with the ``install.packages()`` function in an RStudio
 or multiple packages at once:
 
 .. code-block:: r
+
     install.packages(c("packageOne", "packageTwo", "packageThree"))
 
 From a terminal ``RScript`` can be used to install packages **(don't install packages as sudo)**:
@@ -228,7 +229,7 @@ Try opening a new terminal and change directory to your farm home ``cd /nfs/user
 
 
 Mounting other NFS storages
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Create a folder where to mount the share: ``mkdir -p ~/home/jovyan/shared``
 
@@ -260,7 +261,7 @@ and download the resulting file with the right click ``Download`` option.
 
 
 Exporting notebooks
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 
 Export as PDF
@@ -295,7 +296,7 @@ If that it is not enough, the easiest way is to install the whole texlive packag
 Sharing notebooks
 -----------------
 
-#. Go to your `API Tokens page <https://jhub.cellgeni.sanger.ac.uk/hub/token>`_ or go to `hub/home <https://jhub.cellgeni.sanger.ac.uk/hub/home>`_ and then click  **"Token"**  on the top menu.
+#. Go to your `API Tokens page <https://jhub.cellgeni.sanger.ac.uk/hub/token>`__ or go to `hub/home <https://jhub.cellgeni.sanger.ac.uk/hub/home>`__ and then click  **"Token"**  on the top menu.
 #. Type in a note like **"Shared with collaborator X"**
 #. Click the orange button **"Request new API token"**
 #. Copy the token that shows up under **"Your new API Token"**. (i.e. ``ba5eba11b01dfaceca55e77ecacaca11``)
@@ -322,7 +323,7 @@ Before start using iRODS, you'll need to copy your environment file from the far
 
 3. Run ``irods iinit``, it will ask for your PAM password *(Sanger password, same as the one you use for the farm).*
 
-4. Run all `icommands avaiable <https://docs.irods.org/master/icommands/user/>`_ using ``irods <icommand_name>``. For example: ``irods ils`` or ``irods ihelp``.
+4. Run all `icommands avaiable <https://docs.irods.org/master/icommands/user/>`__ using ``irods <icommand_name>``. For example: ``irods ils`` or ``irods ihelp``.
 
 .. note:: **"irods iinit" also asked for iRODS password?** Go to the farm and type: ``head -1 ~/.irods/irods_password``, the output is your password.
 
@@ -331,7 +332,7 @@ Before start using iRODS, you'll need to copy your environment file from the far
 Running containers
 ------------------
 
-The jupyter environment includes **Singularity**, a container platform that allows creating and running tools in a portable and reproducible way. You can build a container using Singularity on your Jupyter instance, and then run it the farm. Your container is a single file, and you don’t have to worry about how to install all the software you need on each different operating system. Read more about building and running singularity containers on the `official docs <https://sylabs.io/docs/>`_.
+The jupyter environment includes **Singularity**, a container platform that allows creating and running tools in a portable and reproducible way. You can build a container using Singularity on your Jupyter instance, and then run it the farm. Your container is a single file, and you don’t have to worry about how to install all the software you need on each different operating system. Read more about building and running singularity containers on the `official docs <https://sylabs.io/docs/>`__.
 
 
 Troubleshooting
@@ -343,13 +344,13 @@ Restart your instance
 
 Sometimes, a server restart might solve an issue. For that:
 
-#. Go to the menu "File" > "Hub Control Panel" or browse to your `Hub Home <https://jhub.cellgeni.sanger.ac.uk/hub/home>`_
+#. Go to the menu "File" > "Hub Control Panel" or browse to your `Hub Home <https://jhub.cellgeni.sanger.ac.uk/hub/home>`__
 
 #. Click ``Stop My Server``
 
 #. Wait 2 minutes and reload the page.
 
-#. Access `https://jhub.cellgeni.sanger.ac.uk/ <https://jhub.cellgeni.sanger.ac.uk/>`_ to get your instance up and running again.
+#. Access `https://jhub.cellgeni.sanger.ac.uk/ <https://jhub.cellgeni.sanger.ac.uk/>`__ to get your instance up and running again.
 
 
 Check storage usage
@@ -381,4 +382,4 @@ RStudio errors
 
 How to get help
 ---------------
-For any Jupyter Hub related questions please use our `MatterMost channel <https://mattermost.sanger.ac.uk/cellgeninf/channels/jupyterhub>`_. There are lots of users there who can quickly answer your questions.
+For any Jupyter Hub related questions please use our `MatterMost channel <https://mattermost.sanger.ac.uk/cellgeninf/channels/jupyterhub>`__. There are lots of users there who can quickly answer your questions.

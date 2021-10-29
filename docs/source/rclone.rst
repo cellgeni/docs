@@ -3,7 +3,7 @@ Rclone
 
 Rclone is a software that is very useful for downloading data from remote storage locations such as Google Drive and DropBox. This page will cover 
 installation, configuration and some miscellaneous information that could be of use. For a full list of storage providers rclone works with please visit their
-`website <https://rclone.org>`_.
+`website <https://rclone.org>`__.
 
 Installation
 ------------
@@ -53,7 +53,7 @@ For all the examples we will be using Google Drive.
 
 **Copy** 
 
-The `copy command <https://rclone.org/commands/rclone_copy/>`_ copies files from a source source to a destination. This process doesn't transfer unchanged files, testing by size and modification time or MD5SUM and it doesn't delete files from the destination. The basic layout is as followed:
+The `copy command <https://rclone.org/commands/rclone_copy/>`__ copies files from a source source to a destination. This process doesn't transfer unchanged files, testing by size and modification time or MD5SUM and it doesn't delete files from the destination. The basic layout is as followed:
 
   .. code-block:: bash
   
@@ -80,7 +80,7 @@ The `copy command <https://rclone.org/commands/rclone_copy/>`_ copies files from
 
 **Mount**
 
-Mounting allows you to access your remote file system from your local filesystem. The official mount documentation can be found on their `website <https://rclone.org/commands/rclone_mount/>`_. 
+Mounting allows you to access your remote file system from your local filesystem. The official mount documentation can be found on their `website <https://rclone.org/commands/rclone_mount/>`__. 
 
 #. Firstly, you want to create a directory to be mounted ``mkdir -p ~/mount/gdrive/``
 #. Next, you want to mount the remote storage file system to this path ``rclone mount gdrive:/ ~/mount/gdrive/ --daemon --vfs-cache-mode full``
@@ -93,7 +93,7 @@ Mounting allows you to access your remote file system from your local filesystem
 
 **ls**
 
-The ``ls`` command allows you to list a remote file system and see the structure within it, the website link is `this <https://rclone.org/commands/rclone_ls/>`_. TheThe standard command looks like this:
+The ``ls`` command allows you to list a remote file system and see the structure within it, the website link is `this <https://rclone.org/commands/rclone_ls/>`__. TheThe standard command looks like this:
 
   .. code-block:: bash
   
@@ -110,7 +110,7 @@ Miscellaneous
 When setting up certain remote storages, such as box or onedrive, a verification method will be needed that requires going to a URL displayed on the command line.
 The message will look something like:
 
-  .. code-block :: bash
+  .. code-block:: console
   
     If your browser doesn't open automatically go to the following link: http://127.0.0.1:53682/auth?state=V_bmyC_dSCuuBc6uYbFE7w
     Log in and authorize rclone for access
@@ -135,16 +135,14 @@ The URL needs to have the `http://127.0.0.1:` part replaced depending on where y
     
 Once that has occurred there will be a sign in page. Once you sign in you will be redirected again and shown an error message. That is ok, take the URL from the webpage, which will look something like this:
 
-  .. code-block :: bash
+  .. code-block:: console
     
-    http://127.0.0.1:53682/?code=M.R3_BAY.6cbffffd-7232-af3d-4b73-fa56f97e32be
-    &state=V_bmyC_dSCuuBc6uYbFE7w
+    http://127.0.0.1:53682/?code=M.R3_BAY.6cbffffd-7232-af3d-4b73-fa56f97e32be&state=V_bmyC_dSCuuBc6uYbFE7w
     
 and again replace the ``http://127.0.0.1`` with the correct option from the above list i.e. if you were using JupyterHub the final URL would be: 
 
-  .. code-block :: bash
+  .. code-block:: console
   
-    https://jhub.cellgeni.sanger.ac.uk/user/<USERNAME>/proxy/53682/
-    ?code=M.R3_BAY.6cbffffd-7232-af3d-4b73-fa56f97e32be&state=V_bmyC_dSCuuBc6uYbFE7w
+    https://jhub.cellgeni.sanger.ac.uk/user/<USERNAME>/proxy/53682/?code=M.R3_BAY.6cbffffd-7232-af3d-4b73-fa56f97e32be&state=V_bmyC_dSCuuBc6uYbFE7w
 
 You can then return to the terminal.

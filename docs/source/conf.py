@@ -22,7 +22,7 @@ copyright = '2019, CellGenIT team'
 author = 'CellGenIT team'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.21.10'
 
 
 # -- General configuration ---------------------------------------------------
