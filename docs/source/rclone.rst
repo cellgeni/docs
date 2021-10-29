@@ -53,7 +53,7 @@ For all the examples we will be using Google Drive.
 
 **Copy** 
 
-The `copy command<https://rclone.org/commands/rclone_copy/>`_ copies files from a source source to a destination. This process doesn't transfer unchanged files, testing by size and modification time or MD5SUM and it doesn't delete files from the destination. The basic layout is as followed:
+The `copy command <https://rclone.org/commands/rclone_copy/>`_ copies files from a source source to a destination. This process doesn't transfer unchanged files, testing by size and modification time or MD5SUM and it doesn't delete files from the destination. The basic layout is as followed:
 
   .. code-block:: bash
   
