@@ -4,9 +4,9 @@ Contact us
 Submit a ticket
 ---------------
 
-We operate using JIRA ticketing system. To be able to put in tickets you need to contact us by either emailing to vk6@sanger.ac.uk or using `our Mattermost channel <https://mattermost.sanger.ac.uk/cellgeninf/channels/jira-requests>`_ (please use your Sanger credentials to login).
+We operate using JIRA ticketing system. To be able to put in tickets you need to contact us by either emailing to ``cellgeni [at] sanger.ac.uk`` or using `our Mattermost channel <https://mattermost.sanger.ac.uk/cellgeninf/channels/jira-requests>`_ (please use your Sanger credentials to login).
 
-Once registered you can put in a ticket using either `our web portal <https://cellgeni-jira.sanger.ac.uk/servicedesk/customer/portal/1>`_.
+Once registered you can put in a ticket using `our web portal <https://cellgeni-jira.sanger.ac.uk/servicedesk/customer/portal/1>`_.
 
 Coffee standups
 ---------------
