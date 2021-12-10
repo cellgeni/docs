@@ -17,8 +17,8 @@ and to aid them is inspecting their own data. We have five notebooks available e
                 a -> b [label=" soupX (R) ", href="https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-SoupX.Rmd", target="_blank"];
                 b -> c [label=" scrublet (Python) ", href="https://github.com/cellgeni/notebooks/blob/master/notebooks/new-doublets-scrublet.ipynb", target="_blank"];
                 c -> d [xlabel=" Seurat (R) full basic workflow ", href="https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-Seurat.Rmd", target="_blank"];
-                d -> e [xlabel=" R-based integration methods "];
-                c -> f [label=" scanpy (Python) full basic workflow "];
+                d -> e [xlabel=" R-based integration methods ", href="https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-Integration.Rmd", target="_blank"];
+                c -> f [label=" scanpy (Python) full basic workflow ", href="https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-Scanpy.ipynb", target="_blank"];
                 f -> g [label=" Python-based integration methods "];
         }
 
@@ -31,7 +31,7 @@ SoupX
 
 This notebook describes the usage of soupX R package for ambient RNA (“soup”) removal. We start from dual-indexed 10k PBMC dataset from `10X Genomics website <https://support.10xgenomics.com/single-cell-gene-expression/datasets>`_, processed by CellRanger with `GRCh38 reference 2020-A <https://support.10xgenomics.com/single-cell-gene-expression/software/release-notes/build>`_. Since soupX requires clustering, we use basic Seurat functionality to quickly normalize and cluster the expression data; detailed explanations of Seurat workflow will be given later. Corrected data matrix is written and is used in all further processing. 
 
-scrublet
+Scrublet
 --------
 
 `Scrublet Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-doublets-scrublet.ipynb>`_
@@ -39,13 +39,6 @@ scrublet
 `Scrublet Notebook HTML <https://cellgeni.github.io/notebooks/html/new-doublets-scrublet.html>`_
 
 This notebook describes the usage of scrublet Python package for doublet detection. Scrublet performed very well in a `recent benchmark <https://pubmed.ncbi.nlm.nih.gov/33338399/>`_, and is also very intuitive and computationally efficient. The results (doublet scores and binary “singlet/doublet” assignments) are saved as a text file and will be used in downstream processing with Seurat or Scanpy. 
-
-Seurat/Scanpy/SCE object exploration and interconversion
---------------------------------------------------------
-
-`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
-
-This notebook highlights some of the properties of three objects widely used to work with scRNAseq data: Seurat object (Seurat/R), SingleCellExperiment (SingleCellExperiment/R), and AnnData (Scanpy/Python). We also show how these objects can be converted into each other. 
 
 Seurat
 ------
@@ -70,7 +63,9 @@ This is a basic `Seurat <https://satijalab.org/seurat/>`_ workflow R notebook th
 Scanpy
 ------
 
-`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
+`Scanpy Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-Scanpy.ipynb>`_
+
+`Scanpy Notebook HTML <https://cellgeni.github.io/notebooks/html/new-10kPBMC-Scanpy.html>`_
 
 This is a basic `Scanpy <https://scanpy.readthedocs.io/en/stable/>`_ workflow Python notebook that describes all key steps of scRNA-seq processing, using 10k PBMC dual-indexed dataset from 10X Genomics. Ambient RNA removal (soupX) and doublet detection (scrublet) should be ran before starting this workflow. After this, the following steps are performed:
 
@@ -88,14 +83,16 @@ This is a basic `Scanpy <https://scanpy.readthedocs.io/en/stable/>`_ workflow Py
 Integration in R
 ----------------
 
-`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
+`R Integration Notebook repository <https://github.com/cellgeni/notebooks/blob/master/notebooks/new-10kPBMC-Integration.Rmd>`_
+
+`R Integration Notebook HTML <https://cellgeni.github.io/notebooks/html/new-10kPBMC-Integration.html>`_
 
 This notebook shows how batch correction (for one dataset) or integration (for multiple datasets) can be performed using tools available in R. Used packages include: Harmony, batchelor, Seurat, ComBat, and Limma. 
 
 Integration in Python
 ---------------------
 
-`Insert-Link-To-Notebook <https://github.com/cellgeni/notebooks>`_
+`Notebook In Progress <https://github.com/cellgeni/notebooks>`_
 
 This notebook shows how batch correction (for one dataset) or integration (for multiple datasets) can be performed using tools available in Python. Used packages include: BBKNN and Scanorama.
 
