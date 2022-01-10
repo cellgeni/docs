@@ -92,9 +92,9 @@ This notebook shows how batch correction (for one dataset) or integration (for m
 Integration in Python
 ---------------------
 
-`Notebook In Progress <https://github.com/cellgeni/notebooks>`_
+There is no notebook available for Python integration. 
 
-This notebook shows how batch correction (for one dataset) or integration (for multiple datasets) can be performed using tools available in Python. Used packages include: BBKNN and Scanorama.
+Please contact cellgeni@sanger.ac.uk if you need help with Python integration.
 
 Monocle3
 --------
