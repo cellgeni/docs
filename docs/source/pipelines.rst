@@ -19,6 +19,7 @@ Here is the list of pipelines we maintain and support:
 10. `Data Sharing <https://github.com/cellgeni/guitar>`_
 11. `Image Import to OME-TIFF <https://github.com/olatarkowska/pipeline-import>`_
 12. `Image Segmentation <https://gitlab.com/olatarkowska/cell-segmentation-pipeline>`_
+13. `CellBender <https://github.com/broadinstitute/CellBender>`_ 
 
 .. note:: If you would like to run ``cellranger`` by *10X* please put in a ticket for the NPG group by emailing to new-seq-pipe@sanger.ac.uk and specify which version of the cellranger and the genome you would like to use.
 
