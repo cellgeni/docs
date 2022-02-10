@@ -80,7 +80,7 @@ GPU Notebooks
 -------------
 
 To request a GPU notebook you do not need to open a ticket, instead you need to fill in this `form <https://forms.gle/NLdvCHnzjgZXcXPD7>`_. It requires you to have
-a google account.
+a Sanger account and a google account.
 
 OMERO uploads
 -------------
