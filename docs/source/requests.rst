@@ -52,12 +52,12 @@ Cellatac:
 
 Cellbender:
 
-* Sample IDs;
-* Study ID;
+* Sample IDs
+* Study ID
 * Reference Genome;
-* Location of data (i.e. IRODs path or FARM path);
-* Expected cells value for each sample;
-* Total droplets value for each sample;
+* Location of data (i.e. IRODs path or FARM path)
+* Expected cells value for each sample
+* Total droplets value for each sample
 * The EPOCHS value (default is 150)
 * The FPR value (default is 0.01)
 * The learn value (default is 0.0001)
