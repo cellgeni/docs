@@ -24,6 +24,11 @@ That will download a zip file of the latest rclone release. We now need to unzip
     
 When you ``ls`` you will see the package ``rclone``.
 
+.. note:: 
+
+    **FARM rlcone**: two different versions of ``rclone`` live on the farm. Make sure you're using the one from ``/software/rclone/rclone`` because that's the latest.
+
+
 Configuration
 -------------
 
@@ -51,7 +56,8 @@ Usage Examples
 
 For all the examples we will be using Google Drive.
 
-**Copy** 
+Copy
+^^^^
 
 The `copy command <https://rclone.org/commands/rclone_copy/>`__ copies files from a source source to a destination. This process doesn't transfer unchanged files, testing by size and modification time or MD5SUM and it doesn't delete files from the destination. The basic layout is as followed:
 
@@ -78,20 +84,8 @@ The `copy command <https://rclone.org/commands/rclone_copy/>`__ copies files fro
 .. note::
   **Track progress.** Add the ``--progress`` option at the end of any command to view real time statistics of the transfer.
 
-**Mount**
-
-Mounting allows you to access your remote file system from your local filesystem. The official mount documentation can be found on their `website <https://rclone.org/commands/rclone_mount/>`__. 
-
-#. Firstly, you want to create a directory to be mounted ``mkdir -p ~/mount/gdrive/``
-#. Next, you want to mount the remote storage file system to this path ``rclone mount gdrive:/ ~/mount/gdrive/ --daemon --vfs-cache-mode full``
-#. Check is works by doing ``ls ~/mount/gdrive/`` and you should see your remote storage files linked.
-
-.. note::
-    **Mount can be slow.** Mounting does a lot of copying back a forth, if you are going to edit large files this may end up being slow. To solve this it's better to copy the files first and work on them locally.
-    
-* To unmount your remote storage, do ``fusermount -u ~/mount/gdrive/``
-
-**ls**
+Listing files and folders
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``ls`` command allows you to list a remote file system and see the structure within it, the website link is `this <https://rclone.org/commands/rclone_ls/>`__. TheThe standard command looks like this:
 
@@ -103,6 +97,20 @@ The ``ls`` command allows you to list a remote file system and see the structure
 * ``lsl`` lists the modification time, size and path of objects only
 * ``lsd`` lists the directories only
 * ``lsf`` lists objects and directories in easy to parse format
+
+Mount
+^^^^^
+
+Mounting allows you to access your remote file system from your local filesystem. The official mount documentation can be found on their `website <https://rclone.org/commands/rclone_mount/>`__. 
+
+#. Firstly, you want to create a directory to be mounted ``mkdir -p ~/mount/gdrive/``
+#. Next, you want to mount the remote storage file system to this path ``rclone mount gdrive:/ ~/mount/gdrive/ --daemon --vfs-cache-mode full``
+#. Check is works by doing ``ls ~/mount/gdrive/`` and you should see your remote storage files linked.
+
+.. note::
+    **Mount can be slow.** Mounting does a lot of copying back a forth, if you are going to edit large files this may end up being slow. To solve this it's better to copy the files first and work on them locally.
+    
+* To unmount your remote storage, do ``fusermount -u ~/mount/gdrive/``
 
 Miscellaneous
 -------------
