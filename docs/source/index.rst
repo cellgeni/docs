@@ -6,13 +6,14 @@
 Cellular Genetics IT travel guide
 =================================
 
-.. image:: img/vladimirgroupphoto.png
+.. image:: img/groupphoto2020.png
    :width: 700
 
 .. toctree::
    :maxdepth: 2
    
    about
+   requests
    jupyterhub
    cloud-gpu-notebooks
    notebooks
