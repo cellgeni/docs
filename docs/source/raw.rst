@@ -24,17 +24,17 @@ find which SRR IDs correspond to your sample, and download them using wget or a 
 `Study GSE108503 <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE108503>`_ consists of 14 samples, GSM2902375 - GSM2902388. 
 If you click on the first sample (GSM2902375) and scroll to the bottom of the page, you will see the following:
 
-.. image:: img/AlexImage1.png
+.. image:: img/raw/01-link_to_SRA.png
    :align: center 
 
 Clicking on the link next to SRA will get you to this page: 
 
-.. image:: img/AlexImage2.png
+.. image:: img/raw/02-SRA_run.png
 
 From this, you can learn that the sample GSM2902375 was deposited in SRA as SRR6417898. 
 Click on the SRR link on the bottom, and then on “Data Access” tab, and you’ll see the following: 
 
-.. image:: img/AlexImage3.png
+.. image:: img/raw/03-SRA_archive_data_location.png
 
 You can now copy the AWS or NCBI link and run:
 
@@ -51,7 +51,7 @@ and `European Nucleotide Archive <https://www.ebi.ac.uk/ena/browser/home>`_ (sim
 many SRA entries are actually available via ENA, and are conveniently re-packaged as gzipped fastq files. 
 For example, if we search the same SRR ID as above (SRR6417898) in ENA, we find the samples are there as well: 
 
-.. image:: img/AlexImage4.png
+.. image:: img/raw/04-ENA_SRR_download.png
 
 Right-click will show you the fastq file full address, which you can then download similarly:
 
@@ -162,7 +162,7 @@ ArrayExpress/ENA make everything easier because they have a metadata file that c
 
 1) Dataset E-MTAB-9489 was submitted directly to ArrayExpress, so the reads are available in the correct format. To get them, click on “Samples and data” link, and then export the table as tab-delimited text file (marked with arrow): 
 
-.. image:: img/AlexImage5.png
+.. image:: img/raw/05-ArrayExpress_export.png
    
 After this, you can parse the text file as follows to get the list of URLs for download:
 
@@ -174,7 +174,7 @@ This gives you an URL list that can be subsequently downloaded with wget or othe
 
 2) Dataset GSE138266 was originally submitted to GEO, so searching ArrayExpress or ENA for it returns nothing. However, if we check the associated bio-project, SRP223886, we can see that there is an ENA entry linked to it: 
 
-.. image:: img/AlexImage6.png
+.. image:: img/raw/06-ENA_TSV_download.png
    
 There are no fastq files, but the same BAM files you were finding with srapath (see above) are also available here via EBI ftp. 
 Download the file marked with the arrow, get the URLs with BAM files, and download them with wget. After this, follow the steps described above 
