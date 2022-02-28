@@ -23,7 +23,7 @@ AnnData format usually contains the following slots:
 - **obs** contains the cell metadata.
 - **var** contains the gene metadata.
 
-.. image:: img/anndata.svg
+.. image:: img/visualisations/anndata.svg
    :width: 700
 
 When you work with **cellxgene** you only need to modify two of the slots above: **obsm** and **obs**.
@@ -59,7 +59,7 @@ To highlight and colour your cells **cellxgene** uses **obs** slot. The colourin
 
 When the metadata is *categorical*, i.e. there is one colour per category, the visualization will look like this:
 
-.. image:: img/categorical.png
+.. image:: img/visualisations/categorical.png
    :width: 700
 
 To make your cell metadata categorical please use the following code:
@@ -71,7 +71,7 @@ To make your cell metadata categorical please use the following code:
 
 When the metadata is *continuous*, the visualization will look like this:
 
-.. image:: img/continuous.png
+.. image:: img/visualisations/continuous.png
    :width: 700
 
 .. note:: Note there is a continuous scale on the right side of the plot.
