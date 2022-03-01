@@ -97,10 +97,22 @@ OMERO image uploads
 
 NDPI and TIFF images can be uploaded the `Sanger Imaging Platform <https://omero.sanger.ac.uk>`_ by the CellGenIT team without processing but PerkinElmer's Phoenix *(Opera and Operetta)* or Hamamatsu's NanoZoomer Image Sets *(NDPIS - one NDPI per channel)* need to be processed before importing. Read more about how to prepare log files for importing or stitching files on the `Imaging section <https://cellgeni.readthedocs.io/en/latest/imaging.html>`_. 
 
-Array Express uploads
----------------------
+ArrayExpress uploads
+--------------------
 
-TBD
+For ArrayExpress submissions we take care of the uploading of the sequencing
+data. The submission itself should be handled by a scientist, usually one of
+the first authors. In the submission process you will be given an ArrayExpress
+FTP address to upload the data to. You can open a JIRA ticket with us (this can
+be done in advance of receiving the FTP location), specify the sample names for
+which you need data uploaded (ideally split into types if the samples have
+different library types), and supply the FTP address when you have it.  We will
+retrieve the sequencing data from IRODS, convert it from CRAM to fastq format,
+upload the data, and supply a file that has md5sums for each file that was
+uploaded. ArrayExpress will request this file from you during the submission
+process so that it can check the integrity of the uploaded sequencing data.
+
+
 
 Websites
 --------
