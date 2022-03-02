@@ -19,6 +19,7 @@ Cellular Genetics IT travel guide
    notebooks
    rclone
    raw
+   requests
    imaging
    sharing
    submissions
