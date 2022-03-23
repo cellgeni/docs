@@ -180,18 +180,20 @@ Replace the ``http://127.0.0.1:`` with the notebook address but replace `/lab` w
 
   .. code-block:: console
   
-  https://51754b665886eb97-dot-europe-west2.notebooks.googleusercontent.com/proxy/53682/auth?state=8muuS53cce4gfVOIOE4cpQ
+   https://51754b665886eb97-dot-europe-west2.notebooks.googleusercontent.com/proxy/53682/auth?state=8muuS53cce4gfVOIOE4cpQ
   
 Log in with your Sanger credentials and select "Allow". A site can't be reached message will appear. The URL needs to again be changed from:
 
   .. code-block:: console
   
-  http://127.0.0.1:53682/?state=8muuS53cce4gfVOIOE4cpQ&code=4/0AX4XfWhe9SRaKPFlfRtbWWF5CjLGugJpOlObkaKgtjsJhd92mBAEOhVeMjo2NZPG0Tq1Og&scope=https://www.googleapis.com/auth/drive
+   http://127.0.0.1:53682/?state=8muuS53cce4gfVOIOE4cpQ&code=4/0AX4XfWhe9SRaKPFlfRtbWWF5CjLGugJpOlObkaKgtjsJhd92mBAEOhVeMjo2NZPG0Tq1Og&scope=
+   https://www.googleapis.com/auth/drive
   
 to
 
   .. code-block:: console
-  
-  https://51754b665886eb97-dot-europe-west2.notebooks.googleusercontent.com/proxy/53682/?state=8muuS53cce4gfVOIOE4cpQ&code=4/0AX4XfWhe9SRaKPFlfRtbWWF5CjLGugJpOlObkaKgtjsJhd92mBAEOhVeMjo2NZPG0Tq1Og&scope=https://www.googleapis.com/auth/drive
+    
+   https://51754b665886eb97-dot-europe-west2.notebooks.googleusercontent.com/proxy/53682/state=8muuS53cce4gfVOIOE4cpQ&code=
+   4/0AX4XfWhe9SRaKPFlfRtbWWF5CjLGugJpOlObkaKgtjsJhd92mBAEOhVeMjo2NZPG0Tq1Og&scope=https://www.googleapis.com/auth/drive
 
 then go back to the second terminal session that was opened and copy the token into the initial terminal. You can then follow the general instructions above again.
