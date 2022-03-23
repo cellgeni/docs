@@ -154,3 +154,44 @@ and again replace the ``http://127.0.0.1`` with the correct option from the abov
     https://jhub.cellgeni.sanger.ac.uk/user/<USERNAME>/proxy/53682/?code=M.R3_BAY.6cbffffd-7232-af3d-4b73-fa56f97e32be&state=V_bmyC_dSCuuBc6uYbFE7w
 
 You can then return to the terminal.
+
+* If on cloud GPU notebook, you will receive the following message:
+
+  .. code-block:: console
+    
+    Option config_token.
+    For this to work, you will need rclone available on a machine that has a web browser available.
+    For more help and alternate methods see: https://rclone.org/remote_setup/
+    Execute the following on the machine with the web browser (same rclone version recommended):
+        rclone authorize "drive" "eyJzY29wZSI6ImRyaXZlIn0"
+    Then paste the result.
+    Enter a value.
+    config_token>
+
+Open a second terminal on the instance and enter the command ``rclone authorize "drive" "eyJzY29wZSI6ImRyaXZlIn0"`` . This will produce another message:
+
+  .. code-block:: console
+  
+    <5>NOTICE: If your browser doesn't open automatically go to the following link: http://127.0.0.1:53682/auth?state=8muuS53cce4gfVOIOE4cpQ
+    <5>NOTICE: Log in and authorize rclone for access
+    <5>NOTICE: Waiting for code...
+    
+Replace the ``http://127.0.0.1:`` with the notebook address but replace `/lab` with `/proxy/` to produce
+
+  .. code-block:: console
+  
+  https://51754b665886eb97-dot-europe-west2.notebooks.googleusercontent.com/proxy/53682/auth?state=8muuS53cce4gfVOIOE4cpQ
+  
+Log in with your Sanger credentials and select "Allow". A site can't be reached message will appear. The URL needs to again be changed from:
+
+  .. code-block:: console
+  
+  http://127.0.0.1:53682/?state=8muuS53cce4gfVOIOE4cpQ&code=4/0AX4XfWhe9SRaKPFlfRtbWWF5CjLGugJpOlObkaKgtjsJhd92mBAEOhVeMjo2NZPG0Tq1Og&scope=https://www.googleapis.com/auth/drive
+  
+to
+
+  .. code-block:: console
+  
+  https://51754b665886eb97-dot-europe-west2.notebooks.googleusercontent.com/proxy/53682/?state=8muuS53cce4gfVOIOE4cpQ&code=4/0AX4XfWhe9SRaKPFlfRtbWWF5CjLGugJpOlObkaKgtjsJhd92mBAEOhVeMjo2NZPG0Tq1Og&scope=https://www.googleapis.com/auth/drive
+
+then go back to the second terminal session that was opened and copy the token into the initial terminal. You can then follow the general instructions above again.
