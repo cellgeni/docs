@@ -42,7 +42,7 @@ This is a guide through the configuration process of rclone. We will be using Go
 #. Also leave ``client_secret>`` as default by pressing enter
 #. Rclone will want to know the level of access it is allowed, next to ``scope>``, write ``1`` which will give rclone full access to all files, excluding Application Data Folder
 #. Once again, leave ``root_folder_id>`` as default by pressing enter
-#. Again leave``service_account_file>`` as default by pressing enter
+#. Again leave ``service_account_file>`` as default by pressing enter
 #. Rclone will want to know if you want to ``Edit advanced config?``, write ``n`` for no
 #. Rclone will also want to know if it should ``Use auto config?``, write ``n`` again
 #. If your browser doesn't open automatically follow the link it shows you. Log in and authorize rclone for access. Copy the verification code you get and paste it after ``Enter verification code>``
