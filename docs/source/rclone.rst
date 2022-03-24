@@ -143,11 +143,17 @@ The URL needs to have the `http://127.0.0.1:` part replaced depending on where y
     
 Once that has occurred there will be a sign in page. Once you sign in you will be redirected again and shown an error message. That is ok, take the URL from the webpage, which will look something like this:
 
-``http://127.0.0.1:53682/?code=M.R3_BAY.6cbffffd-7232-af3d-4b73-fa56f97e32be&state=V_bmyC_dSCuuBc6uYbFE7w``
+  .. code-block:: console
+
+   http://127.0.0.1:53682/?code=M.R3_BAY.6cbffffd-7232-af3d-4b73-fa56f97e32be&state=
+   V_bmyC_dSCuuBc6uYbFE7w
     
 and again replace the ``http://127.0.0.1`` with the correct option from the above list i.e. if you were using JupyterHub the final URL would be: 
 
-``https://jhub.cellgeni.sanger.ac.uk/user/<USERNAME>/proxy/53682/?code=M.R3_BAY.6cbffffd-7232-af3d-4b73-fa56f97e32be&state=V_bmyC_dSCuuBc6uYbFE7w``
+  .. code-block:: console
+
+   https://jhub.cellgeni.sanger.ac.uk/user/<USERNAME>/proxy/53682/?code=
+   M.R3_BAY.6cbffffd-7232-af3d-4b73-fa56f97e32be&state=V_bmyC_dSCuuBc6uYbFE7w
 
 You can then return to the terminal.
 
@@ -174,7 +180,10 @@ Open a second terminal on the instance and enter the command ``rclone authorize 
     
 Replace the ``http://127.0.0.1:`` with the notebook address but replace ``/lab`` with ``/proxy/`` to produce
   
-``https://51754b665886eb97-dot-europe-west2.notebooks.googleusercontent.com/proxy/53682/auth?state=8muuS53cce4gfVOIOE4cpQ``
+  .. code-block:: console
+
+   https://51754b665886eb97-dot-europe-west2.notebooks.googleusercontent.com/proxy/
+   53682/auth?state=8muuS53cce4gfVOIOE4cpQ
   
 Log in with your Sanger credentials and select "Allow". A site can't be reached message will appear. The URL needs to again be changed from:
 
