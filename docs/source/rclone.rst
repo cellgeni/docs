@@ -34,8 +34,8 @@ This is a guide through the configuration process of rclone. We will be using Go
 #. Once again, leave ``root_folder_id>`` as default by pressing enter
 #. Again leave ``service_account_file>`` as default by pressing enter
 #. Rclone will want to know if you want to ``Edit advanced config?``, write ``n`` for no
-#. Rclone will also want to know if it should ``Use auto config?``, write ``n`` again
-#. If your browser doesn't open automatically follow the link it shows you. Log in and authorize rclone for access. Copy the verification code you get and paste it after ``Enter verification code>``
+#. Rclone will also want to know if it should ``Use auto config?``, write ``n`` again (see miscellaneous section)
+#. If your browser doesn't open automatically follow the link it shows you. Log in and authorize rclone for access. Copy the verification code you get and paste it after ``Enter verification code>`` (see miscellaneous section)
 #. Rclone will want to know if this is a tem drive, via ``Configure this as a team drive?``, write ``n``
 #. It will show you the configuration, write ``y`` to confirm this is OK
 #. You will see the same menu from the first step, write ``q`` to finish (or ``n`` if you need to set up another remove).
