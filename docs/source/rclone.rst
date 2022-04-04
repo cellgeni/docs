@@ -12,17 +12,7 @@ Services like our JupyterHub and the FARM already have rclone installed. To chec
 
   .. code-block:: bash
 
-    cd ~
-    wget https://downloads.rclone.org/rclone-current-linux-amd64.zip
-
-That will download a zip file of the latest rclone release. We now need to unzip it.
-
-  .. code-block:: bash
-  
-    unzip -j rclone-current-linux-amd64.zip "rclone-*-linux-amd64/rclone"
-    ls
-    
-When you ``ls`` you will see the package ``rclone``.
+    curl https://rclone.org/install.sh | sudo bash
 
 .. note:: 
 
@@ -34,7 +24,7 @@ Configuration
 
 This is a guide through the configuration process of rclone. We will be using Google Drive as the example remote storage we want to access.
 
-#. Open a new Terminal and type ``~/rclone config``, it will show you a list of options
+#. Open a new Terminal and type ``rclone config``, it will show you a list of options
 #. When prompted with ``e/n/d/r/c/s/q>``, write ``n``
 #. Next it will ask you for the name of storage remote you want to set up, next to ``name>``, write gdrive
 #. After that it willl want to know the type of storage remote you want to configure, next to ``Storage>``, write ``drive`` for Google Drive (the types of storage available are listed for you)
