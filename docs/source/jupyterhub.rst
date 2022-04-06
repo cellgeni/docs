@@ -382,4 +382,4 @@ RStudio errors
 
 How to get help
 ---------------
-For any Jupyter Hub related questions please use our `MatterMost channel <https://mattermost.sanger.ac.uk/cellgeninf/channels/jupyterhub>`__. There are lots of users there who can quickly answer your questions.
+For any Jupyter Hub related questions please use our `Slack channel <https://sanger-cellgen.slack.com/archives/C037CTA5WJD>`__. There are lots of users there who can quickly answer your questions.
