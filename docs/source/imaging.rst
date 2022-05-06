@@ -42,10 +42,12 @@ Data in OME-TIFF and NDPI format can be imported as-is provided the images have 
      - ``omero-srv2`` for external OMERO or ``omero-srv1`` for internal OMERO
    * - **Project**
      - Matches OMERO group name (ie. ``MJ_CDB``)
+   * - **OMERO_internal_group**
+     - An OMERO internal group (ie. ``Team283``)    
    * - **OMERO_project**
-     - Project folder name *(first level folder)*
+     - Project folder name *(first level folder)* (ie. ``HnE``) 
    * - **OMERO_DATASET**
-     - Dataset folder name *(second level folder)*
+     - Dataset folder name *(second level folder)* (ie. ``18PCW_F159_Smc5-KID-FO1``)
    * - **OMERO_internal_users**
      - Image owner's username (ie. ``ob1``)
 
