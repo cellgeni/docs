@@ -83,6 +83,50 @@ To make your cell metadata continuous please use the following code:
     import numpy as np
     adata.obs['metadata_name'] = np.float32(adata.obs['metadata_name'])
 
+Visium data
+^^^^^^^^^^^
+
+If your want to use cellxgene with **Visium data**, you need to follow these steps:
+
+You can use ``scanpy.read_visium`` function to read from Space Ranger output folder and it will import everything needed to AnnData. Be careful that the images should contain one sample only. If not, you need to crop the other samples out.
+
+The spatial embedding layer should be contained in ``obsm`` and be named ``X_spatial``. Other layers can exist, but only this one will have the spatial feature enabled.
+
+.. code-block:: python
+
+    adata.obsm['X_spatial'] = adata.obsm['spatial']
+    del adata.obsm['spatial']
+
+If you already have h5ad file before importing Visium and add spatial features from the Visium data that, you should transfer the same slots from the h5ad file created after you imported Visium data.
+
+.. code-block:: python
+
+    # adata is the original one, adata2 is the AnnData you imported to Python via `scanpy.read_visium`
+
+    adata.uns['spatial'] = adata2.uns['spatial']
+    adata.obsm['X_spatial'] = adata2.obsm['X_spatial']
+    
+Cell metadata (e.g. clustering) should be imported manually. You should use ``pandas.read_csv`` to add them, and change their type with ``.astype("category")`` if not continuous:
+
+.. code-block:: python
+
+    adata.obs['clustering_x'] = pandas.read_csv('clustering_x.csv', index_col = 'Barcode')
+    adata.obs['clustering_x'] = adata.obs['clustering_x'].astype("category")
+    
+If you want to integrate your Cell2Location output to your h5ad file, you should assign cell abundance tables to obsm slot.
+If you have csv files, you have to import csv to h5ad.
+
+.. code-block:: python
+
+    adata.obsm['q05_cell_abundance_w_sf'] = pd.read_csv('/your/path/to/csv')
+
+If you have cell abundance table in another h5ad, you can transfer it to main h5ad file:
+
+.. code-block:: python
+
+    adata.obsm['q05_cell_abundance_w_sf'] = adata2.obsm['q05_cell_abundance_w_sf']
+
+
 Data Conversion
 ^^^^^^^^^^^^^^^
 
