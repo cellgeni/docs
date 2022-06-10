@@ -130,7 +130,7 @@ If you have cell abundance table in another h5ad, you can transfer it to main h5
 
 .. code-block:: python
 
-    adata.obsm['q05_cell_abundance_w_sf'] = adata2.obsm['q05_cell_abundance_w_sf']
+    adata.obs = pd.concat([adata.obs, adata2.obsm['q05_cell_abundance_w_sf']], axis=1)
 
 
 Data Conversion
