@@ -31,19 +31,19 @@ When you work with **cellxgene** you only need to modify two of the slots above:
 X slot
 ^^^^^^
 
-**cellxgene** works faster when the expression matrix is stored in ``CSC`` (compressed sparse column) format instead of ``CSR`` (compressed sparse row) format or dense Numpy array (which sometimes can create a smaller ``h5ad`` file depending on the sparsity of your data). 
+It is recommended to store the expression matrix in ``CSR`` (compressed sparse row) format to create smaller files depending on sparsity of your data instead of ``CSC`` (compressed sparse column) format or dense Numpy array. 
 
-To convert your expression matrix into the ``CSC`` format please use:
+To convert your expression matrix into the ``CSR`` format please use:
 
 .. code-block:: python
     
-    adata.X = scipy.sparse.csc_matrix(adata.X)
+    adata.X = scipy.sparse.csr_matrix(adata.X)
 
 To convert your expression matrix into the Numpy array please use:
 
 .. code-block:: python
 
-    adata.X = scipy.sparse.csc_matrix.toarray(adata.X)
+    adata.X = scipy.sparse.csr_matrix.toarray(adata.X)
 
 obsm slot
 ^^^^^^^^^
@@ -113,12 +113,18 @@ Cell metadata (e.g. clustering) should be imported manually. You should use ``pa
     adata.obs['clustering_x'] = pandas.read_csv('clustering_x.csv', index_col = 'Barcode')
     adata.obs['clustering_x'] = adata.obs['clustering_x'].astype("category")
     
-If you want to integrate your Cell2Location output to your h5ad file, you should assign cell abundance tables to obsm slot.
+If you want to integrate your Cell2Location output to your h5ad file, you should add the cell abundance tables from csv or obsm slot to obs slot to be able to color your cells by cell abundances.
 If you have csv files, you have to import csv to h5ad.
 
 .. code-block:: python
 
+    # if your cell abundance data are in csv files
+    cell_abundance = pd.read_csv('/your/path/to/csv')
+    adata.obs = pd.concat([adata.obs, cell_abundance], axis=1)
     adata.obsm['q05_cell_abundance_w_sf'] = pd.read_csv('/your/path/to/csv')
+    
+    # if your cell abundance data are in obsm slot
+    adata.obs = pd.concat([adata.obs, adata.obsm['q05_cell_abundance_w_sf']], axis=1)
 
 If you have cell abundance table in another h5ad, you can transfer it to main h5ad file:
 
