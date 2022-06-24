@@ -94,7 +94,7 @@ Mount
 Mounting allows you to access your remote file system from your local filesystem. The official mount documentation can be found on their `website <https://rclone.org/commands/rclone_mount/>`__. 
 
 #. Firstly, you want to create a directory to be mounted ``mkdir -p ~/mount/gdrive/``
-#. Next, you want to mount the remote storage file system to this path ``rclone mount gdrive:/ ~/mount/gdrive/ --daemon --vfs-cache-mode full``
+#. Next, you want to mount the remote storage file system to this path ``rclone mount gdrive:/ ~/mount/gdrive/ --daemon``
 #. Check is works by doing ``ls ~/mount/gdrive/`` and you should see your remote storage files linked.
 
 .. note::
