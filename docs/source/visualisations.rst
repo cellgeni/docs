@@ -1,7 +1,7 @@
 Single Cell Visualizations
 ==========================
 
-Authors: `Batuhan Cakir <https://www.sanger.ac.uk/people/directory/cakir-batuhan>`_, `Simon Murray <https://www.sanger.ac.uk/people/directory/murray-simon>`_ and `Vladimir Kiselev <https://www.sanger.ac.uk/people/directory/kiselev-vladimir-yu>`_. 
+Authors: `Batuhan Cakir <https://www.sanger.ac.uk/person/cakir-batuhan-1015271/>`_, `Simon Murray <https://www.sanger.ac.uk/people/directory/murray-simon>`_ and `Vladimir Kiselev <https://www.sanger.ac.uk/people/directory/kiselev-vladimir-yu>`_. 
 
 If you would like to make your single-cell RNA-seq data publicly available on a website, for example as a supplement for a publication, we can help you with that!
 
@@ -132,6 +132,8 @@ If you have cell abundance table in another h5ad, you can transfer it to main h5
 
     adata.obs = pd.concat([adata.obs, adata2.obsm['q05_cell_abundance_w_sf']], axis=1)
 
+You can check and download the notebook to make your Visium data compatible with cellxgene from Google Colab:  
+https://colab.research.google.com/github/cellgeni/docs/blob/master/docs/source/visium_to_cxg.ipynb
 
 Data Conversion
 ^^^^^^^^^^^^^^^
