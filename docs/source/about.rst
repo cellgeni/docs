@@ -62,7 +62,7 @@ In our work we try use elements of the `Agile methodology <https://en.wikipedia.
 User-oriented
 ~~~~~~~~~~~~~
 
-We value our users not only as our customers (we use `Jira Service Desk <https://www.atlassian.com/software/jira/service-desk>`_ for all of the users' requests) but also as the most important source of ideas and feedback. Anyone can either email us on ``cellgeni [at] sanger.ac.uk`` or talk to us in `our Mattermost group <https://mattermost.sanger.ac.uk/cellgeninf>`_ (Sanger users can login using their Sanger credentials).
+We value our users not only as our customers (we use `Jira Service Desk <https://www.atlassian.com/software/jira/service-desk>`_ for all of the users' requests) but also as the most important source of ideas and feedback. Anyone can either email us on ``cellgeni [at] sanger.ac.uk`` or talk to us in the `Cellular Genetics Slack workspace <https://sanger-cellgen.slack.com>`__ (Sanger users can login using their Sanger credentials).
 
 Feedback
 ~~~~~~~~
