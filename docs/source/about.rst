@@ -1,7 +1,7 @@
 The group
 =========
 
-.. image:: img/groupphoto2020.png
+.. image:: img/cellgen-it-team.jpg
    :width: 700
 
 Our story
