@@ -35,18 +35,16 @@ Data in OME-TIFF and NDPI format can be imported as-is provided the images have 
    :header-rows: 0
 
    * - **filename**
-     - Name of the file (``my_file.tiff`` or ``my_file.ndpi``)
+     - Name of the file (``my_file.ome.tiff`` or ``my_file.ndpi``)
    * - **location**
      - Path to the file folder (ie: ``/nfs/team123/``)
-   * - **OMERO_SERVER**
-     - ``omero-srv2`` for external OMERO or ``omero-srv1`` for internal OMERO
-   * - **Project**
-     - Matches OMERO group name (ie. ``MJ_CDB``)
-   * - **OMERO_project**
-     - Project folder name *(first level folder)*
-   * - **OMERO_DATASET**
-     - Dataset folder name *(second level folder)*
-   * - **OMERO_internal_users**
+   * - **omero_group**
+     - OMERO group name (ie. ``MJ_CDB``)
+   * - **omero_project**
+     - |image_omero_project| OMERO project folder name *(first level folder)*
+   * - **omero_dataset**
+     - |image_omero_dataset| OMERO dataset folder name *(second level folder)*
+   * - **omero_username**
      - Image owner's username (ie. ``ob1``)
 
 
@@ -102,3 +100,9 @@ Registration
 ------------
 
 TBD
+
+
+.. |image_omero_project| image:: https://omero-guides.readthedocs.io/en/latest/_images/management3b.png
+   :height: 0.245in
+.. |image_omero_dataset| image:: https://omero-guides.readthedocs.io/en/latest/_images/management3c.png
+   :height: 0.215in
