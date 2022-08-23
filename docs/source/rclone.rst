@@ -186,7 +186,7 @@ to
 
   .. code-block:: console
     
-   https://51754b665886eb97-dot-europe-west2.notebooks.googleusercontent.com/proxy/53682/state=8muuS53cce4gfVOIOE4cpQ&code=
+   https://51754b665886eb97-dot-europe-west2.notebooks.googleusercontent.com/proxy/53682/?state=8muuS53cce4gfVOIOE4cpQ&code=
    4/0AX4XfWhe9SRaKPFlfRtbWWF5CjLGugJpOlObkaKgtjsJhd92mBAEOhVeMjo2NZPG0Tq1Og&scope=https://www.googleapis.com/auth/drive
 
 then go back to the second terminal session that was opened and copy the token into the initial terminal. You can then follow the general instructions above again.
