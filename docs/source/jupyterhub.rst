@@ -369,12 +369,15 @@ RStudio errors
 
 - ``[Errno 111] Connection refused`` error, try restarting the server.
 
-- ``Rsession did not start in time`` or ``Error 500`` , go to the `lab` interface, start terminal, and delete the last R session and then reload RStudio:
+- ``Rsession did not start in time``, ``Error 500`` or ``Error 504`` that does not allow you to load RStudio: go to the `lab` interface, start terminal, and delete the last R session and then reload RStudio:
 
 .. code-block:: bash
 
-    ls -a .rstudio/sessions/active  # see all active sessions
-    rm -r ./rstudio/sessions/active/<session-name>  # note the name of the last active session and delete it
+    rm -rf ~/.rstudio/sessions                  # remove all sessions
+    rm -rf ~/.RData                             # remove stored session data
+    pkill /usr/lib/rstudio-server/bin/rsession  # kills the old RStudio session process
+                                                # will be re-created once visit user/rstudio URL
+
 
 - ``Could not start RStudio in time`` error, it might be because you ran out of disk space. delete some files, move them to the farm or request more storage.
 
