@@ -22,10 +22,10 @@ Cloud (2017)
 
 In 2017 it was decided by Wellcome Trust to adapt to the modern cloud technologies and to move their compute to the cloud. The Sanger Institute decided to start with having a private OpenStack cloud on premises and gradually move analysis from the LSF farm to the cloud. It created additional challenges for the end users and therefore it was decided to create the Cellular Genetics core facility informatics group which would standardize the analysis and help with transitioning to the cloud.
 
-Cellular Genetics Informatics group (2018)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Cellular Genetics Informatics group
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`Our group <https://www.sanger.ac.uk/science/groups/cellular-genetics-informatics>`_ was created in the beginning of 2018 and `Vladimir Kiselev <https://www.sanger.ac.uk/people/directory/vladimir-yu-kiselev>`_ started as the head of the group. `Stijn van Dongen <https://www.sanger.ac.uk/people/directory/van-dongen-stijn>`_ joined the group in May 2018 and `Anton Khodak <https://www.sanger.ac.uk/people/directory/khodak-anton>`_ joined the group in June 2018.
+`Our group <https://www.sanger.ac.uk/science/groups/cellular-genetics-informatics>`_ was created in the beginning of 2018 and has since grown extensively. We have developed, implemented and maintained multiple pipelines as well as hosting a JupyterHub openstack instance. There is also alot of communication between members of our team and the faculty to aid in research including developing websites for their research publications.
 
 Our remit
 ---------
@@ -62,7 +62,7 @@ In our work we try use elements of the `Agile methodology <https://en.wikipedia.
 User-oriented
 ~~~~~~~~~~~~~
 
-We value our users not only as our customers (we use `Jira Service Desk <https://www.atlassian.com/software/jira/service-desk>`_ for all of the users' requests) but also as the most important source of ideas and feedback. Anyone can either email us on ``cellgeni [at] sanger.ac.uk`` or talk to us in the `Cellular Genetics Slack workspace <https://sanger-cellgen.slack.com>`__ (Sanger users can login using their Sanger credentials).
+We value our users not only as our customers (we use `Jira Service Desk <https://www.atlassian.com/software/jira/service-desk>`_ for all of the users' requests) but also as the most important source of ideas and feedback. Anyone can either email us on ``cellgeni@sanger.ac.uk`` or talk to us in the `Cellular Genetics Slack workspace <https://sanger-cellgen.slack.com>`__ (Sanger users can login using their Sanger credentials).
 
 Feedback
 ~~~~~~~~
