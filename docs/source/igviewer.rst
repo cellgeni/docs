@@ -20,12 +20,10 @@ You will need to install the software `MobaXterm Home edition <https://mobaxterm
 Connecting to FARM
 ^^^^^^^^^^^^^^^^^^
 
-To enable IGViewer to be seen on your local machine, remote application forwarding is needed. This can be done by adding the ``-Y`` paramter when ssh'ing 
-to the FARM. The full command will become ``ssh -Y sanger-id@farm5-login``
+To enable IGViewer to be seen on your local machine, remote application forwarding is needed. This can be done by adding the ``-Y`` parameter when using SSH to connect to the FARM to enable trusted X11 forwarding. X11 forwarding is a mechanism that allows a user to start up remote applications, and then forward the application display to their local machine. The full command will become ``ssh -Y user99@farm5-login``.
 
-i.e. ``ssh -Y sm42@farm5-login``
 
-Once connected simply run IGViewer using ``/software/cellgeni/IGV_2.15.2/igv.sh /path/to/bam/file/on/FARM`` and the BAM file should be loaded into an 
+Once connected simply run IGViewer using ``/software/cellgeni/IGV_2.15.2/igv.sh /path/to/file.bam`` and the BAM file should be loaded into an 
 IGViewer window on your local machine.
 
 JupyterHub
@@ -37,8 +35,8 @@ Copy the following code and change the paths to the local of your BAM files.
 
 .. note::
   **Two things to note**:
-  1) The BAM files must be present on your local JupyterHub instance and not on a mounted FARM path
-  2) The path to the bam file should be from the JupyterHub tree root i.e. not include ``/home/jovyan`` and not have a leading slash
+  1) The BAM files must be present on your Jupyter home folder (``/home/jovyan``) and not on a mounted FARM path
+  2) When completing ``url:`` amd ``indexURL:`` fields, do not include ``/home/jovyan`` and part of the BAM path file. For example ``/home/jovyan/bams/my.bam`` should be inputted as ``bams/my.bam``.
 
   .. code-block:: bash
   import igv_notebook
@@ -58,7 +56,7 @@ Copy the following code and change the paths to the local of your BAM files.
     {
         "name": "Local BAM",
         
-        "url": "path/to/bam",
+        "url": "path/to/fibam",
         
         "indexURL": "path/to/bam/index",
         
@@ -69,8 +67,3 @@ Copy the following code and change the paths to the local of your BAM files.
 
 
   b.zoom_in()
-
-
-
-
-    
