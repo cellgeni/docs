@@ -37,13 +37,16 @@ Copy the following code and change the paths to the local of your BAM files.
 
 .. note::
   **Three things to note**:
+  
   1) Pip installations do not save between sessions, so every time you restart your instance you need to reinstall igv-notebook
+  
   2) The BAM files must be present on your Jupyter home folder (``/home/jovyan``) and not on a mounted FARM path
+  
   3) When completing ``url:`` amd ``indexURL:`` fields, do not include ``/home/jovyan`` and part of the BAM path file. For example ``/home/jovyan/bams/my.bam`` should be inputted as ``bams/my.bam``.
     
     
     
-  .. code-block:: bash
+.. code-block:: bash
   
    import igv_notebook
 
