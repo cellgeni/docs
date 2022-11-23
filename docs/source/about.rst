@@ -25,7 +25,7 @@ In 2017 it was decided by Wellcome Trust to adapt to the modern cloud technologi
 Cellular Genetics Informatics group (2018)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``Our group <https://www.sanger.ac.uk/science/groups/cellular-genetics-informatics>`_ was created in the beginning of 2018 and `Vladimir Kiselev <https://www.sanger.ac.uk/people/directory/vladimir-yu-kiselev>`_ started as the head of the group. `Stijn van Dongen <https://www.sanger.ac.uk/people/directory/van-dongen-stijn>`_ joined the group in May 2018 and `Anton Khodak <https://www.sanger.ac.uk/people/directory/khodak-anton>`_ joined the group in June 2018. Since then, our group has grown extensively and we have developed, implemented and maintained multiple pipelines as well as hosting a JupyterHub openstack instance. There is also alot of communication between members of our team and the faculty to aid in research including developing websites for their research publications
+`Our group <https://www.sanger.ac.uk/science/groups/cellular-genetics-informatics>`__ was created in the beginning of 2018 and `Vladimir Kiselev <https://www.sanger.ac.uk/people/directory/vladimir-yu-kiselev>`_ started as the head of the group. `Stijn van Dongen <https://www.sanger.ac.uk/people/directory/van-dongen-stijn>`_ joined the group in May 2018 and `Anton Khodak <https://www.sanger.ac.uk/people/directory/khodak-anton>`_ joined the group in June 2018. Since then, our group has grown extensively and we have developed, implemented and maintained multiple pipelines as well as hosting a JupyterHub openstack instance. There is also alot of communication between members of our team and the faculty to aid in research including developing websites for their research publications
 
 Our remit
 ---------
