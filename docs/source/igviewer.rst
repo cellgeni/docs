@@ -37,33 +37,29 @@ Copy the following code and change the paths to the local of your BAM files.
   **Two things to note**:
   1) The BAM files must be present on your Jupyter home folder (``/home/jovyan``) and not on a mounted FARM path
   2) When completing ``url:`` amd ``indexURL:`` fields, do not include ``/home/jovyan`` and part of the BAM path file. For example ``/home/jovyan/bams/my.bam`` should be inputted as ``bams/my.bam``.
-
+    
+    
+    
   .. code-block:: bash
-  import igv_notebook
+  
+   import igv_notebook
 
-  igv_notebook.init()
+   igv_notebook.init()
 
-  b = igv_notebook.Browser(
-    {
-        "genome": "hg19",
-        
-        "locus": "chr22:24,376,166-24,376,456"
-    }
-  )
+   b = igv_notebook.Browser(
+     {
+         "genome": "hg19",
+         "locus": "chr22:24,376,166-24,376,456"
+     }
+   )
 
+   b.load_track(
+     {
+         "name": "Local BAM",
+         "url": "path/to/fibam",
+         "indexURL": "path/to/bam/index",
+         "format": "bam",
+         "type": "alignment"
+     })
 
-  b.load_track(
-    {
-        "name": "Local BAM",
-        
-        "url": "path/to/fibam",
-        
-        "indexURL": "path/to/bam/index",
-        
-        "format": "bam",
-        
-        "type": "alignment"
-    })
-
-
-  b.zoom_in()
+   b.zoom_in()
