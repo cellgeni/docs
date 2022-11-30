@@ -72,6 +72,15 @@ Cellbender:
 * The FPR value (default is `0.01`)
 * The learn value (default is `0.0001`)
 
+Cell2location:
+
+* reference data, one of following:
+ * h5ad file with raw read counts (please specify it if raw counts are in adata.raw). Celltypes, library_id and all other covariates that are to be taken into account should be provided as adata.obs columns. Please specify corresponding column names.
+ * csv file with pre-estimated references
+* visium data, one of following:
+ * pre-compiled h5ad with all visium samples and raw read counts
+ * paths to SpaceRanger outputs (farm or irods)
+
 Please note we run other pipelines as seen `the Pipelines section <https://cellgeni.readthedocs.io/en/latest/pipelines.html>`_, but these are less common so please provide as much detail as possible in the ticket and we may ask for additional information.
 
 JupyterHub
