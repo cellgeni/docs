@@ -17,7 +17,7 @@ Resources
 ---------
 
 Our cluster allows for single user Jupyter instances to be spawned with up to 400GB RAM and 30 CPUs, but this depends on our cluster's load at that time.
-By default we provide users with 30GB of RAM and a dynamic limit of 10 CPUs. We guarantee each jupyter will have at least 1 core and they can use up to 10 if they need to without changing their resource configuration.
+By default we provide users with 20GB of RAM and a dynamic limit of 10 CPUs. We guarantee each jupyter will have at least 1 core and they can use up to 10 if they need to without changing their resource configuration.
 
 If you require more resources, you'll have to :ref:`Restart your instance` and request for more. Un-check the default resources and input what you need, if there are enough resources on the cluster they'll be reserved for your Jupyter.
 
