@@ -18,6 +18,15 @@ Services like our JupyterHub and the FARM already have rclone installed. To chec
 
     **FARM rlcone**: two different versions of ``rclone`` live on the farm. Make sure you're using the one from ``/software/rclone/rclone`` because that's the latest.
 
+FARM module load
+----------------
+You can load an `rclone` module on the FARM. IDS recommend using this if trying to list an S3 bucket with lots of objects. In order to do this a few steps are needed:
+
+#. ``export MODULEPATH=$MODULEPATH:/software/modules/`` (you can set this in your ``.bashrc`` if you like, contact us if you need help!)
+#. ``module load ISG/rclone/1.58.1``
+
+You should now have the `rclone` module loaded!
+
 
 Configuration
 -------------
