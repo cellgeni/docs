@@ -12,6 +12,11 @@ Our Jupyter Hub service is available in a web browser on any computer anywhere i
     **Only Sanger employees and their collaborators are eligible for access**.
     To get access email ``cellgeni [at] sanger.ac.uk`` and provide your GitHub username and Sanger Faculty.
 
+Internal JupyterHub
+-------------------
+
+Central IT now have their own JupyterHub that runs directly on the FARM. It requires a VPN connection to access. It is available `here <http://jupyter.internal.sanger.ac.uk/>`_.   
+
 
 Resources
 ---------
@@ -19,7 +24,7 @@ Resources
 Our cluster allows for single user Jupyter instances to be spawned with up to 400GB RAM and 30 CPUs, but this depends on our cluster's load at that time.
 By default we provide users with 20GB of RAM and a dynamic limit of 10 CPUs. We guarantee each jupyter will have at least 1 core and they can use up to 10 if they need to without changing their resource configuration.
 
-If you require more resources, you'll have to :ref:`Restart your instance` and request for more. Un-check the default resources and input what you need, if there are enough resources on the cluster they'll be reserved for your Jupyter.
+If you require more resources, you'll have to `Restart your instance <https://jhub.cellgeni.sanger.ac.uk/hub/home>`_ and request for more. Un-check the default resources and input what you need, if there are enough resources on the cluster they'll be reserved for your Jupyter.
 
 Jupyter's storage is 100GB. Try no to keep big files on jupyter and instead read them from the farm. Only ``/home/jovyan`` is persistent, anything outside your home folder will be lost when your session is terminated.
 
@@ -27,7 +32,7 @@ Please have in mind the following considerations:
 
 - Only input custom CPU resources if you require more than 10 CPUs or if you're performing a benchmark and you need exactly a specific number of CPUs.
 
-- After you've finished your analysis with custom resources, please :ref:`Restart your instance` and go back to the defaults to free those resources and allow other users to access them.
+- After you've finished your analysis with custom resources, please `Restart your instance <https://jhub.cellgeni.sanger.ac.uk/hub/home>`_ and go back to the defaults to free those resources and allow other users to access them.
 
 - If you're only going to be checking on your farm jobs please use custom 8GB RAM (*default CPU is just fine for this*).
 
@@ -45,8 +50,8 @@ JupyterHub website is public, so you don't need to turn on VPN to use it. Howeve
 #. Use your GitHub credentials for authentication. It may take some time to load first time.
 #. Select your CPU number, RAM number and Image you would like to spawn your instance with *(or use the defaults)*.
 #. Now you are ready to run your notebooks! 
-#. **RStudio** is also available on JupyterHub. A new R session can be started from the Launcher or change the word `lab` in your address bar to the word `rstudio`: ```https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/rstudio```
-#. You can switch to a classic Jupyter interface by change the word `lab` in your address bar to the word `tree`: ```https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/tree```
+#. **RStudio** is also available on JupyterHub. A new R session can be started from the Launcher or change the word `lab` in your address bar to the word `rstudio`: ``https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/rstudio``
+#. You can switch to a classic Jupyter interface by change the word `lab` in your address bar to the word `tree`: ``https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/tree``
 
 
 .. warning:: **JupyterHub environment and storage are not backed up**. Please only use for computations and download your results (and notebooks) afterwards. You've been warned!
