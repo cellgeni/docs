@@ -18,11 +18,11 @@
 # -- Project information -----------------------------------------------------
 
 project = 'CellGenIT Docs'
-copyright = '2022, CellGenIT team'
+copyright = '2019, CellGenIT team'
 author = 'CellGenIT team'
 
-# The full version, including alpha/beta/rc tags
-release = '0.22.02'
+# The full version, we use Year-DayOfYear for releases
+release = '2023.300'
 
 
 # -- General configuration ---------------------------------------------------
