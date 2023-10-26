@@ -335,10 +335,41 @@ Before start using iRODS, you'll need to copy your environment file from the far
 
 .. warning:: These instructions assume you already have an iRODS account setup on the farm, if you don't please contact ServiceDesk.
 
+
 Running containers
 ------------------
 
 The jupyter environment includes **Singularity**, a container platform that allows creating and running tools in a portable and reproducible way. You can build a container using Singularity on your Jupyter instance, and then run it the farm. Your container is a single file, and you don’t have to worry about how to install all the software you need on each different operating system. Read more about building and running singularity containers on the `official docs <https://sylabs.io/docs/>`__.
+
+
+Building containers
+^^^^^^^^^^^^^^^^^^^
+
+You can build `Singularity recipes <https://singularityhub.github.io/singularityhub-docs/docs/getting-started/recipes>`__ in Jupyter, but for a better and more portable experience, we recommend using `Dockerfiles <https://docs.docker.com/engine/reference/builder/#dockerfile-reference>`__ instead. A Dockerfile is a script (a text document) that contains all the commands a user could call on the command line to assemble an image. Docker images are widely available and adopted as best practices everywhere. You can host your Docker images in Docker repositories like https://hub.docker.com or https://quay.io
+
+However, the downside is that Docker requires sudo permissions to execute and interact with the Docker daemon that builds the images and starts/stops the containers. We've set up a service that allows you to log in with your Sanger credentials and enables you to build Docker images that can then be turned into Singularity images and copied over to the FARM to do your work. 
+
+The basic flow of commands looks like this:
+
+.. code-block:: bash
+
+    # connect to the server
+    ssh USER@docker.cellgeni.sanger.ac.uk
+
+    # create a project folder for you to work on
+    mkdir myproject
+    cd myproject
+
+    # create appropiate Dockerfile
+    # and then build it into an image
+    docker build --tag image:tag .   
+
+    # once you've got the image locaally on the docker ademon 
+    # convert it to singularity
+    singularity build image_name.sif docker-daemon://image:tag
+
+    # copy the image off the machine into the farm
+    scp image_name.sif USER@farm5.internal.sanger.ac.uk:/path/on/the/farm
 
 
 Troubleshooting
