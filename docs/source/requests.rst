@@ -35,7 +35,7 @@ Pipelines
 We run multiple pipelines each which has slightly different information. Please provide the information listed under the following commonly used pipelines 
 for the pipeline you wish to run in the ticket.
 
-Starsolo:
+**STARsolo:**
 
 * Sample IDs
 * Study ID
@@ -44,23 +44,23 @@ Starsolo:
 * 10X chemistry
 * BAM output is required? (i.e. for running souporcell using starsolo output)
 
-Souporcell:
+**Souporcell:**
 
 * Sample IDs
 * Study ID
 * Reference Genome
 * Location of data (i.e. IRODs path or FARM path)
 * Number of donors for each sample (the k value)
-* Common variants VCF (default we used for GRCh38 is `2p_1kgenomes_GRCh38.vcf`)
+* Common variants VCF (default we used for GRCh38 is ``2p_1kgenomes_GRCh38.vcf``)
 
-Cellatac:
+**Cellatac:**
 
 * Sample IDs
 * Study ID
 * Reference Genome
 * Location of data (i.e. IRODs path or FARM path)
 
-Cellbender:
+**Cellbender:**
 
 * Sample IDs
 * Study ID
@@ -68,16 +68,19 @@ Cellbender:
 * Location of data (i.e. IRODs path or FARM path)
 * Expected cells value for each sample
 * Total droplets value for each sample
-* The EPOCHS value (default is `150`)
-* The FPR value (default is `0.01`)
-* The learn value (default is `0.0001`)
+* The EPOCHS value (default is ``150``)
+* The FPR value (default is ``0.01```)
+* The learn value (default is ``0.0001``)
 
-Cell2location:
+**Cell2location:**
 
 * reference data, one of the following:
+
  * h5ad file with raw read counts (please specify it if raw counts are in adata.raw). Celltypes, library_id and all other covariates that are to be taken into account should be provided as adata.obs columns. Please specify corresponding column names.
  * csv file with pre-estimated reference signatures
+
 * visium data, one of the following:
+
  * pre-compiled h5ad with all visium samples and raw read counts
  * paths to SpaceRanger outputs (farm or irods)
 
@@ -142,4 +145,3 @@ information is needed:
   * external (accesible from everywhere)
 
 * Whether it needs to be password protected or not
-
