@@ -86,6 +86,9 @@ for the pipeline you wish to run in the ticket.
 
 Please note we run other pipelines as seen `the Pipelines section <https://cellgeni.readthedocs.io/en/latest/pipelines.html>`_, but these are less common so please provide as much detail as possible in the ticket and we may ask for additional information.
 
+
+.. _jupyterhub-requests:
+
 JupyterHub
 ----------
 

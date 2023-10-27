@@ -22,9 +22,11 @@ Connecting to FARM
 
 To enable IGViewer to be seen on your local machine, remote application forwarding is needed. This can be done by adding the ``-Y`` parameter when using SSH to connect to the FARM to enable trusted X11 forwarding. X11 forwarding is a mechanism that allows a user to start up remote applications, and then forward the application display to their local machine. The full command will become ``ssh -Y user99@farm5-login``.
 
-
 Once connected simply run IGViewer using ``/software/cellgeni/IGV_2.15.2/igv.sh /path/to/file.bam`` and the BAM file should be loaded into an 
 IGViewer window on your local machine.
+
+
+.. _jupyterhub-igviewer:
 
 JupyterHub
 ----------
