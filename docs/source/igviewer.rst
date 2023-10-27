@@ -26,8 +26,6 @@ Once connected simply run IGViewer using ``/software/cellgeni/IGV_2.15.2/igv.sh 
 IGViewer window on your local machine.
 
 
-.. _jupyterhub-igviewer:
-
 JupyterHub
 ----------
 
