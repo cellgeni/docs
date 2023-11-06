@@ -28,3 +28,5 @@ Notes
 
 * If you would like to run ``cellranger`` on samples sequenced *at Sanger* please put in a ticket for the NPG group by emailing ``new-seq-pipe [at] sanger.ac.uk`` with the version of the cellranger and the genome you would like to use.
 
+* You can find a list of the current references we offer here: https://github.com/cellgeni/references. If you need a specific one we can build one for you, please reach out.
+
