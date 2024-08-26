@@ -83,6 +83,43 @@ To make your cell metadata continuous please use the following code:
     import numpy as np
     adata.obs['metadata_name'] = np.float32(adata.obs['metadata_name'])
 
+Optimizations
+^^^^^^^^^^^^^
+
+CELLxGENE visualizations usually don't need all the same raw data as your prepared count matrices. To make an optimize object for CELLxGENE we recommend you: remove unncesary observations, make sure your continuous data is 32bit and not 64bit, remove any var that is not the anndata index, and remove all raw and additional layers data.
+
+
+.. code-block:: python
+
+    import scanpy as sc
+    adata = scanpy.read(filename)
+
+    # cast float64 to float32
+    for c in list(adata.obs.select_dtypes(include='float64')):
+        adata.obs[c] = adata.obs[c].astype('float32')
+
+    # cast int64 to int32
+    for c in list(adata.obs.select_dtypes(include='int64')):
+        adata.obs[c] = adata.obs[c].astype('int32')
+
+    # remove additional var columns
+    adata.var = adata.var.drop(adata.var.columns, axis='columns')
+
+    # fix colors — if you've used #RRGGBBAA instead of #RRGGBB this will fix that
+    for color_annotation in [k for k in  adata.uns.keys() if k.endswith("_colors")]:
+        try:
+            adata.uns[color_annotation] = [color[:7] for color in adata.uns[color_annotation]]
+        except:
+            pass
+
+    # remove raw and layers
+    del adata.raw
+    del adata.layers    
+
+    # write out a new 'filename.cellxgene.h5ad'
+    adata.write(filename.replace(".h5ad",".cellxgene.h5ad"))
+
+
 Visium data
 ^^^^^^^^^^^
 
