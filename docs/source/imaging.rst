@@ -100,7 +100,7 @@ Registration
 ------------
 
 We can run registration of the images for:
- - H&E serial images of the same tissue `link to repo https://github.com/cellgeni/image_registration_tools/tree/main/serial_registration_HE`
+ - H&E serial images of the same tissue `link to repo <https://github.com/cellgeni/image_registration_tools/tree/main/serial_registration_HE>`_
  - DAPI images of the same tissue taken at different imaging cycles [link_to_repo](https://github.com/VasylVaskivskyi/microaligner)
  - Multimodal registration between DAPI and H&E image (in development/testing phase)
 
