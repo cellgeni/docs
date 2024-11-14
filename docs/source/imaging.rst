@@ -100,9 +100,15 @@ Registration
 ------------
 
 We can run registration of the images for:
- - H&E serial images of the same tissue `link to repo <https://github.com/cellgeni/image_registration_tools/tree/main/serial_registration_HE>`_
- - DAPI images of the same tissue taken at different imaging cycles `link to repo <https://github.com/VasylVaskivskyi/microaligner>`_
+ - H&E serial images of the same tissue (`link to repo <https://github.com/cellgeni/image_registration_tools/tree/main/serial_registration_HE>`_)
+ - DAPI images of the same tissue taken at different imaging cycles (`link to repo <https://github.com/VasylVaskivskyi/microaligner>`_)
  - Multimodal registration between DAPI and H&E image (in development/testing phase)
+
+
+Analysis of bespoke ISS and MERFISH-like epxeriments
+------------
+
+With our `pipeline <https://github.com/BioinfoTongLI/Image-ST>`_ we can perform image registration, peak calling and decoding using `PostCode <https://github.com/BioinfoTongLI/postcode/>`_. Also the pipeline can perform segmentation and transcript assignment. The output dataset can be easily visualised with napari plugin `spatialdata_napari <https://github.com/scverse/napari-spatialdata>`_. For details please contact us
 
 
 
