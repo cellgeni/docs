@@ -99,7 +99,11 @@ If you want to run the pipeline yourslef you can do so following the instruction
 Registration
 ------------
 
-TBD
+We can run registration of the images for:
+ - H&E serial images of the same tissue [link to repo](https://github.com/cellgeni/image_registration_tools/tree/main/serial_registration_HE)
+ - DAPI images of the same tissue taken at different imaging cycles [link_to_repo](https://github.com/VasylVaskivskyi/microaligner)
+ - Multimodal registration between DAPI and H&E image (in development/testing phase)
+
 
 
 .. |image_omero_project| image:: https://omero-guides.readthedocs.io/en/latest/_images/management3b.png
