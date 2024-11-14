@@ -111,6 +111,10 @@ Analysis of bespoke ISS and MERFISH-like epxeriments
 With our `pipeline <https://github.com/BioinfoTongLI/Image-ST>`_ we can perform image registration, peak calling and decoding using `PostCode <https://github.com/BioinfoTongLI/postcode/>`_. Also the pipeline can perform segmentation and transcript assignment. The output dataset can be easily visualised with napari plugin `spatialdata_napari <https://github.com/scverse/napari-spatialdata>`_. For details please contact us
 
 
+`Cells2Visium <https://github.com/cellgeni/cells2visium>`_
+------------
+
+For Visium experiment output we can run segmentation on H&E image and add segmentation information for each visium spot (number of cells, coverage area etc)
 
 .. |image_omero_project| image:: https://omero-guides.readthedocs.io/en/latest/_images/management3b.png
    :height: 0.245in
