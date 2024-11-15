@@ -26,6 +26,7 @@ Cellular Genetics IT travel guide
    mlwarehouse
    visualisations
    igviewer
+   farmer
    contact
 
 .. note:: The creation of this travel guide was inspired by `Patrick Kua <https://www.thekua.com/>`_
