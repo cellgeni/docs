@@ -100,21 +100,21 @@ Registration
 ------------
 
 We can run registration of the images for:
- - H&E serial images of the same tissue (`link to repo <https://github.com/cellgeni/image_registration_tools/tree/main/serial_registration_HE>`_)
- - DAPI images of the same tissue taken at different imaging cycles (`link to repo <https://github.com/VasylVaskivskyi/microaligner>`_)
+ - H&E serial images of the same tissue (`code to repoitory <https://github.com/cellgeni/image_registration_tools/tree/main/serial_registration_HE>`__)
+ - DAPI images of the same tissue taken at different imaging cycles (`microaligner page <https://github.com/VasylVaskivskyi/microaligner>`__)
  - Multimodal registration between DAPI and H&E image (in development/testing phase)
 
 
 Analysis of bespoke ISS and MERFISH-like epxeriments
-------------
+----------------------------------------------------
 
 With our `pipeline <https://github.com/BioinfoTongLI/Image-ST>`_ we can perform image registration, peak calling and decoding using `PostCode <https://github.com/BioinfoTongLI/postcode/>`_. Also the pipeline can perform segmentation and transcript assignment. The output dataset can be easily visualised with napari plugin `spatialdata_napari <https://github.com/scverse/napari-spatialdata>`_. For details please contact us
 
 
-`Cells2Visium <https://github.com/cellgeni/cells2visium>`_
-------------
+Visium Spots feature extraction
+-------------------------------
 
-For Visium experiment output we can run segmentation on H&E image and add segmentation information for each visium spot (number of cells, coverage area etc)
+For Visium experiment output we can run segmentation on H&E image and add segmentation information for each visium spot (number of cells, coverage area etc) using `Cells2Visium <https://github.com/cellgeni/cells2visium>`_.
 
 .. |image_omero_project| image:: https://omero-guides.readthedocs.io/en/latest/_images/management3b.png
    :height: 0.245in
