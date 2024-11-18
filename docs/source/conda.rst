@@ -70,6 +70,16 @@ When using conda inside jobs you should activate the module, for example:
 
     echo "Added some conda magic 🧙‍♂️"
 
+if you prefer to use in-line bsub, activate the environment before submitting the job:
+
+  .. code-block:: bash
+
+    module load cellgen/conda
+    conda activate yourFavouriteEnv
+
+    bsub -q normal -n 4 -M 8G -R "select[mem>8G] rusage[mem=8G] span[hosts=1]" \
+         -o %J.out -e %J.err python yourScript.py
+
 
 Load module automatically
 ^^^^^^^^^^^^^^^^^^^^^^^^^
