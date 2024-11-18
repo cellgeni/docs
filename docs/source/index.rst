@@ -15,6 +15,7 @@ Cellular Genetics IT travel guide
    about
    requests
    jupyterhub
+   conda
    cloud-gpu-notebooks
    notebooks
    rclone
