@@ -144,14 +144,15 @@ Before your start, **remove any previous conda instructions from your**  ``~/.ba
 
     .. code-block:: bash
         
-        rsync -azhP /path/to/your/miniconda3/envs/* ${CONDA_ENVS_PATH}/envs/
+        rsync -azhP /path/to/your/miniconda3/envs/* ${CONDA_ENVS_PATH}
 
     Or, directly *move* all your environments using:
 
     .. code-block:: bash
         
-        mv /path/to/your/miniconda3/envs/* ${CONDA_ENVS_PATH}/envs/
+        mv /path/to/your/miniconda3/envs/* ${CONDA_ENVS_PATH}/
 
+This operation can be very slow so we recommend you run this inside a ``screen`` or ``tmux`` session.
 
 4. Check your environments were successfully copied over and make sure you can see them when listing all your environments with conda:
 
