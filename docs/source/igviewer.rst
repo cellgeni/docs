@@ -26,8 +26,8 @@ Once connected simply run IGViewer using ``/software/cellgeni/IGV_2.15.2/igv.sh 
 IGViewer window on your local machine.
 
 
-JupyterHub
-----------
+Use in Jupyter
+--------------
 
 To use IGViewer on JupyterHub, a python package called `igv-notebook <https://github.com/igvteam/igv-notebook>`__ is used.
 

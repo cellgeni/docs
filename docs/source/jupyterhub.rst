@@ -73,8 +73,8 @@ Read more about our notebooks in the `Notebook section <https://cellgeni.readthe
 Installing packages
 -------------------
 
-Conda
-^^^^^
+JHub Conda
+^^^^^^^^^^
 
 The default conda environment is not persistent across Jupyter sessions - you can install additional packages, but it will not be there next time you start Jupyter.
 To have a persistent conda environment create one inside ``/home/jovyan/`` folder *(if you've already got a conda environment activated jump to step 4)*:
