@@ -135,7 +135,8 @@ Before your start, **remove any previous conda instructions from your**  ``~/.ba
 
   .. code-block:: bash
     
-    conda export -n oldEnv > oldEnv.yaml
+    conda env export -n EnvironmentName > environment_backup.yml
+
 
 3. *Copy* or *move* all the environments from your local install to the central one. This will take some time because environemnts usually have thousands of files. 
 
