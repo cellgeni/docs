@@ -10,7 +10,7 @@ OMERO
 -----
 
 .. tip::
-    Use the email ``omero-help [at] sanger.ac.uk`` or the slack channel ``#usergroup_omero``.
+    Use the email ``omero-help [at] sanger.ac.uk`` or the slack channel ``#usergroup_omero`` to get support.
 
 
 The `Sanger Imaging Platform <https://omero.sanger.ac.uk>`_ uses the OMERO software for the analysis of microscope imaging data. Storing data in OMERO is a procedure Cellular Genetics Informatics provide.
@@ -63,10 +63,10 @@ Please fill the following ``xlsx`` file and submit a ticket with it attached.
 Stitching
 ---------
 
-Phoenix exported tiles need to be stitched together before importing to OMERO.
+Opera Phenix exported raw tiles need to be stitched together before importing to OMERO. 
 Please fill the following ``xlsx`` file and submit a ticket with it attached.
 
-`PhonexLogTemplate.xlsx <https://cellgeni.cog.sanger.ac.uk/PhonexLogTemplate.xlsx>`_
+`Operetta-PhenixLogTemplate.xlsx <https://cellgeni.cog.sanger.ac.uk/Operetta-PhenixLogTemplate.xlsx>`_
 
 
 Segmentation
