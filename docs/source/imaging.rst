@@ -9,6 +9,10 @@ Imaging data are the images produced by microscopy of cells, organelles, tissues
 OMERO
 -----
 
+.. tip::
+    Use the email ``omero-help [at] sanger.ac.uk`` or the slack channel ``#usergroup_omero``.
+
+
 The `Sanger Imaging Platform <https://omero.sanger.ac.uk>`_ uses the OMERO software for the analysis of microscope imaging data. Storing data in OMERO is a procedure Cellular Genetics Informatics provide.
 
 Please watch the following 10min video from the `The Jackson Laboratory <https://www.jax.org/>`_ to learn the basics of browsing and annotating images using OMERO:
