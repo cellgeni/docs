@@ -11,7 +11,7 @@ Once registered you can put in a ticket using `our web portal <https://cellgeni-
 Coffee standups
 ---------------
 
-We organize coffee standups every Thrusday at 10.30am in the Morgan Building Atrium. Please come along, meet our group, have a cup of coffee and ask any question you may have.
+CellGen/HumGen have coffee standups every Thrusday at 15.00 in the Morgan Building Atrium. Our team is usually there so please come along, meet our group, have a cup of coffee and ask any question you may have.
 
 Chat
 ----
