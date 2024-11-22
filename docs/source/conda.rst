@@ -35,7 +35,7 @@ The module enforces the following items:
 Using the module
 ----------------
 
-  .. error:: **Remove any previous conda instructions** from your ``~/.bashrc`` before using the module. Exit and log back in to the farm to guarantee nothing from any previous install is loaded.
+  .. warning:: **Remove any previous conda instructions** from your ``~/.bashrc`` before using the module. Exit and log back in to the farm to guarantee nothing from any previous install is loaded.
  
 
 After activating the module the use should be fairly similar to your current workflow.
@@ -130,6 +130,10 @@ For example, to create new environments under a different team directory, export
 Migrate your environments
 -------------------------
 
+
+.. error:: **The method of "copying your old envs directly to the new path" is not recommended anymore because we've detected issues with runtime environments.** Please avoid it. You will have to recreate the envionment. If that's not possible please use instead `<https://conda.github.io/conda-pack/>`__
+
+
 If you already had your own install of Miniconda or Miniforge you must move all the environments to the central location. 
 To do so follow the next steps:
 
@@ -148,21 +152,14 @@ Before your start, **remove any previous conda instructions from your**  ``~/.ba
     conda env export -n EnvironmentName > environment_backup.yml
 
 
-3. *Copy* or *move* all the environments from your local install to the central one. This will take some time because environemnts usually have thousands of files. 
+3. Create the environment with the central conda module. 
 
-    You can *copy* the environemnts using:
+  .. code-block:: bash
+    
+    conda env create -f environ_backup.yml -n envName
 
-    .. code-block:: bash
-        
-        rsync -azhP /path/to/your/miniconda3/envs/* ${CONDA_ENVS_PATH}
+This will put the environment in the right place and guarantees no licensed packages are included. However, dev packages (installed from local sources) or licensed packages won't be able to install in the new environment.
 
-    Or, directly *move* all your environments using:
-
-    .. code-block:: bash
-        
-        mv /path/to/your/miniconda3/envs/* ${CONDA_ENVS_PATH}/
-
-This operation can be very slow so we recommend you run this inside a ``screen`` or ``tmux`` session.
 
 4. Check your environments were successfully copied over and make sure you can see them when listing all your environments with conda:
 
@@ -175,6 +172,8 @@ This operation can be very slow so we recommend you run this inside a ``screen``
   .. code-block:: bash
     
     rm -rf /path/to/your/miniconda3
+
+
 
 
 Common issues
