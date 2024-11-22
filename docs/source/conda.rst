@@ -149,7 +149,7 @@ Before your start, **remove any previous conda instructions from your**  ``~/.ba
 
   .. code-block:: bash
     
-    conda env export -n EnvironmentName > environment_backup.yml
+    conda env export -p /path/to/envs/envName > environ_backup.yml
 
 
 3. Create the environment with the central conda module. 
