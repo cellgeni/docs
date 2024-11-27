@@ -18,9 +18,13 @@ Alternatively, you can include a ``#BSUB`` comment in your job submission script
   This kind of batching is not supported for jobs outside arrays.
 
 If you don't use ``bsub`` to submit your jobs, then you need to somehow ensure that the ``notify-slack.sh`` script is executed at the end of your job: for example, at the end of your script, include the line ``/software/cellgen/cellgeni/etc/notify-slack.sh --user="$USER"``.
-You can specify a label which Farmer will include in the notification, to help you remember which job it's talking about (since it won't be able to tell you the job ID or command you ran)::
+By passing ``--label``, you can specify a label which Farmer will include in the notification to help you remember which job it's talking about (since it won't be able to tell you the job ID or command you ran)::
 
   /software/cellgen/cellgeni/etc/notify-slack.sh --user="$USER" --label="my long-running job"
+
+You can also provide a longer message (for example, a *brief* summary of results) with ``--payload``::
+
+  /software/cellgen/cellgeni/etc/notify-slack.sh --user="$USER" --label="my long-running job" --payload="this can be multiple lines long, and will be printed as a monospaced code block"
 
 Be aware that Farmer won't be able to give you any details about your job (e.g. whether it succeeded or failed, or its CPU/memory efficiency) if you use it this way.
 
