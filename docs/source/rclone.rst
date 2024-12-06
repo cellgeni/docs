@@ -141,7 +141,14 @@ The URL needs to have the `http://127.0.0.1:` part replaced depending on where y
 
 * If on the FARM and on a head node (such as ``head1``), enter the following into your web browser:
 
-``http://farm5-head1.internal.sanger.ac.uk:53682/auth?state=V_bmyC_dSCuuBc6uYbFE7w``
+``http://farm22-head1.internal.sanger.ac.uk:53682/auth?state=V_bmyC_dSCuuBc6uYbFE7w``
+
+OR you can redirect the port from the head node to your local laptop to access 127.0.0.1 from your borwser by using
+
+  .. code-block:: console
+
+     http://127.0.0.1:53682/auth?state=V_bmyC_dSCuuBc6uYbFE7w
+     ssh -L 53682:localhost:53682 farm22-head1
 
 * If on the FARM and on a computer node (such as ``node-12-8-4``), enter the following into your web browser:
 
