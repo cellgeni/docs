@@ -5,45 +5,37 @@ Rclone is a software that is very useful for downloading data from remote storag
 installation, configuration and some miscellaneous information that could be of use. For a full list of storage providers rclone works with please visit their
 `website <https://rclone.org>`__.
 
-Installation
-------------
+FARM module
+-----------
 
-Services like our JupyterHub and the FARM already have rclone installed. To check if you have rclone installed you can do the command ``which rclone`` and to check the version you can do ``rclone --version``. If you are don't have rclone installed or you want the latest version, here is an install guide. To install the latest version of rclone use the followng command:
+Services like our JupyterHub and the FARM already have rclone installed. 
+On the FARM, you can load **rclone** using the ``cellgen/rclone`` module with following command:
+
+  .. code-block:: bash
+
+    module load cellgen/rclone
+
+You should now have the `rclone` module loaded! You can check with ``rclone --version``.
+If you want, you can add that line to your ``~/.bashrc`` to load the module by default.
+
+Manual Installation
+-------------------
+
+.. note:: 
+
+    **rclone is avaiable as a module, don't install your own copy of rclone, use the module cellgen/rclone**
+
+If you are don't have rclone installed or you want the latest version in your VM use the followng command:
 
   .. code-block:: bash
 
     curl https://rclone.org/install.sh | sudo bash
 
-.. note:: 
-
-    **FARM rlcone**: two different versions of ``rclone`` live on the farm. Make sure you're using the one from ``/software/rclone/rclone`` because that's the latest.
-
-Add rclone to your FARM PATH
-----------------------------
-
-You add can ``/software/rclone`` to your path to have the latest rclone version avaiable on the FARM ready to use. ``/softwarre/rclone`` is a symlink to the latest version of rclone installed on the farm. In order to do this you need to edit your ``~/.bashrc`` file and add:
-
-  .. code-block:: bash
-    
-    export PATH="/software/rclone:${PATH}"
-
-Then ``source ~/.bashrc`` or logout/re-login to the FARM to have the changes applied.
-
-
-FARM module load
-----------------
-You can load an specific version of `rclone` using the cellgen/rclone module on the FARM. 
-IDS recommend using rclone if trying to list an S3 bucket with lots of objects. 
-In order to do this a few steps are needed:
-
-#. ``export MODULEPATH=$MODULEPATH:/software/modules/`` (you can set this in your ``.bashrc`` if you like, contact us if you need help!)
-#. ``module load cellgen/rclone``
-
-You should now have the `rclone` module loaded!
-
 
 Configuration
 -------------
+
+Before using it, rclone needs to have endpoints configured. As the object storage systems have quite complicated authentication these are kept in a config file. You can use ``rclone config`  o find the config file and see avaiable configurations.
 
 This is a guide through the configuration process of rclone. We will be using Google Drive as the example remote storage we want to access.
 
