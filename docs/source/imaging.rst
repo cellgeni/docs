@@ -60,6 +60,29 @@ Please fill the following ``xlsx`` file and submit a ticket with it attached.
 
 `HamamatsuLogTemplate.xlsx <https://cellgeni.cog.sanger.ac.uk/HamamatsuLogTemplate.xlsx>`_
 
+OMERO downloads
+^^^^^^^^^^^^^^^
+
+You can retrieve the original files that were imported to OMERO using the `omero-download tool <https://github.com/cellgeni/omero-download>`_. 
+Simply use the ``cellgen/omero-download`` module on the farm and the run the command line tool.
+
+Example usage:
+
+a) Load the module
+  .. code-block:: bash
+
+    $ module load cellgen/omero-download
+    ** Using custom python for this environment
+    ** See avaiable options using: omero-download -h
+
+
+b) Download ImageId ``123``, ``456``, and, ``789`` and place them inside the ``/path/to/download`` folder:
+
+  .. code-block:: bash
+
+    omero-download --images 123 456 789 --output_dir /path/to/download
+
+
 Stitching
 ---------
 
