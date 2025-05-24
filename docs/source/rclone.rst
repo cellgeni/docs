@@ -35,7 +35,7 @@ If you are don't have rclone installed or you want the latest version in your VM
 Configuration
 -------------
 
-Before using it, rclone needs to have endpoints configured. As the object storage systems have quite complicated authentication these are kept in a config file. You can use ``rclone config`  o find the config file and see avaiable configurations.
+Before using it, rclone needs to have endpoints configured. As the object storage systems have quite complicated authentication these are kept in a config file. You can use ``rclone config``  o find the config file and see avaiable configurations.
 
 This is a guide through the configuration process of rclone. We will be using Google Drive as the example remote storage we want to access.
 
