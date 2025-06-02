@@ -2,9 +2,9 @@ GPU Notebooks on the Cloud
 ==========================
 
 .. note::
-    **Only members of the Cellular Genetics Programme and their collaborators are eligible for access**.
+    **Only members of the Cellular Genomics Programme and their collaborators are eligible for access**.
 
-Cloud GPU Notebooks is a new service provided by CellGen IT team. The service utilizes Cloud resources (Google Compute Platform) and is paid for by the `Cellular Genetics Programme <https://www.sanger.ac.uk/programme/cellular-genetics/>`_. 
+Cloud GPU Notebooks is a new service provided by CellGen IT team. The service utilizes Cloud resources (Google Compute Platform) and is paid for by the `Cellular Genomics Programme <https://www.sanger.ac.uk/programme/cellular-genetics/>`_. 
 
 Bespoke notebooks can have T4 GPU accelerators with 16.GB GPU RAM, 16 CPU, and between 100.GB and 200.GB of RAM.
 

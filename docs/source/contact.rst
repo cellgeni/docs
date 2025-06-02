@@ -16,4 +16,4 @@ CellGen/HumGen have coffee standups every Thrusday at 15.00 in the Morgan Buildi
 Chat
 ----
 
-For small technical questions and informal interactions we use the `Cellular Genetics Slack workspace <https://sanger-cellgen.slack.com>`__. You can loging there with your Sanger credentials.
+For small technical questions and informal interactions we use the `Cellular Genomics Slack workspace <https://sanger-cellgen.slack.com>`__. You can loging there with your Sanger credentials.

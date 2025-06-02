@@ -31,12 +31,16 @@ Cellular Genetics Informatics group (2023)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In 2023, `Martin Prete <https://www.sanger.ac.uk/person/prete-martin/>`_ took over as team leader. 
 
+Cellular Genomics Informatics group (2025)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In 2025, the programme was renamed to ``Cellular Genomics``. 
+
 Our remit
 ---------
 
 Group
 ~~~~~
-Our team provides efficient access to cutting-edge analysis methods for `Cellular Genetics programme <https://www.sanger.ac.uk/science/programmes/cellular-genetics>`_ at the Sanger Institute, which leads a number of world-class research initiatives including the Human Induced Pluripotent Stem Cell Initiative (`HIPSCI <http://www.hipsci.org/>`_) and `Human Cell Atlas <https://www.humancellatlas.org/>`_. Our team’s focus is the development and operation of workflows, tools and infrastructure for data analysis that support the programme’s research goals.
+Our team provides efficient access to cutting-edge analysis methods for `Cellular Genomics programme <https://www.sanger.ac.uk/science/programmes/cellular-genetics>`_ at the Sanger Institute, which leads a number of world-class research initiatives including the Human Induced Pluripotent Stem Cell Initiative (`HIPSCI <http://www.hipsci.org/>`_) and `Human Cell Atlas <https://www.humancellatlas.org/>`_. Our team’s focus is the development and operation of workflows, tools and infrastructure for data analysis that support the programme’s research goals.
 
 Compute framework
 ~~~~~~~~~~~~~~~~~
@@ -66,7 +70,7 @@ In our work we try use elements of the `Agile methodology <https://en.wikipedia.
 User-oriented
 ~~~~~~~~~~~~~
 
-We value our users not only as our customers (we use `Jira Service Desk <https://www.atlassian.com/software/jira/service-desk>`_ for all of the users' requests) but also as the most important source of ideas and feedback. Anyone can either email us on ``cellgeni [at] sanger.ac.uk`` or talk to us in the `Cellular Genetics Slack workspace <https://sanger-cellgen.slack.com>`__ (Sanger users can login using their Sanger credentials).
+We value our users not only as our customers (we use `Jira Service Desk <https://www.atlassian.com/software/jira/service-desk>`_ for all of the users' requests) but also as the most important source of ideas and feedback. Anyone can either email us on ``cellgeni [at] sanger.ac.uk`` or talk to us in the `Cellular Genomics Slack workspace <https://sanger-cellgen.slack.com>`__ (Sanger users can login using their Sanger credentials).
 
 Feedback
 ~~~~~~~~
