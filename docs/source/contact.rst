@@ -11,9 +11,9 @@ Once registered you can put in a ticket using `our web portal <https://cellgeni-
 Coffee standups
 ---------------
 
-CellGen/HumGen have coffee standups every Thrusday at 15.00 in the Morgan Building Atrium. Our team is usually there so please come along, meet our group, have a cup of coffee and ask any question you may have.
+CellGen/HumGen have coffee standups every Thursday at 15:00 in the Morgan Building Atrium. Our team is usually there so please come along, meet our group, have a cup of coffee and ask any question you may have.
 
 Chat
 ----
 
-For small technical questions and informal interactions we use the `Cellular Genomics Slack workspace <https://sanger-cellgen.slack.com>`__. You can loging there with your Sanger credentials.
+For small technical questions and informal interactions we use the `Cellular Genomics Slack workspace <https://sanger-cellgen.slack.com>`__. You can login there with your Sanger credentials.
