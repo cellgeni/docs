@@ -141,19 +141,20 @@ Before your start, **remove any previous conda instructions from your**  ``~/.ba
     conda env export --no-builds -p /path/to/current/envName > environ_backup.yml
 
 
-3. Create the environment with the central conda module. 
+3. Clone the environment with the central conda module. 
+
+.. code-block:: bash
+
+   conda create --name YourNewEnvName --clone /path/to/original_env_name
+
+This will put the environment in the right place and guarantees no licensed packages are included. However, dev packages (installed from local sources) or licensed packages won't be able to install in the new environment. Alternatively you can use the backup file to re-create the environment:
 
   .. code-block:: bash
     
     conda env create -f environ_backup.yml -n envName
 
-This will put the environment in the right place and guarantees no licensed packages are included. However, dev packages (installed from local sources) or licensed packages won't be able to install in the new environment. Alternatively you can use:
 
-.. code-block:: bash
-
-    conda create --name YourNewEnvName --clone /path/to/original_env_name
-
-Both methods may be missing packages that were installed via pip or manually from GitHub.
+Both methods may be missing packages that were installed using pip or manually from GitHub.
 
 
 4. Check your environments were successfully copied over and make sure you can see them when listing all your environments with conda:
