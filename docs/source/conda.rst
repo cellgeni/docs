@@ -1,7 +1,7 @@
 Conda
 =====
 
-.. warning:: **Do NOT install Anaconda or Miniconda distributions on Sanger systems**. Do not try to have your own install of conda. **You should use the cellgen/conda module**. Only use `miniforge <https://github.com/conda-forge/miniforge>`_ as a Conda installer if you require so outside the cluster. Avoid using the Anaconda or Miniconda installers. 
+.. warning:: **Do NOT install Anaconda or Miniconda distributions on Sanger systems**. Do not try to have your own install of conda. **You should use the ISG/conda module**. Only use `miniforge <https://github.com/conda-forge/miniforge>`_ as a Conda installer if you require so outside the cluster. Avoid using the Anaconda or Miniconda installers at all cost. 
 
 Conda is an open-source, language-agnostic package manager and environment management system. It was originally developed to deal with Python package management but now supports Python, R, and binary releases.
 
@@ -20,9 +20,9 @@ Conda Module
 
   .. code-block:: bash
     
-    module load cellgen/conda
+    module load ISG/conda
     
-The **cellgen/conda module** is designed to make it easy for you to use Conda and create individual environments for your work. The Conda client is installed centrally, preventing unnecessary duplicate installations.
+The **ISG/conda module** is designed to make it easy for you to use Conda and create individual environments for your work. The Conda client is installed centrally, preventing unnecessary duplicate installations.
 
 The module enforces the following items:
 
@@ -43,7 +43,7 @@ After activating the module the use should be fairly similar to your current wor
   .. code-block:: bash
 
     ssh farm22    
-    module load cellgen/conda
+    module load ISG/conda
     conda activate yourFavouriteEnv
 
 
@@ -65,7 +65,7 @@ When using conda inside jobs you should activate the module, for example:
 
     set -eo pipefail
 
-    module load cellgen/conda
+    module load ISG/conda
     conda activate yourFavouriteEnv
 
     echo "Added some conda magic 🧙‍♂️"
@@ -74,7 +74,7 @@ if you prefer to use in-line bsub, activate the environment before submitting th
 
   .. code-block:: bash
 
-    module load cellgen/conda
+    module load ISG/conda
     conda activate yourFavouriteEnv
 
     bsub -q normal -n 4 -M 8G -R "select[mem>8G] rusage[mem=8G] span[hosts=1]" \
@@ -90,7 +90,7 @@ To do this you need to add the following line:
   .. code-block:: bash
 
     ## load module
-    { module load cellgen/conda } &>/dev/null
+    module load ISG/conda
 
 
 
@@ -106,25 +106,14 @@ To create an environment, first load the module, provide a name for your environ
 
   .. code-block:: bash
     
-    module load cellgen/conda
-    conda create --name myEnv python=3.10
+    module load ISG/conda
+    conda create --name myEnv python=3.12
 
 By default, environments will be created in:
 
   .. code-block:: bash
     
-    /software/cellgen/<teamNumber>/<userName>/envs
-
-If your primary group does not match your current one, please notify the team so it can be fixed. However, if you want to control the location of your environments, you can set the ``CONDA_ENVS_PATH`` environment variable. **Don't use this unless you really have to.**
-
-For example, to create new environments under a different team directory, export the variable **before loading the module**:
-
-  .. code-block:: bash
-    
-    export CONDA_ENVS_PATH=/software/cellgen/team123/ob1/envs
-    module load cellgen/conda
-    conda create --name myEnv2 python=3.11
-    # this will create myEnv2 at /software/cellgen/team123/ob1/envs/myEnv2
+    /software/conda/users/<userName>
 
 
 Migrate your environments
@@ -139,17 +128,17 @@ To do so follow the next steps:
 
 Before your start, **remove any previous conda instructions from your**  ``~/.bashrc``. Then exit the farm and re-connect.
 
-1. Load the ``cellgen/conda`` module to guarantee the right folders are created:
+1. Load the ``ISG/conda`` module to guarantee the right folders are created:
 
   .. code-block:: bash
     
-    module load cellgen/conda
+    module load ISG/conda
 
 2. Backup your existing conda environemnts:
 
   .. code-block:: bash
     
-    conda env export --no-builds -p /path/to/envs/envName > environ_backup.yml
+    conda env export --no-builds -p /path/to/current/envName > environ_backup.yml
 
 
 3. Create the environment with the central conda module. 
@@ -158,7 +147,13 @@ Before your start, **remove any previous conda instructions from your**  ``~/.ba
     
     conda env create -f environ_backup.yml -n envName
 
-This will put the environment in the right place and guarantees no licensed packages are included. However, dev packages (installed from local sources) or licensed packages won't be able to install in the new environment.
+This will put the environment in the right place and guarantees no licensed packages are included. However, dev packages (installed from local sources) or licensed packages won't be able to install in the new environment. Alternatively you can use:
+
+.. code-block:: bash
+
+    conda create --name YourNewEnvName --clone /path/to/original_env_name
+
+Both methods may be missing packages that were installed via pip or manually from GitHub.
 
 
 4. Check your environments were successfully copied over and make sure you can see them when listing all your environments with conda:
@@ -167,21 +162,13 @@ This will put the environment in the right place and guarantees no licensed pack
     
     conda env list
 
-5. Once sure everything is in place and working remove your previous Conda installation:
-
-  .. code-block:: bash
-    
-    rm -rf /path/to/your/miniconda3
-
-
 
 
 Common issues
 -------------
 
-- **Don't know where env is**: Write down which is your primary group (use ``id -gn``) and then search for it ``/software/cellgen/<teamNmber>/<userName>``. Your primary group may not be the one you think.
-- **Permissions denied**: you probably didn't activate the right environment. Trying to install to the base env (owned by ``cellgeni``) will produce this error.
-- **Path not found**: it's possible that you are part of a new team that hasn't been setup in ``/software/cellgen``, please contact us to fix this.
+- **Don't know where env is**: Search for it ``/software/conda/users/<userName>``.
+- **Permissions denied**: you probably didn't activate the right environment. Trying to install to the base env will produce this error. Trying to install packages from nodes *other than head nodes* (farm22-head1/farm22-head2) will produce this error.
 - **No space left on device**: very rare but it's possible that ``/software`` has filled up, please contact us to fix this.
 
 Conda Support
