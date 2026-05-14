@@ -31,6 +31,8 @@ When you work with **cellxgene** you only need to modify two of the slots above:
 X slot
 ^^^^^^
 
+The **X** slot should contain a normalised expression matrix. Raw counts can still be loaded into **cellxgene**, but they are not recommended for visualization: gene search and gene colouring will use the raw count values directly, so the colour scale and value range can look skewed or difficult to interpret.
+
 It is recommended to store the expression matrix in ``CSR`` (compressed sparse row) format to create smaller files depending on sparsity of your data instead of ``CSC`` (compressed sparse column) format or dense Numpy array. 
 
 To convert your expression matrix into the ``CSR`` format please use:
