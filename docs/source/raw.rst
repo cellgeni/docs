@@ -1,6 +1,11 @@
 Getting raw fastq files
 =======================
 
+Automated pipeline
+------------------
+
+For public 10x scRNA-seq datasets we now have a Nextflow pipeline that downloads the raw data and reprocesses it with STARsolo: `nf-reprocessing-public-10x <https://github.com/cellgeni/nf-reprocessing-public-10x/>`_. You can run it yourself, or submit a ``Reprocess public data`` request in `FreshService <https://sanger.freshservice.com/>`_ (see :doc:`requests`) and we will run it for you. The manual methods below are useful for bulk RNA-seq and for datasets the pipeline does not cover.
+
 Databases and manual file download
 ----------------------------------
 
@@ -79,7 +84,7 @@ After you have installed it, you can unpack the previously downloaded sra file a
 Strangely enough, you don’t have to download the sra file before, and you can simply run the command above! 
 Sra tools will handle the download. Sometimes it’s very slow and other options (see above) work better; sometimes it works really well 
 - you might have to experiment and figure out what works best. Another potentially very fast option is 
-`ascp <http://download.asperasoft.com/download/docs/scp_client/2.5/aspera-client-unix.html>`_, which can be very helpful if downloading a very large number 
+`ascp <https://download.asperasoft.com/download/docs/scp_client/2.5/aspera-client-unix.html>`_, which can be very helpful if downloading a very large number 
 of files. 
 
 The “--split-e” option (‘--split-3” in older versions of SRA tools) makes sure that paired-end reads are written as separate files. You can also add “--origfmt” 

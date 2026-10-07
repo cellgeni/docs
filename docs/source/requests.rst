@@ -1,36 +1,36 @@
-Jira Requests
-=============
+FreshService Requests
+=====================
 
 .. tip::
-    You can submit a CellGenIT support request at any time by creating a ticket using the `CellGenIT Customer Portal <https://cellgeni-jira.sanger.ac.uk/servicedesk/customer/portal/1>`_.
+    You can submit a CellGen Informatics support request at any time by creating a ticket in `FreshService <https://sanger.freshservice.com/>`_. Anyone at Sanger can log in.
 
-To create a support ticket log in to the `CellGenIT Customer Portal`_, select one of the categories (``Data sharing``, ``Imaging``, ``JupyterHub``, ``Run a pipeline``, ``Websites`` or ``Other questions``) and then fill in the information form.
-Make sure any information needed resides in the ticket. You can attach files after creating the ticket. Having all the possible information there will ensure that we fully document any issues or requests for a proper resolution. To view your existing tickets click 'Requests' in the top navigation bar. 
+To create a support ticket log in to `FreshService`_, open the **CellGen Informatics** catalogue, select one of the categories (``Bioinformatics support``, ``Data sharing/submission``, ``Imaging support``, ``Reprocess public data``, ``Websites`` or ``Other questions``) and then fill in the information form.
+Make sure any information needed resides in the ticket. You can attach files after creating the ticket. Having all the possible information there will ensure that we fully document any issues or requests for a proper resolution. You can follow your existing tickets from the FreshService portal.
 
+When submitting a request to the CellGen Informatics team multiple types of request can be made. These include:
 
-When submitting a request to the CellGenIT team multiple types of request can be made. These include: 
+* Running a bioinformatics pipeline, tool or analysis (``Bioinformatics support``)
+* Sharing data with external collaborators or uploading data to ArrayExpress (``Data sharing/submission``)
+* Uploading imaging data to OMERO or running an imaging pipeline (``Imaging support``)
+* Reprocessing public scRNA-seq data with STARsolo (``Reprocess public data``)
+* Building a website (``Websites``)
+* Anything else related to CellGen Informatics (``Other questions``)
 
-* Sharing data with external collaborators 
-* Running a pipeline
-* A JupyterHub issue 
-* Requestion a GPU cloud notebook 
-* Uploading imaging data to OMERO 
-* Uploading data to Array Express
-* Downloading public data
-* Building a website
+.. note::
+    There is no ticket category for Jupyter. Notebooks (including GPU notebooks) run on the central JupyterHub provided by Sanger IT, see :doc:`jupyterhub`. For help with it, use the ``Other questions`` category or Slack.
 
 This FAQ will guide you in the best practices for submitting tickets to our team.
 
 
-Datsharing
-----------
+Sharing data
+------------
 
 When sharing data with external collaborators there are two methods used. Sharing via the **Globus** software or sharing via an **S3** bucket.
 Please check with your collaborator if they have a Globus account or not, if they do not then a download link will be provided which will work for 7 days. 
 Uppon request, a new link can be generated for the collaborator that lasts longer. To make easier for everyone, if the collaborators now in advance they'll need more time this information needs to be part of the ticket.
 
-Pipelines
----------
+Bioinformatics support
+----------------------
 
 We run multiple pipelines each which has slightly different information. Please provide the information listed under the following commonly used pipelines 
 for the pipeline you wish to run in the ticket.
@@ -87,22 +87,16 @@ for the pipeline you wish to run in the ticket.
 Please note we run other pipelines as seen `the Pipelines section <https://cellgeni.readthedocs.io/en/latest/pipelines.html>`_, but these are less common so please provide as much detail as possible in the ticket and we may ask for additional information.
 
 
-JupyterHub
-----------
+Reprocess public data
+---------------------
 
-If you are having issues with your JupyterHub or need guidance first check our `JupyterHub help page <https://cellgeni.readthedocs.io/en/latest/jupyterhub.html>`_.
-If you're issue still isn't solve please include the following:
+To reprocess public 10x scRNA-seq data with STARsolo please provide in the ticket:
 
-* GitHub username
-* Explanation of task you are trying to complete
-* The code chunk executed
-* Any error messages produced
-* The environment you are working in (i.e. a conda environment, a specific kernal or rstudio
+* The accession(s) of the dataset (e.g. GEO ``GSE...`` or ArrayExpress ``E-MTAB-...``) and a link to the publication
+* The organism and the reference genome you would like to use
+* The 10X chemistry, if known
 
-GPU Notebooks
--------------
-
-To request a GPU notebook you do not need to open a ticket, instead you need to fill in this `form <https://forms.gle/NLdvCHnzjgZXcXPD7>`_. It requires you to have a Sanger Google account. More information on the cloud notebooks can be found in the `Cloud GPU Notebook <https://cellgeni.readthedocs.io/en/latest/cloud-gpu-notebooks.html>`_ section. 
+We use the `nf-reprocessing-public-10x <https://github.com/cellgeni/nf-reprocessing-public-10x/>`_ pipeline for this. You can also run it yourself, see :doc:`raw`.
 
 
 OMERO image uploads
@@ -116,7 +110,7 @@ ArrayExpress uploads
 For ArrayExpress submissions we take care of the uploading of the sequencing
 data. The submission itself should be handled by a scientist, usually one of
 the first authors. In the submission process you will be given an ArrayExpress
-FTP address to upload the data to. You can open a JIRA ticket with us (this can
+FTP address to upload the data to. You can open a FreshService ticket with us (category ``Data sharing/submission``; this can
 be done in advance of receiving the FTP location), specify the sample names for
 which you need data uploaded (ideally split into types if the samples have
 different library types), and supply the FTP address when you have it.  We will

@@ -10,24 +10,39 @@ Cellular Genomics Informatics travel guide
    :width: 700
 
 .. toctree::
-   :maxdepth: 2
-   
+   :maxdepth: 1
+   :caption: About us
+
    about
+   contact
    requests
+   changelog
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Compute
+
    jupyterhub
    conda
-   cloud-gpu-notebooks
-   notebooks
-   rclone
+   pipelines
+   farmer
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Data
+
    raw
-   imaging
+   rclone
    sharing
    submissions
-   pipelines
    mlwarehouse
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Imaging and visualisation
+
+   imaging
    visualisations
    igviewer
-   farmer
-   contact
 
 .. note:: The creation of this travel guide was inspired by `Patrick Kua <https://www.thekua.com/>`_

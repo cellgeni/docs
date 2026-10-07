@@ -10,7 +10,7 @@ Our story
 Cellular Genetics programme (2015)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The `Cellular Genetics programme <https://www.sanger.ac.uk/science/programmes/cellular-genetics>`_ at the Sanger Institute was created in 2015 by merging with the Computational Genomics programme. In the first two years the programme didn't have any core facility groups. In 2017 it was decided to create several core facility groups including ours to help the faculty groups do their research.
+The `Cellular Genetics programme <https://www.sanger.ac.uk/programme/cellular-genetics>`_ at the Sanger Institute was created in 2015 by merging with the Computational Genomics programme. In the first two years the programme didn't have any core facility groups. In 2017 it was decided to create several core facility groups including ours to help the faculty groups do their research.
 
 Early days
 ~~~~~~~~~~
@@ -25,7 +25,7 @@ In 2017 it was decided by Wellcome Trust to adapt to the modern cloud technologi
 Cellular Genetics Informatics group (2018)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`Our group <https://www.sanger.ac.uk/science/groups/cellular-genetics-informatics>`__ was created in the beginning of 2018 and `Vladimir Kiselev <https://www.sanger.ac.uk/people/directory/vladimir-yu-kiselev>`_ started as the head of the group. `Stijn van Dongen <https://www.sanger.ac.uk/people/directory/van-dongen-stijn>`_ joined the group in May 2018 and `Anton Khodak <https://www.sanger.ac.uk/people/directory/khodak-anton>`_ joined the group in June 2018. Since then, our group has grown extensively and we have developed, implemented and maintained multiple pipelines as well as hosting a JupyterHub openstack instance. There is also alot of communication between members of our team and the faculty to aid in research including developing websites for their research publications
+`Our group <https://www.sanger.ac.uk/group/cellular-genetics-informatics>`__ was created in the beginning of 2018 and `Vladimir Kiselev <https://www.sanger.ac.uk/person/kiselev-vladimir-yu/>`_ started as the head of the group. `Stijn van Dongen <https://www.sanger.ac.uk/person/van-dongen-stijn/>`_ joined the group in May 2018 and `Anton Khodak <https://www.sanger.ac.uk/person/khodak-anton/>`_ joined the group in June 2018. Since then, our group has grown extensively and we have developed, implemented and maintained multiple pipelines as well as hosting a JupyterHub openstack instance. There is also alot of communication between members of our team and the faculty to aid in research including developing websites for their research publications
 
 Cellular Genetics Informatics group (2023)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -40,7 +40,7 @@ Our remit
 
 Group
 ~~~~~
-Our team provides efficient access to cutting-edge analysis methods for `Cellular Genomics programme <https://www.sanger.ac.uk/science/programmes/cellular-genetics>`_ at the Sanger Institute, which leads a number of world-class research initiatives including the Human Induced Pluripotent Stem Cell Initiative (`HIPSCI <http://www.hipsci.org/>`_) and `Human Cell Atlas <https://www.humancellatlas.org/>`_. Our team’s focus is the development and operation of workflows, tools and infrastructure for data analysis that support the programme’s research goals.
+Our team provides efficient access to cutting-edge analysis methods for `Cellular Genomics programme <https://www.sanger.ac.uk/programme/cellular-genetics>`_ at the Sanger Institute, which leads a number of world-class research initiatives including the Human Induced Pluripotent Stem Cell Initiative (`HIPSCI <https://www.hipsci.org/>`_) and `Human Cell Atlas <https://www.humancellatlas.org/>`_. Our team’s focus is the development and operation of workflows, tools and infrastructure for data analysis that support the programme’s research goals.
 
 Compute framework
 ~~~~~~~~~~~~~~~~~
@@ -65,12 +65,12 @@ If something has been or can be done by others we will not develop our own tool 
 Agile
 ~~~~~
 
-In our work we try use elements of the `Agile methodology <https://en.wikipedia.org/wiki/Agile_software_development>`_. We use `Jira <https://www.atlassian.com/software/jira>`_ as our main project management software.
+In our work we try use elements of the `Agile methodology <https://en.wikipedia.org/wiki/Agile_software_development>`_. We use Jira as our main project management software.
 
 User-oriented
 ~~~~~~~~~~~~~
 
-We value our users not only as our customers (we use `Jira Service Desk <https://www.atlassian.com/software/jira/service-desk>`_ for all of the users' requests) but also as the most important source of ideas and feedback. Anyone can either email us on ``cellgeni [at] sanger.ac.uk`` or talk to us in the `Cellular Genomics Slack workspace <https://sanger-cellgen.slack.com>`__ (Sanger users can login using their Sanger credentials).
+We value our users not only as our customers (we use `FreshService <https://sanger.freshservice.com/>`_ for all of the users' requests) but also as the most important source of ideas and feedback. Anyone can either email us on ``cellgeni [at] sanger.ac.uk`` or talk to us in the `Cellular Genomics Slack workspace <https://sanger-cellgen.slack.com>`__ (Sanger users can login using their Sanger credentials).
 
 Feedback
 ~~~~~~~~

@@ -172,6 +172,11 @@ Common issues
 - **Permissions denied**: you probably didn't activate the right environment. Trying to install to the base env will produce this error. Trying to install packages from nodes *other than head nodes* (farm22-head1/farm22-head2) will produce this error.
 - **No space left on device**: very rare but it's possible that ``/software`` has filled up, please contact us to fix this.
 
+Conda and Jupyter
+-----------------
+
+Conda environments created with the module can be used as kernels in the Central JupyterHub, see :doc:`jupyterhub`. Note that ISG does not support conda *inside* the Jupyter containers themselves: create the environment on the farm and register it as a kernel.
+
 Conda Support
 -------------
 

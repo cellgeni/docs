@@ -1,7 +1,7 @@
 Single Cell Visualizations
 ==========================
 
-Authors: `Batuhan Cakir <https://www.sanger.ac.uk/person/cakir-batuhan-1015271/>`_, `Simon Murray <https://www.sanger.ac.uk/people/directory/murray-simon>`_ and `Vladimir Kiselev <https://www.sanger.ac.uk/people/directory/kiselev-vladimir-yu>`_. 
+Authors: `Batuhan Cakir <https://www.sanger.ac.uk/person/cakir-batuhan-1015271/>`_, `Simon Murray <https://www.sanger.ac.uk/person/murray-simon/>`_ and `Vladimir Kiselev <https://www.sanger.ac.uk/person/kiselev-vladimir-yu/>`_. 
 
 If you would like to make your single-cell RNA-seq data publicly available on a website, for example as a supplement for a publication, we can help you with that!
 
@@ -9,7 +9,7 @@ cellxgene
 ---------
 
 We use `cellxgene
-<https://chanzuckerberg.github.io/cellxgene/>`_ to visualize single cell RNA-seq data. **cellxgene** is an interactive data explorer which is very scalable and flexible.
+<https://github.com/chanzuckerberg/cellxgene>`_ to visualize single cell RNA-seq data. **cellxgene** is an interactive data explorer which is very scalable and flexible.
 
 To be able for us to create a **cellxgene** website for your data we need to have your data in the `h5ad (AnnData) <https://anndata.readthedocs.io>`_ format. 
 
@@ -177,49 +177,18 @@ https://colab.research.google.com/github/cellgeni/docs/blob/master/docs/source/v
 Data Conversion
 ^^^^^^^^^^^^^^^
 
-We have released the ``sceasy`` package on GitHub (https://github.com/cellgeni/sceasy) to easily convert other single-cell file types to AnnData format for visualization with cellxgene. Currently it supports converting **Seurat**, **SingleCellExperiment** and **Loom** objects to **AnnData**. By default it transfers expression matrices, cell and gene metadata table, and, if available, cell embeddings in reduced dimensions to **AnnData**. 
+`sceasy <https://github.com/cellgeni/sceasy>`_ is a package that helps easy conversion of different single-cell data formats to each other. Converting to AnnData creates a file that can be directly used in `cellxgene <https://github.com/chanzuckerberg/cellxgene>`_, an interactive explorer for single-cell transcriptomics datasets. Currently it supports converting **Seurat**, **SingleCellExperiment** and **Loom** objects to **AnnData**. By default it transfers expression matrices, cell and gene metadata tables and, if available, cell embeddings in reduced dimensions.
 
-.. warning:: Before installing the conda packages below please first create a new conda environment ``EnvironmentName`` and activate it. Everything else can be installed in ``R``.
+Please follow the installation instructions in the `sceasy README <https://github.com/cellgeni/sceasy>`_, which are kept up to date.
 
-``sceasy`` is installable either as a ``bioconda`` package:
+.. tip::
+    For ``h5ad`` to ``rds`` conversion also see `schard <https://github.com/cellgeni/schard>`_.
 
-.. code-block:: python 
+.. tip::
+    For ``rds`` to ``h5ad`` conversion also see `py8rds <https://github.com/cellgeni/py8rds>`_.
 
-    conda install -c bioconda r-sceasy
+Examples of ``sceasy`` usage:
 
-or as an ``R`` package:
-
-.. code-block:: r 
-
-    devtools::install_github("cellgeni/sceasy")
-
-To use ``sceasy`` ensure the ``anndata`` package (version has to be < 0.6.20) is installed:
-
-.. code-block:: python 
-
-    conda install anndata == 0.6.19  -c bioconda
-
-In addition, please also ensure the ``loompy`` package (loompy version < 3.0.0) is installed:
-
-.. code-block:: python
-
-    conda install loompy == 2.0.17  -c bioconda
-
-You will also need to install ``reticulate`` package:
-
-.. code-block:: r
-
-    install.packages('reticulate')
-
-Finally, before converting your data please load the following libraries in your ``R`` session:
-
-.. code-block:: r
-    
-    library(sceasy)
-    library(reticulate)   
-    use_condaenv('EnvironmentName')
-    loompy <- reticulate::import('loompy')
-    
 Seurat to AnnData
 ~~~~~~~~~~~~~~~~~
 

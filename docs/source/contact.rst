@@ -4,9 +4,7 @@ Contact us
 Submit a ticket
 ---------------
 
-We operate using JIRA ticketing system. To be able to put in tickets you need to contact us by either emailing to ``cellgeni [at] sanger.ac.uk`` or using `Cellular Genomics Slack workspace <https://sanger-cellgen.slack.com>`__ (please use your Sanger credentials to login).
-
-Once an account has been created for you, you can put in a ticket using `our web portal <https://cellgeni-jira.sanger.ac.uk/servicedesk/customer/portal/1>`_.
+We operate using the FreshService ticketing system. Anyone at Sanger can log in to `FreshService <https://sanger.freshservice.com/>`_ and submit a ticket from the **CellGen Informatics** catalogue. See :doc:`requests` for the information to include.
 
 Coffee standups
 ---------------

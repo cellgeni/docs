@@ -4,7 +4,7 @@ Data sharing
 Globus
 ------
 
-We use `Globus <https://www.globus.org/>`_ network to share the data with external collaborators. It allows us to share data from e.g. a specific folder on the Sanger LFS cluster directly with the external world.
+We use `Globus <https://www.globus.org/>`_ network to share the data with external collaborators. It allows us to share data from e.g. a specific folder on the Sanger farm directly with the external world.
 
 The sharing process consists of the following steps:
 
@@ -21,7 +21,7 @@ For more information please visit the `Globus official documentation <https://do
 cram files
 ----------
 
-Sanger default file format for storing NGS data is ``CRAM`` and this is what we provide to the user when share data with them. Typically ``CRAM`` achieves 40-50% space saving over the alternative ``BAM`` format and much more than that over the compressed ``fastq`` files. For more information please visit `this page <https://www.sanger.ac.uk/science/tools/cram>`_. 
+Sanger default file format for storing NGS data is ``CRAM`` and this is what we provide to the user when share data with them. Typically ``CRAM`` achieves 40-50% space saving over the alternative ``BAM`` format and much more than that over the compressed ``fastq`` files. For more information please visit `this page <https://www.sanger.ac.uk/tool/cram/>`_. 
 
 Once the user obtained the data from Globus, the data can be converted from ``CRAM`` to ``fastq`` format using the following steps:
 

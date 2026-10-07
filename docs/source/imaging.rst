@@ -32,7 +32,7 @@ Users need to get data off microscopes quickly. Choose from the following use ca
 Upload OME-TIFF and NDPI
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Data in OME-TIFF and NDPI format can be imported as-is provided the images have pyramids generated. Please submit a ticket with a TSV file with the following columns:
+Data in OME-TIFF and NDPI format can be imported as-is provided the images have pyramids generated. Please submit a `FreshService <https://sanger.freshservice.com/>`_ ticket (category ``Imaging support``, see :doc:`requests`) with a TSV file with the following columns:
 
 .. list-table:: OMERO_IMPORT.tsv
    :widths: 25 30
@@ -56,7 +56,7 @@ Upload NDPIS
 ^^^^^^^^^^^^
 
 NDPIS need to be processed before importing this involves merging all NDPI image for individual channels into one image.
-Please fill the following ``xlsx`` file and submit a ticket with it attached. 
+Please fill the following ``xlsx`` file and submit a `FreshService <https://sanger.freshservice.com/>`_ ticket (category ``Imaging support``) with it attached.
 
 `HamamatsuLogTemplate.xlsx <https://cellgeni.cog.sanger.ac.uk/HamamatsuLogTemplate.xlsx>`_
 
@@ -88,7 +88,7 @@ Stitching
 ---------
 
 Opera Phenix exported raw tiles need to be stitched together before importing to OMERO. 
-Please fill the following ``xlsx`` file and submit a ticket with it attached.
+Please fill the following ``xlsx`` file and submit a `FreshService <https://sanger.freshservice.com/>`_ ticket (category ``Imaging support``) with it attached.
 
 `Operetta-PhenixLogTemplate.xlsx <https://cellgeni.cog.sanger.ac.uk/Operetta-PhenixLogTemplate.xlsx>`_
 
