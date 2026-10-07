@@ -15,8 +15,8 @@ January to May 2026
 * Conda module references changed from ``cellgen`` to ``ISG/conda``, with clearer instructions for cloning environments.
 * Added details on the ``adata.X`` format and redacted contact information.
 
-2025
-----
+February to July 2025
+---------------------
 
 * Programme renamed from Cellular Genetics to Cellular Genomics.
 * Documented Teleport login from GCP notebooks and fixed documentation build warnings.

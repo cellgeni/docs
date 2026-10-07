@@ -69,7 +69,7 @@ The Central JupyterHub gives everyone access to GPUs: tick **Use GPU** on the Se
 Installing packages
 -------------------
 
-The ``Jupyterhub Basic Container`` (Python 3.9, pip, virtualenv and CUDA 11.8) is built without conda, and ISG no longer supports conda inside it. Create a virtual environment on the farm (for example in your team's project space rather than your home directory) and register it as a kernel:
+The ``Jupyterhub Basic Container`` (Python 3.9, pip, virtualenv and CUDA 11.8) is built without conda, and ISG no longer supports conda inside it. Create a virtual environment on the farm (for example under your project or team space) and register it as a kernel:
 
 .. code-block:: bash
 
