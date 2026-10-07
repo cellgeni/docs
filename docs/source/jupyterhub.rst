@@ -18,7 +18,7 @@ Starting a notebook
 #. On the **Server Options** page choose:
 
    * **Memory RAM (GB)** and **CPU (cores)**: the resources for your notebook.
-   * **Use GPU** and **GPU Memory RAM (GB)**: tick this if you need a GPU. Select the minimum GPU memory you need, since jobs asking for 80GB can take a long time to be scheduled.
+   * **Use GPU** and **GPU Memory RAM (GB)**: tick this if you need a GPU. Select the minimum GPU memory you need, since jobs asking for 80GB can take a long time to be scheduled. GPUs are not available on ``gen22``, so choose a different cluster (see below).
    * **Cluster**: the farm cluster to start the job on. Select ``General small farm 22.04 (gen22)`` if you haven't been on the farm course, as everyone can use it. The other options are ``General large farm 22.04 (farm22)``, ``Cub AI farm 22.04 (cub22)`` (Cub is the training cluster for accelerated computing, where you can get familiar with GPUs without affecting production workloads) and the ``ISG 22.04 test cluster``.
    * **Run environment**: ``Standard Jupyter Notebook`` uses the farm native software stack, or pick one of the pre-built Singularity containers (see below).
 
@@ -64,7 +64,7 @@ The JupyterHub file browser only shows your home directory, but your terminal an
 GPUs
 ----
 
-The Central JupyterHub gives everyone access to GPUs: tick **Use GPU** on the Server Options page and choose the minimum GPU memory you need. This is a shared "fractional GPU" service meant for exploring data and developing software, so you get a portion of a GPU rather than a whole one. For larger jobs use the GPU batch queues on the farm. The Sanger-supported frameworks are PyTorch, TensorFlow and scikit-learn. See `Introduction to GPU services at Sanger <https://ssg-confluence.internal.sanger.ac.uk/spaces/FARM/pages/216139396/Introduction+to+GPU+services+at+Sanger>`_ (internal) for details, and ask in the `Sanger machine learning community <https://sanger.enterprise.slack.com/archives/C05GHEE4Z36>`_ on Slack.
+The Central JupyterHub gives everyone access to GPUs: tick **Use GPU** on the Server Options page, choose the minimum GPU memory you need and pick a cluster other than ``gen22``, which has no GPUs. This is a shared "fractional GPU" service meant for exploring data and developing software, so you get a portion of a GPU rather than a whole one. For larger jobs use the GPU batch queues on the farm. The Sanger-supported frameworks are PyTorch, TensorFlow and scikit-learn. See `Introduction to GPU services at Sanger <https://ssg-confluence.internal.sanger.ac.uk/spaces/FARM/pages/216139396/Introduction+to+GPU+services+at+Sanger>`_ (internal) for details, and ask in the `Sanger machine learning community <https://sanger.enterprise.slack.com/archives/C05GHEE4Z36>`_ on Slack.
 
 Installing packages
 -------------------

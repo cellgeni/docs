@@ -75,6 +75,6 @@ We value our users not only as our customers (we use `FreshService <https://sang
 Feedback
 ~~~~~~~~
 
-We also have monthly meetings with faculty group's representatives and weekly coffee standups where anyone can come, comment on our work, feedback or ask us any question.
+We also have monthly meetings with faculty group's representatives. Feedback is welcome at any time through a ticket or on Slack.
 
 
