@@ -4,7 +4,11 @@ Imaging
 Introduction
 ------------
 
-Imaging data are the images produced by microscopy of cells, organelles, tissues etc and their associated metadata. 
+Imaging data encompasses microscopy and histology images of cells, organoids, and tissues, together with their associated metadata and molecular measurements. Our team works across a wide range of imaging technologies, including spatial transcriptomics (10x Genomics Xenium and Visium), spatial proteomics and multiplexed immunofluorescence (Akoya PhenoCycler), and RNA in situ hybridisation (RNAscope) using high-content imaging platforms such as the Opera Phenix and Operetta.
+
+We also process and analyse whole-slide histology images, including H&E-stained tissue sections acquired using Hamamatsu scanners, and organoid images captured using Hamamatsu, Nikon and Cytation imaging systems.
+
+Our work spans image processing, segmentation, feature extraction, spatial analysis, and the integration of imaging and molecular data to support biological discovery.
 
 OMERO
 -----
@@ -12,8 +16,9 @@ OMERO
 .. tip::
     Use the email ``omero-help [at] sanger.ac.uk`` or the slack channel ``#usergroup_omero`` to get support.
 
+The `Sanger Imaging Platform <https://omero.sanger.ac.uk>`_ uses OMERO Plus, an enhanced version of the open-source OMERO platform for managing, visualising, and analysing microscopy imaging data. OMERO provides centralised storage, metadata management, and secure access to imaging datasets, enabling researchers to explore and share images across different microscopy technologies.
 
-The `Sanger Imaging Platform <https://omero.sanger.ac.uk>`_ uses the OMERO software for the analysis of microscope imaging data. Storing data in OMERO is a procedure Cellular Genomics Informatics provide.
+Cellular Genomics Informatics supports researchers with the ingestion, organisation, and management of imaging data within OMERO Plus, facilitating its integration into scientific analysis workflows.
 
 Please watch the following 10min video from the `The Jackson Laboratory <https://www.jax.org/>`_ to learn the basics of browsing and annotating images using OMERO:
 
@@ -32,7 +37,7 @@ Users need to get data off microscopes quickly. Choose from the following use ca
 Upload OME-TIFF and NDPI
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Data in OME-TIFF and NDPI format can be imported as-is provided the images have pyramids generated. Please submit a ticket with a TSV file with the following columns:
+Data in OME-TIFF and NDPI format can be imported as-is provided the images have pyramids generated. Please submit a `FreshService <https://sanger.freshservice.com/>`_ ticket (category ``Imaging support``, see :doc:`requests`) with a TSV file with the following columns:
 
 .. list-table:: OMERO_IMPORT.tsv
    :widths: 25 30
@@ -56,7 +61,7 @@ Upload NDPIS
 ^^^^^^^^^^^^
 
 NDPIS need to be processed before importing this involves merging all NDPI image for individual channels into one image.
-Please fill the following ``xlsx`` file and submit a ticket with it attached. 
+Please fill the following ``xlsx`` file and submit a `FreshService <https://sanger.freshservice.com/>`_ ticket (category ``Imaging support``) with it attached.
 
 `HamamatsuLogTemplate.xlsx <https://cellgeni.cog.sanger.ac.uk/HamamatsuLogTemplate.xlsx>`_
 
@@ -88,7 +93,7 @@ Stitching
 ---------
 
 Opera Phenix exported raw tiles need to be stitched together before importing to OMERO. 
-Please fill the following ``xlsx`` file and submit a ticket with it attached.
+Please fill the following ``xlsx`` file and submit a `FreshService <https://sanger.freshservice.com/>`_ ticket (category ``Imaging support``) with it attached.
 
 `Operetta-PhenixLogTemplate.xlsx <https://cellgeni.cog.sanger.ac.uk/Operetta-PhenixLogTemplate.xlsx>`_
 
@@ -148,3 +153,18 @@ For Visium experiment output we can run segmentation on H&E image and add segmen
    :height: 0.245in
 .. |image_omero_dataset| image:: https://omero-guides.readthedocs.io/en/latest/_images/management3c.png
    :height: 0.215in
+
+
+Xenium segmentation and reprocessing
+------------------------------------
+
+For 10x Genomics Xenium experiments, we provide `nf-xenium`, a Nextflow pipeline for scalable and reproducible cell segmentation, transcript reassignment, and downstream processing.
+
+The pipeline supports multiple segmentation approaches, including `Cellpose <https://github.com/MouseLand/cellpose>`_, `ProSeg <https://github.com/dcjones/proseg>`_, `Baysor <https://github.com/kharchenkolab/Baysor>`_, Segger, StarDist, and InstanSeg. These methods allow researchers to refine cell boundaries and improve transcript-to-cell assignments beyond the default Xenium segmentation.
+
+Multiple segmentation methods can be applied to the same experiment, enabling comparison and evaluation of alternative approaches. The pipeline also supports integration with Xenium Ranger, optional quality control, and export to `SpatialData <https://spatialdata.scverse.org/>`_ for downstream analysis and visualisation.
+
+This allows users to evaluate segmentation strategies according to tissue type, imaging characteristics, and scientific objectives.
+
+For assistance with Xenium resegmentation or specific analysis requirements, please contact the Cellular Genomics Informatics team.
+

@@ -4,7 +4,7 @@ Data sharing
 Globus
 ------
 
-We use `Globus <https://www.globus.org/>`_ network to share the data with external collaborators. It allows us to share data from e.g. a specific folder on the Sanger LFS cluster directly with the external world.
+We use `Globus <https://www.globus.org/>`_ network to share the data with external collaborators. It allows us to share data from e.g. a specific folder on the Sanger farm directly with the external world.
 
 The sharing process consists of the following steps:
 
@@ -21,9 +21,11 @@ For more information please visit the `Globus official documentation <https://do
 cram files
 ----------
 
-Sanger default file format for storing NGS data is ``CRAM`` and this is what we provide to the user when share data with them. Typically ``CRAM`` achieves 40-50% space saving over the alternative ``BAM`` format and much more than that over the compressed ``fastq`` files. For more information please visit `this page <https://www.sanger.ac.uk/science/tools/cram>`_. 
+Sanger default file format for storing NGS data is ``CRAM`` and this is what we provide to the user when share data with them. Typically ``CRAM`` achieves 40-50% space saving over the alternative ``BAM`` format and much more than that over the compressed ``fastq`` files. For more information please visit `this page <https://www.sanger.ac.uk/tool/cram/>`_. 
 
-Once the user obtained the data from Globus, the data can be converted from ``CRAM`` to ``fastq`` format using the following steps:
+For an automated approach that retrieves sequencing data directly from Sanger's iRODS archive and converts ``CRAM`` files to ``FASTQ``, see :ref:Retrieving sequencing data from iRODS.
+
+Once the user obtained the data from Globus, the data can be converted from ``CRAM`` to ``FASTQ`` format using the following steps:
 
 * Install ``samtools`` with version **>=1.8** (in this case ``samtools`` should automatically download the right genome reference if your local installation does not have it) 
 
@@ -40,3 +42,31 @@ If this does not work, you could try running these first:
 
     unset REF_PATH
     unset REF_CACHE
+
+
+Retrieving sequencing data from iRODS
+-------------------------------------
+
+We provide `nf-irods-to-fastq <https://github.com/cellgeni/nf-irods-to-fastq>`_, a scalable and reproducible Nextflow pipeline that simplifies retrieving sequencing data from Sanger's iRODS archive and converting ``CRAM/BAM`` files into ``FASTQ`` format.
+
+The pipeline automates sample discovery, metadata retrieval, file downloads, and CRAM-to-FASTQ conversion. It supports processing multiple samples in parallel on Sanger's LSF compute cluster, concatenating FASTQ files and generating MD5 checksums.
+
+Researchers can retrieve and convert their sequencing data by providing a simple CSV file containing sample identifiers, without needing to manually locate CRAM files or manage individual conversions.
+
+For example, create a ``samples.csv`` file:
+
+.. code-block:: text
+
+   sample
+   SAMPLE_001
+   SAMPLE_002
+
+Then run:
+
+.. code-block:: bash
+
+   nextflow run cellgeni/nf-irods-to-fastq --samples samples.csv --cram2fastq
+
+The pipeline also supports metadata-only discovery and processing existing CRAM files directly. For external data submissions, FASTQ files can be uploaded to FTP servers using a separate pipeline step.
+
+For more information, see the `nf-irods-to-fastq documentation <https://github.com/cellgeni/nf-irods-to-fastq>`_ or contact the Cellular Genomics Informatics team.

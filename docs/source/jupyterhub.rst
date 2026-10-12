@@ -1,425 +1,133 @@
-Jupyter Hub
-===========
-
-We support a Jupyter Hub server running on Sanger Cloud. Jupyter allows you to run your analysis in multiple environments (``R``, ``python``, ``Julia``, etc.) and also to create and share notebooks containing your analysis, code, equations and visualizations. We think this is an ideal environment for any kind of downstream analysis. For more details please refer to `Jupyter Hub documentation <http://jupyter.org/hub>`_.
-
-How to get access
------------------
-
-Our Jupyter Hub service is available in a web browser on any computer anywhere in the world. You will need to provide us with your GitHub ID to be able to login. Once we notify you that your account is created you can login using your GitHub credentials.
+Jupyter
+=======
 
 .. note::
-    **Only Sanger employees and their collaborators are eligible for access**.
-    To get access email ``cellgeni [at] sanger.ac.uk`` and provide your GitHub username and Sanger Faculty.
+    We no longer host our own JupyterHub (``jhub.cellgeni.sanger.ac.uk``) nor ``Cloud GPU Notebooks``. Both have been replaced by the **Central JupyterHub** run by Sanger IT directly on the farm. It supports CPU and GPU notebooks.
 
-Internal JupyterHub
--------------------
-
-Central IT now have their own JupyterHub that runs directly on the FARM. It requires a VPN connection to access. It is available `here <http://jupyter.internal.sanger.ac.uk/>`_.   
-
-
-Resources
----------
-
-Our cluster allows for single user Jupyter instances to be spawned with up to 400GB RAM and 30 CPUs, but this depends on our cluster's load at that time.
-By default we provide users with 20GB of RAM and a dynamic limit of 10 CPUs. We guarantee each jupyter will have at least 1 core and they can use up to 10 if they need to without changing their resource configuration.
-
-If you require more resources, you'll have to `Restart your instance <https://jhub.cellgeni.sanger.ac.uk/hub/home>`_ and request for more. Un-check the default resources and input what you need, if there are enough resources on the cluster they'll be reserved for your Jupyter.
-
-Jupyter's storage is 100GB. Try no to keep big files on jupyter and instead read them from the farm. Only ``/home/jovyan`` is persistent, anything outside your home folder will be lost when your session is terminated.
-
-Please have in mind the following considerations: 
-
-- Only input custom CPU resources if you require more than 10 CPUs or if you're performing a benchmark and you need exactly a specific number of CPUs.
-
-- After you've finished your analysis with custom resources, please `Restart your instance <https://jhub.cellgeni.sanger.ac.uk/hub/home>`_ and go back to the defaults to free those resources and allow other users to access them.
-
-- If you're only going to be checking on your farm jobs please use custom 8GB RAM (*default CPU is just fine for this*).
-
-- Jupyter's cull time is 24 hours, if you have not access your jupyter at least once in the past 24 hours your session will be terminated.
-
-
-
-We provide open usage metrics of our Jupyter cluster using `Graphana Dashboard <https://metrics.cellgeni.sanger.ac.uk>`_.
-
-Quick Start Guide
------------------
-JupyterHub website is public, so you don't need to turn on VPN to use it. However, it is only available to users who messaged us their GitHub usernames and have been whitelisted. 
-
-#. In your browser go to https://jhub.cellgeni.sanger.ac.uk
-#. Use your GitHub credentials for authentication. It may take some time to load first time.
-#. Select your CPU number, RAM number and Image you would like to spawn your instance with *(or use the defaults)*.
-#. Now you are ready to run your notebooks! 
-#. **RStudio** is also available on JupyterHub. A new R session can be started from the Launcher or change the word `lab` in your address bar to the word `rstudio`: ``https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/rstudio``
-#. You can switch to a classic Jupyter interface by change the word `lab` in your address bar to the word `tree`: ``https://jhub.cellgeni.sanger.ac.uk/user/<your-username>/tree``
-
-
-.. warning:: **JupyterHub environment and storage are not backed up**. Please only use for computations and download your results (and notebooks) afterwards. You've been warned!
-
-
-.. warning:: **Keep your notebooks light**. Notebooks over 100MB *will* give you unexpected errors.
-
-
-Notebook templates
+Central JupyterHub
 ------------------
 
-We provide some notebook templates with the pre-installed software. These are located in the ``notebooks`` folder in Jupyter or in our `Notebook GitHub repositry <https://github.com/cellgeni/notebooks/>`_. Corresponding example data is located in the ``data`` folder. 
+The Central JupyterHub is available at https://jupyter.internal.sanger.ac.uk. 
+It is open to all Sanger staff, but **you need to be on the VPN or on site** to reach it. 
+If you are off site and cannot use the VPN (for example on a personal laptop), use Teleport instead and log in at https://jupyter.portal.sanger.ac.uk (you need to ask the `Service Desk <https://sanger.freshservice.com/>`_ for Teleport access first). 
+The service documentation is on the `Central JupyterHub service page <https://ssg-confluence.internal.sanger.ac.uk/spaces/FARM/pages/137073043/Central+JupyterHub+service>`_ (internal), and most of the documentation lives in the JupyterHub itself.
 
-We recommend that before running your analysis, you make a copy of a notebook template, save it to your home folder and work with the copy. 
+Because notebooks run on the farm, they have direct access to your farm home directory and Lustre, so there is no need to copy data around or mount the farm as with our old hub. 
+Anything you do not store on the farm (such as a ``/tmp`` directory on the compute node) is lost when the notebook stops.
 
-Read more about our notebooks in the `Notebook section <https://cellgeni.readthedocs.io/en/latest/notebooks.html>`_
+Starting a notebook
+-------------------
+
+#. Log in at https://jupyter.internal.sanger.ac.uk/
+#. On the **Server Options** page choose:
+
+   * **Memory RAM (GB)** and **CPU (cores)**: the resources for your notebook.
+   * **Use GPU** and **GPU Memory RAM (GB)**: tick this if you need a GPU. Select the minimum GPU memory you need, since jobs asking for 80GB can take a long time to be scheduled. GPUs are not available on ``gen22``, so choose a different cluster (see below).
+   * **Cluster**: the farm cluster to start the job on. Select ``General small farm 22.04 (gen22)`` if you haven't been on the farm course, as everyone can use it. The other options are ``General large farm 22.04 (farm22)``, ``Cub AI farm 22.04 (cub22)`` (Cub is the training cluster for accelerated computing, where you can get familiar with GPUs without affecting production workloads).
+   * **Run environment**: ``Standard Jupyter Notebook`` uses the farm native software stack, or pick one of the pre-built Singularity containers (see below).
+
+#. Click **Start** and wait for the server to start (this should take less than a minute).
+#. A file browser is on the left and the launcher on the right. Use the launcher to open a notebook or a terminal (under ``Other``).
+
+When you are finished, stop your server from ``File`` > ``Hub Control Panel`` > ``Stop My Server`` so the resources are freed for other users.
+
+
+Accessing Lustre from the file browser
+--------------------------------------
+
+The JupyterHub file browser only shows your home directory, but your terminal and notebooks can use any path on the farm. 
+To also browse NFS and Lustre directories in the file browser, link them into your home directory:
+
+.. code-block:: bash
+
+    ln -s /lustre/scratch126 $HOME/lustre126
+    ln -s /nfs/team123 $HOME/nfs_team123
+
+
+GPUs
+----
+
+The Central JupyterHub gives everyone access to GPUs: tick **Use GPU** on the Server Options page, choose the minimum GPU memory you need and pick a cluster other than ``gen22``, which has no GPUs. 
+This is a shared "fractional GPU" (MIG) service meant for exploring data and developing software, so you get a portion of a GPU rather than a whole one. 
+For larger jobs use the GPU batch queues on the farm. 
+The Sanger-supported frameworks are PyTorch, TensorFlow and scikit-learn. 
+See `Introduction to GPU services at Sanger <https://ssg-confluence.internal.sanger.ac.uk/spaces/FARM/pages/216139396/Introduction+to+GPU+services+at+Sanger>`_ (internal) for details, and ask in the `Sanger machine learning community <https://sanger.enterprise.slack.com/archives/C05GHEE4Z36>`_ on Slack.
 
 
 Installing packages
 -------------------
 
-JHub Conda
-^^^^^^^^^^
+You can install additional Python packages by creating your own environment on the farm. We recommend using ``conda`` (see :doc:`conda`) or `uv <https://docs.astral.sh/uv/>`_. Keep environments in your project or team space rather than installing packages into the shared JupyterHub environment.
 
-The default conda environment is not persistent across Jupyter sessions - you can install additional packages, but it will not be there next time you start Jupyter.
-To have a persistent conda environment create one inside ``/home/jovyan/`` folder *(if you've already got a conda environment activated jump to step 4)*:
+After creating an environment, register it as a Jupyter kernel. You can then select that kernel from the JupyterLab launcher or the notebook kernel selector.
 
-1. Open a new terminal (click on the ``Terminal`` icon in the Launcher)
-2. Create the environment and activate it (replace ``myenv`` with your environment name):
+Using Conda
+~~~~~~~~~~~
 
-  .. code-block:: bash
-
-    conda create --name myenv python=3.8
-    conda activate myenv
-
-3. Install ``ipython kernel`` to use as a python kernel inside your jupyter environment, ``--display-name`` is optional, if not provided the conda environment name will be used:
-
-  .. code-block:: bash
-
-    python -m ipykernel install --user --name myenv --display-name "Python (MyEnv)"
-
-
-4. Install all the packages you need, for example:
-
-  .. code-block:: bash
-
-    conda install numpy pandas matplotlib scipy scikit-learn
-
-5. Reload the main page. Now you will see your new environment in the Launcher. If you don't see it at first, try restarting your instance.
-
-
-**Alternative**
-
-Instead of creating a new environment, you can also clone an existing one this will eliminate the need to install repeated packages:
+Create an environment with Python 3.12 and the packages you need, activate it, and install a Jupyter kernel:
 
 .. code-block:: bash
 
-    conda create --clone old_name --name new_name
+    # Choose a location in your project or team space
+    conda create my-conda-env python=3.12 ipykernel
+    conda activate my-conda-env
 
+    # Give the kernel a recognisable name in JupyterHub
+    python -m ipykernel install --user --name my-conda-env --display-name "Python (my-conda-env)"
 
-pip
-^^^
-``pip`` defaults to installing Python packages to a system directory, to make sure your packages persist they need to be installed in your home directory use the ``--user`` option to do this or **install them inside an active conda environment**.
+Add more packages later using ``conda install package-name`` while the environment is active.
+If needed, ``pip install package-name`` can install packages that are not available through Conda. 
+Prefer Conda packages where possible and avoid mixing package managers unnecessarily.
 
+If ``conda activate`` is not available, see :doc:`conda` for how to initialise Conda in your shell.
 
-R
-^^^
-Packages can be installed with the ``install.packages()`` function in an RStudio console:
+Using uv
+~~~~~~~~
 
-.. code-block:: r
-
-    install.packages("packageName")
-
-or multiple packages at once:
-
-.. code-block:: r
-
-    install.packages(c("packageOne", "packageTwo", "packageThree"))
-
-From a terminal ``RScript`` can be used to install packages **(don't install packages as sudo)**:
+Alternatively, create a Python virtual environment using ``uv``:
 
 .. code-block:: bash
 
-    Rscript -e 'install.packages("packageName")'
+    module load cellgen/uv
+    uv venv my-env --python 3.12
+    source my-env/bin/activate
+    uv pip install ipykernel scanpy pandas
+    python -m ipykernel install --user --name my-env --display-name "Python (my-env)"
+
+Install additional packages with ``uv pip install package-name`` after activating the environment.
+
+Managing kernels
+~~~~~~~~~~~~~~~~
+
+Restart your JupyterLab session if the new kernel does not appear. To see registered kernels, run ``jupyter kernelspec list``. To remove a kernel registration you no longer need, run ``jupyter kernelspec uninstall my-conda-env`` (or the kernel name you registered). Removing a kernel registration does **not** delete its environment.
+
+For R environments, install ``IRkernel`` and register the kernel using ``IRkernel::installspec()``.
 
 
-.. warning:: **Try not to mix conda r-* packages with R CRAN packages**. For example, if you've installed your own R using conda like this ``conda install r-recommended r-irkernel``, install packages using conda ``conda install r-hdf5r`` instead of ``install.packages("hdf5r")``.
-
-
-
-Kernels
--------
-
-Kernels are programming language specific processes that run independently and interact with Jupyter and their user interfaces. 
-Kernels can be changed using the ``Kernel`` > ``Changer kernel`` menu.
-
-
-Python Kernel
-^^^^^^^^^^^^^
-When the kernel list is located outside your home directory it can be reseted. If that happens, run this one-line command from your terminal to add **every conda environment** on your profile to the kernel list.
-
-.. code-block:: bash
-
-    pip install -U ipykernel; ENVS=$(conda info --envs | grep '^\w' | cut -d' ' -f1); for env in $ENVS; do source activate $env; python -m ipykernel install --user --name $env; echo "$env"; conda deactivate; done
-
-
-R Kernel
-^^^^^^^^^
-If you want to run R code straight from JupyterLab without using RStudio you can use the ``R`` kernel. If you don't see it on the select list, you need to install the ``iRkernel`` package. 
-Install the package and the spec:
-
-.. code-block:: r
-
-    install.packages('IRkernel')
-    IRkernel::installspec() 
-
-
-Managing your data
+Notebook templates
 ------------------
 
-.. note:: Any data outside ``/home/jovyan`` will be lost when the environment is restarted. Make sure you keep the files you don't want to lose somewhere inside the home folder.
+Our (older) example notebooks for a basic downstream scRNA-seq analysis (SoupX, Scrublet, Seurat, Scanpy, R-based integration and Monocle3) are available in the `cellgeni/notebooks <https://github.com/cellgeni/notebooks/>`_ GitHub repository, together with HTML renders at https://cellgeni.github.io/notebooks/. They are no longer maintained, so package versions may need adjusting.
 
 
-Upload using GUI
-^^^^^^^^^^^^^^^^
-You can copy files to and from Jupyter directly in a web interface (Menu and a button in the interface).
+Singularity notebook environments
+---------------------------------
 
+We highly advise you use ``Standard Jupyter Notebook`` by default. 
+However, if you need to you can run a pre-built Singularity image as your notebook. 
+The following are available:
 
-Copying data to/from other hosts
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-You can also copy data to/from other hosts, like the farm, using a terminal (click on the ``Terminal`` icon in the Launcher).
+* CPU: `base <https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-base-notebook>`__, `all-spark <https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-all-spark-notebook>`__ and `datascience <https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook>`__ notebooks
+* GPU: `RAPIDS <https://developer.nvidia.com/topics/ai/data-science/cuda-x-for-data-science>`__ and `TensorFlow <https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-tensorflow-notebook>`__ notebooks
 
-**Using rsync**
+The container is granted access to any GPU you requested. Some things to keep in mind:
 
-Copy from the farm to the local environment:
-
-.. code-block:: bash
-
-    rsync -avzh USER@farm5-login:/nfs/users/nfs_u/USER/<some-path>/ farm/
-
-Copy from the local environment to the farm:
-
-.. code-block:: bash
-
-    rsync -avzh <some-path> USER@farm5-login:/nfs/users/nfs_u/USER/
-
-**Using scp**
-
-Copy from the farm to the local environment:
-
-.. code-block:: bash
-
-      scp -r USER@farm5-login:/nfs/users/nfs_u/USER/<some-path>/ farm/
-
-Copy from the local environment to the farm:
-
-.. code-block:: bash
-
-    scp -r farm/ USER@farm5-login:/nfs/users/nfs_u/USER/<some-path>/ 
-
-
-Mounting the farm on jupyter (sshfs)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To mount the farm's base paths (``/nfs``, ``/lustre`` and ``/warehouse``) on your jupyter instance:
-
-#. Open a new terminal on your Jupyter.
-
-#. Type ``mount-farm``, then press Enter.
-
-#. When prompted for your username and password input them.
-
-
-The three folders will be mounted on the root folder of your instance. 
-Try opening a new terminal and change directory to your farm home ``cd /nfs/users/nfs_u/USER`` or your team's lustre ``cd /lustre/scratch11X/team999`` and then type ``ls`` to see the files. You can use the same paths in your notebooks.
-
-.. note:: You will not see these folders in Jupyter's File Browser because it only shows ``/home/jovyan``, if you really want to see them on your File Browser you need to **create symlinks** from the mounted folders to your home folder.
-    For example: ``ln -s /nfs /home/jovyan/nfs``
-
-.. warning:: Mounting folders with many files/folders inside them may affect Jupyter. We recommend to only link particular folders and not the whole mounting point.
-
-
-Mounting other NFS storages
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-1. Create a folder where to mount the share: ``mkdir -p ~/home/jovyan/shared``
-
-2. Create credentials file ``/jovyan/.nfs-credentials``:
-
-.. code-block:: bash
-
-    username=YOUR_USER
-    password=YOUR_PASSWORD
-    domain=sanger
-  
-3. Mount the storage:
-
-.. code-block:: bash
-
-   sudo mount.cifs //network/path/to/share/ /home/jovyan/shared -o rw,file_mode=0777,dir_mode=0777,credentials=/jovyan/.nfs-credentials
-
-
-Downloading data
-^^^^^^^^^^^^^^^^
-
-By default, JupyterHub does not provide an ability to download folders, but you can create an archive:
-
-.. code-block:: bash
-
-    tar cvfz <some-archive-name.tar> <target-directory>/
-
-and download the resulting file with the right click ``Download`` option.
-
-
-Exporting notebooks
-^^^^^^^^^^^^^^^^^^^
-
-
-Export as PDF
-"""""""""""""
-
-To export a notebook as PDF, install the following pre-requisite software:
-
-.. code-block:: bash
-
-    sudo apt update && sudo apt-get install -y texlive-generic-recommended texlive-generic-recommended
-
-Now you can export a notebook through ``File`` > ``Export notebook as...`` menu.
-
-
-Knit to PDF
-"""""""""""
-
-To export an Rnotebook as PDF, install the following pre-requisite software:
-
-.. code-block:: bash
-
-    wget -qO- "https://yihui.org/gh/tinytex/tools/install-unx.sh" | bash
-
-
-If that it is not enough, the easiest way is to install the whole texlive package, the downside is that it is **4.5G**:
-
-.. code-block:: bash
-
-    sudo apt update && sudo apt-get install -y texlive-full
-
-
-Sharing notebooks
------------------
-
-#. Go to your `API Tokens page <https://jhub.cellgeni.sanger.ac.uk/hub/token>`__ or go to `hub/home <https://jhub.cellgeni.sanger.ac.uk/hub/home>`__ and then click  **"Token"**  on the top menu.
-#. Type in a note like **"Shared with collaborator X"**
-#. Click the orange button **"Request new API token"**
-#. Copy the token that shows up under **"Your new API Token"**. (i.e. ``ba5eba11b01dfaceca55e77ecacaca11``)
-#. Go to your jupyter instance, but using the **"tree"** view instead of the "lab" view:  ``https://jhub.cellgeni.sanger.ac.uk/user/<your username>/tree``
-#. Find your notebook and open it. You should be on a link that looks like:  ``https://jhub.cellgeni.sanger.ac.uk/user/<your username>/notebooks/some_notebook.ipynb``
-#. Add this to the end of the link: ``?token=<your API token>`` and copy that link. (i.e.: ``?token=ba5eba11b01dfaceca55e77ecacaca11``)
-#. Share what you have copied. It should be something like: ``https://jhub.cellgeni.sanger.ac.uk/user/<your username>/notebooks/some_notebook.ipynb?token=<your API token>``
-#. Once you have finished the collaboration. Go to your `API Tokens page <https://jhub.cellgeni.sanger.ac.uk/hub/token>`_ and click **"Revoke"** to delete that access token.
-
-
-iRODS
------------------
-
-iRODS support is provided using a wrapper script and a singularity image already copied to your home profile. 
-Before start using iRODS, you'll need to copy your environment file from the farm to your jupyter. Open a Terminal and please follow this steps:
-
-1. Use ``mount-farm`` and input your credentials when prompted.
- 
-2. Copy ``irods_environment.json`` from your home directory on the farm to your Jupyter instance:
-
-.. code-block:: bash
-
-    cp /nfs/users/nfs_u/USER/.irods/* ~/.irods/
-
-3. Run ``irods iinit``, it will ask for your PAM password *(Sanger password, same as the one you use for the farm).*
-
-4. Run all `icommands avaiable <https://docs.irods.org/master/icommands/user/>`__ using ``irods <icommand_name>``. For example: ``irods ils`` or ``irods ihelp``.
-
-.. note:: **"irods iinit" also asked for iRODS password?** Go to the farm and type: ``head -1 ~/.irods/irods_password``, the output is your password.
-
-.. warning:: These instructions assume you already have an iRODS account setup on the farm, if you don't please contact ServiceDesk.
-
-
-Running containers
-------------------
-
-The jupyter environment includes **Singularity**, a container platform that allows creating and running tools in a portable and reproducible way. You can build a container using Singularity on your Jupyter instance, and then run it the farm. Your container is a single file, and you don’t have to worry about how to install all the software you need on each different operating system. Read more about building and running singularity containers on the `official docs <https://sylabs.io/docs/>`__.
-
-
-Building containers
-^^^^^^^^^^^^^^^^^^^
-
-You can build `Singularity recipes <https://singularityhub.github.io/singularityhub-docs/docs/getting-started/recipes>`__ in Jupyter, but for a better and more portable experience, we recommend using `Dockerfiles <https://docs.docker.com/engine/reference/builder/#dockerfile-reference>`__ instead. A Dockerfile is a script (a text document) that contains all the commands a user could call on the command line to assemble an image. Docker images are widely available and adopted as best practices everywhere. You can host your Docker images in Docker repositories like https://hub.docker.com or https://quay.io
-
-However, the downside is that Docker requires sudo permissions to execute and interact with the Docker daemon that builds the images and starts/stops the containers. We've set up a service that allows you to log in with your Sanger credentials and enables you to build Docker images that can then be turned into Singularity images and copied over to the FARM to do your work. 
-
-The basic flow of commands looks like this:
-
-.. code-block:: bash
-
-    # connect to the server
-    ssh USER@docker.cellgeni.sanger.ac.uk
-
-    # create a project folder for you to work on
-    mkdir myproject
-    cd myproject
-
-    # create appropiate Dockerfile
-    # and then build it into an image
-    docker build --tag image:tag .   
-
-    # once you've got the image locaally on the docker ademon 
-    # convert it to singularity
-    singularity build image_name.sif docker-daemon://image:tag
-
-    # copy the image off the machine into the farm
-    scp image_name.sif USER@farm5.internal.sanger.ac.uk:/path/on/the/farm
-
-
-Troubleshooting
----------------
-
-
-Restart your instance
-^^^^^^^^^^^^^^^^^^^^^
-
-Sometimes, a server restart might solve an issue. For that:
-
-#. Go to the menu "File" > "Hub Control Panel" or browse to your `Hub Home <https://jhub.cellgeni.sanger.ac.uk/hub/home>`__
-
-#. Click ``Stop My Server``
-
-#. Wait 2 minutes and reload the page.
-
-#. Access `https://jhub.cellgeni.sanger.ac.uk/ <https://jhub.cellgeni.sanger.ac.uk/>`__ to get your instance up and running again.
-
-
-Check storage usage
-^^^^^^^^^^^^^^^^^^^
-
-- Check your disk usage from a terminal using ``df -h /home/jovyan/`` or ``du -ha -d 1 ~``
-
-- Find large files in your instance. Check files larger than 1GB from a terminal using: ``find /home/jovyan -size +1G -ls``. 
-
-- Get usage of general folders under your home directory from a terminal ``du -h --max-depth=1 /home/jovyan/``
-
-
-RStudio errors
-^^^^^^^^^^^^^^
-
-- ``[Errno 111] Connection refused`` error, try restarting the server.
-
-- ``Rsession did not start in time``, ``Error 500`` or ``Error 504`` that does not allow you to load RStudio: go to the `lab` interface, start terminal, and delete the last R session and then reload RStudio:
-
-.. code-block:: bash
-
-    rm -rf ~/.rstudio/sessions                  # remove all sessions
-    rm -rf ~/.RData                             # remove stored session data
-    pkill /usr/lib/rstudio-server/bin/rsession  # kills the old RStudio session process
-                                                # will be re-created once visit user/rstudio URL
-
-
-- ``Could not start RStudio in time`` error, it might be because you ran out of disk space. delete some files, move them to the farm or request more storage.
-
-
+* A new directory named after the image is created under your home directory (e.g. ``~/Rapid_AI``) and used as the home of the container, so that the container cannot break your normal working environment.
+* It is possible to mount ``/software`` in the container, and to get a merged Jupyter environment, but we do not recommend either: containers will not necessarily have what is needed to run the software in ``/software`` (for example ``module avail`` fails because ``tclsh`` is missing).
+* The additional software in these images is installed by Sanger IT, and we are not experts in their use.
 
 
 How to get help
 ---------------
-For any Jupyter Hub related questions please use our `Slack channel <https://sanger-cellgen.slack.com/archives/C037CTA5WJD>`__. There are lots of users there who can quickly answer your questions.
+
+For questions about using Jupyter for your analysis you can ask in the `#bioinformatcs Slack channel <https://sanger-cellgen.slack.com/>`__. For problems with the service itself (login, notebooks not starting, missing software) raise a ticket with the `Service Desk <https://sanger.freshservice.com/>`_. If you have not attended the farm course, there is a `self-service version <https://isg.pages.internal.sanger.ac.uk/farm_course/>`_ (internal). The farm team also hold a weekly *Farmacy* drop-in hour on Tuesdays at 2pm, where you can get help with code, analyses that won't run or general computing questions.

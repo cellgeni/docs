@@ -12,8 +12,9 @@ Show me information for all the samples in a study
     <iframe
     src="https://metabase.cellgeni.sanger.ac.uk/public/question/a0520869-7fb6-4ca1-b5a1-829bebe61cd0"
     frameborder="0"
-    width="700"
+    width="100%"
     height="600"
+    style="max-width:100%"
     allowtransparency></iframe>
 
 MySQL query:
@@ -58,8 +59,9 @@ Show me information for all the samples with a cost code
     <iframe
     src="https://metabase.cellgeni.sanger.ac.uk/public/question/a8847ae9-7f4d-4c4f-bd76-941a7be7cc4e"
     frameborder="0"
-    width="700"
+    width="100%"
     height="600"
+    style="max-width:100%"
     allowtransparency></iframe>
 
 MySQL query:
@@ -103,8 +105,9 @@ Show me run ID, lane number and tag index for a sample
     <iframe
     src="https://metabase.cellgeni.sanger.ac.uk/public/question/0b32379b-741c-42b0-8d68-3563ab788983"
     frameborder="0"
-    width="700"
+    width="100%"
     height="600"
+    style="max-width:100%"
     allowtransparency></iframe>
 
 MySQL query:
