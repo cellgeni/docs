@@ -8,8 +8,7 @@ If you would like to make your single-cell RNA-seq data publicly available on a 
 cellxgene
 ---------
 
-We use `cellxgene
-<https://github.com/chanzuckerberg/cellxgene>`_ to visualize single cell RNA-seq data. **cellxgene** is an interactive data explorer which is very scalable and flexible.
+We use `cellxgene <https://github.com/chanzuckerberg/cellxgene>`_ to visualize single cell RNA-seq data. **cellxgene** is an interactive data explorer which is very scalable and flexible.
 
 To be able for us to create a **cellxgene** website for your data we need to have your data in the `h5ad (AnnData) <https://anndata.readthedocs.io>`_ format. 
 
@@ -177,25 +176,122 @@ https://colab.research.google.com/github/cellgeni/docs/blob/master/docs/source/v
 Data Conversion
 ^^^^^^^^^^^^^^^
 
-`sceasy <https://github.com/cellgeni/sceasy>`_ is a package that helps easy conversion of different single-cell data formats to each other. Converting to AnnData creates a file that can be directly used in `cellxgene <https://github.com/chanzuckerberg/cellxgene>`_, an interactive explorer for single-cell transcriptomics datasets. Currently it supports converting **Seurat**, **SingleCellExperiment** and **Loom** objects to **AnnData**. By default it transfers expression matrices, cell and gene metadata tables and, if available, cell embeddings in reduced dimensions.
+We recommend `schard <https://github.com/cellgeni/schard>`_ for loading
+AnnData (``h5ad``) files into R as **Seurat** or **SingleCellExperiment**
+objects. It is implemented in R without ``reticulate`` and can load
+expression matrices, cell and gene metadata, and supported dimensionality
+reductions. It also supports spatial Visium data in AnnData format.
 
-Please follow the installation instructions in the `sceasy README <https://github.com/cellgeni/sceasy>`_, which are kept up to date.
+Install ``schard`` from GitHub:
 
-.. tip::
-    For ``h5ad`` to ``rds`` conversion also see `schard <https://github.com/cellgeni/schard>`_.
+.. code-block:: r
 
-.. tip::
-    For ``rds`` to ``h5ad`` conversion also see `py8rds <https://github.com/cellgeni/py8rds>`_.
+   devtools::install_github("cellgeni/schard")
 
-Examples of ``sceasy`` usage:
-
-Seurat to AnnData
+AnnData to Seurat
 ~~~~~~~~~~~~~~~~~
 
 .. code-block:: r
-    
-   sceasy:::convertFormat(seurat_object, from="seurat", to="anndata",
-                          outFile='filename.h5ad')
+
+   seurat_object <- schard::h5ad2seurat("filename.h5ad")
+
+AnnData to SingleCellExperiment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: r
+
+   sce_object <- schard::h5ad2sce("filename.h5ad")
+
+AnnData (Visium) to spatial Seurat
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: r
+
+   spatial_object <- schard::h5ad2seurat_spatial("visium.h5ad")
+
+   # Alternatively, return a list of Seurat objects, one per slide.
+   spatial_slides <- schard::h5ad2seurat_spatial("visium.h5ad", simplify = FALSE)
+
+Loading AnnData metadata only
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you only need cell metadata, you can avoid loading the full expression matrix:
+
+.. code-block:: r
+
+   cell_metadata <- schard::h5ad2data.frame("filename.h5ad", "obs")
+
+.. note::
+
+   ``schard`` reads AnnData files into R but does not write ``h5ad`` files.
+   For Seurat ``.rds`` files, use ``py8rds`` to convert directly into AnnData
+   without an R installation. Some other format conversions still require
+   ``sceasy``.
+
+Seurat (RDS) to AnnData using py8rds
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`py8rds <https://github.com/cellgeni/py8rds>`_ reads R ``.rds`` and
+supported ``.qs2`` files directly in Python, without requiring R or
+``reticulate``. For Seurat objects, it can create an AnnData object suitable
+for downstream Python analysis and export to ``h5ad``.
+
+Install ``py8rds``:
+
+.. code-block:: bash
+
+   pip install git+https://github.com/cellgeni/py8rds.git
+
+Convert a saved Seurat object:
+
+.. code-block:: python
+
+   import py8rds
+
+   adata = py8rds.seurat2adata("seurat.rds")
+   adata.write_h5ad("filename.h5ad")
+
+.. note::
+
+   By default, ``seurat2adata`` reads the first assay and its ``counts``
+   layer. Select the appropriate assay and layer for your analysis, and
+   verify the resulting expression matrix, cell metadata, and embeddings.
+   Not all Seurat content has an equivalent AnnData representation.
+
+Reading RDS metadata and expression matrices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``py8rds`` can also read R data frames and named dense or sparse matrices
+without converting an entire Seurat object:
+
+.. code-block:: python
+
+   import py8rds
+
+   metadata = py8rds.as_data_frame("metadata.rds")
+   matrix_adata = py8rds.as_anndata("matrix.rds")
+
+For unfamiliar RDS structures, inspect them before selecting components:
+
+.. code-block:: python
+
+   robj = py8rds.parse_rds("data.rds")
+   robj.show(level=2)
+
+``py8rds`` also provides ``seurat2adata_spatial`` for spatial Seurat
+objects. See the `py8rds documentation <https://github.com/cellgeni/py8rds>`_
+for supported formats and examples.
+
+Other format conversions using sceasy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`sceasy <https://github.com/cellgeni/sceasy>`_ remains available for
+conversions not covered by ``schard`` or ``py8rds``, including conversions
+between **SingleCellExperiment**, **Seurat**, and **Loom**. See its
+`sceasy installation instructions <https://github.com/cellgeni/sceasy>`_.
+AnnData files can be used with
+`cellxgene <https://github.com/chanzuckerberg/cellxgene>`_ for interactive
+exploration of single-cell data.
 
 Seurat to SingleCellExperiment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -203,15 +299,15 @@ Seurat to SingleCellExperiment
 .. code-block:: r
 
    sceasy:::convertFormat(seurat_object, from="seurat", to="sce",
-                          outFile='filename.rds')
+                          outFile="filename.rds")
 
 SingleCellExperiment to AnnData
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: r
-    
-   sceasy:::convertFormat(sce_object, from="sce", to="anndata", 
-                          outFile='filename.h5ad')
+
+   sceasy:::convertFormat(sce_object, from="sce", to="anndata",
+                          outFile="filename.h5ad")
 
 SingleCellExperiment to Loom
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -219,23 +315,23 @@ SingleCellExperiment to Loom
 .. code-block:: r
 
    sceasy:::convertFormat(sce_object, from="sce", to="loom",
-                          outFile='filename.loom')
+                          outFile="filename.loom")
 
 Loom to AnnData
 ~~~~~~~~~~~~~~~
 
 .. code-block:: r
 
-   sceasy:::convertFormat('filename.loom', from="loom", to="anndata",
-                          outFile='filename.h5ad')
+   sceasy:::convertFormat("filename.loom", from="loom", to="anndata",
+                          outFile="filename.h5ad")
 
 Loom to SingleCellExperiment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: r
 
-   sceasy:::convertFormat('filename.loom', from="loom", to="sce", 
-                          outFile='filename.rds')
+   sceasy:::convertFormat("filename.loom", from="loom", to="sce",
+                          outFile="filename.rds")
 
 Examples
 --------

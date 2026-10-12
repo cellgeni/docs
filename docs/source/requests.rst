@@ -4,20 +4,20 @@ FreshService Requests
 .. tip::
     You can submit a CellGen Informatics support request at any time by creating a ticket in `FreshService <https://sanger.freshservice.com/>`_. Anyone at Sanger can log in.
 
-To create a support ticket log in to `FreshService`_, open the **CellGen Informatics** catalogue, select one of the categories (``Bioinformatics support``, ``Data sharing/submission``, ``Imaging support``, ``Reprocess public data``, ``Websites`` or ``Other questions``) and then fill in the information form.
+To create a support ticket log in to `FreshService`_, open the `**CellGen Informatics** catalogue <https://sanger.freshservice.com/support/catalog/items?category_id=53000054809&isParent=true&level=0>`_, select one of the categories (``Bioinformatics support``, ``Data sharing/submission``, ``Imaging support``, ``Reprocess public data``, ``Websites`` or ``Other questions``) and then fill in the information form.
 Make sure any information needed resides in the ticket. You can attach files after creating the ticket. Having all the possible information there will ensure that we fully document any issues or requests for a proper resolution. You can follow your existing tickets from the FreshService portal.
 
 When submitting a request to the CellGen Informatics team multiple types of request can be made. These include:
 
 * Running a bioinformatics pipeline, tool or analysis (``Bioinformatics support``)
 * Sharing data with external collaborators or uploading data to ArrayExpress (``Data sharing/submission``)
-* Uploading imaging data to OMERO or running an imaging pipeline (``Imaging support``)
+* Running an imaging pipelines or uploading data to OMERO (``Imaging support``)
 * Reprocessing public scRNA-seq data with STARsolo (``Reprocess public data``)
-* Building a website (``Websites``)
+* Building a website or a CELLxGENE visualization (``Websites``)
 * Anything else related to CellGen Informatics (``Other questions``)
 
 .. note::
-    There is no ticket category for Jupyter. Notebooks (including GPU notebooks) run on the central JupyterHub provided by Sanger IT, see :doc:`jupyterhub`. For help with it, use the ``Other questions`` category or Slack.
+    There is no ticket category for Jupyter Notebooks. Central JupyterHub is provided by Sanger IT (IDS), see :doc:`jupyterhub`. For requesting our help with it, you can use the ``Other questions`` category or Slack us.
 
 This FAQ will guide you in the best practices for submitting tickets to our team.
 
@@ -25,7 +25,7 @@ This FAQ will guide you in the best practices for submitting tickets to our team
 Sharing data
 ------------
 
-When sharing data with external collaborators there are two methods used. Sharing via the **Globus** software or sharing via an **S3** bucket.
+When sharing data with external collaborators there are two methods used. Sharing via the **Globus** software or sharing via an **S3** signed link.
 Please check with your collaborator if they have a Globus account or not, if they do not then a download link will be provided which will work for 7 days. 
 Uppon request, a new link can be generated for the collaborator that lasts longer. To make easier for everyone, if the collaborators now in advance they'll need more time this information needs to be part of the ticket.
 

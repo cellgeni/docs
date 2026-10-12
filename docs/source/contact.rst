@@ -4,7 +4,7 @@ Contact us
 Submit a ticket
 ---------------
 
-We operate using the FreshService ticketing system. Anyone at Sanger can log in to `FreshService <https://sanger.freshservice.com/>`_ and submit a ticket from the **CellGen Informatics** catalogue. See :doc:`requests` for the information to include.
+We operate using the FreshService ticketing system. Anyone can log in to `FreshService <https://sanger.freshservice.com/>`_ and submit a ticket from the **CellGen Informatics** catalogue. See :doc:`requests` for the information to include.
 
 Chat
 ----

@@ -3,13 +3,13 @@ Nextflow pipelines
 
 We offer a range of sequencing processing pipelines. We develop them using `Nextflow <https://www.nextflow.io/>`_ workflow language.
 
-We run Nextflow pipelines on both Sanger *LSF* farm and on public Clouds using `Seqera Platform <https://cloud.seqera.io/>`_.
+We run Nextflow pipelines on both Sanger *LSF* farm and on public Clouds.
 
 Here is the list of the major pipelines we maintain and support:
 
 1. `cellranger (for 10x data) <https://github.com/cellgeni/various_cellrangers>`_
 2. `cellranger (for CITEseq and HTO data) <https://github.com/cellgeni/cellranger_cite_hash>`_
-3. `souporcell (for 10X data) <https://github.com/cellgeni/nf-demultiplex>`_
+3. `souporcell/vireo (for 10X data) <https://github.com/cellgeni/nf-demultiplex>`_
 4. `ATAC-seq (for 10X and Smartseq2 data) <https://github.com/cellgeni/cellatac>`_
 5. `velocyto (for 10X data) <https://github.com/cellgeni/nf-velocyto>`_
 6. `STARsolo (for 10X data) <https://github.com/cellgeni/STARsolo>`_
@@ -19,7 +19,8 @@ Here is the list of the major pipelines we maintain and support:
 10. `reprocessing public data <https://github.com/cellgeni/nf-reprocessing-public-10x>`_
 11. Data Sharing - via S3 or Globus
 12. Image import to Omero Plus
-13. Uploading data to ArrayExpress FTPs
+13. Uploading data to ``ArrayExpress``
+14. Uploading data to ``BioImage Archive``
 
 Notes
 -----

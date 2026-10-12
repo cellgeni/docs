@@ -41,8 +41,7 @@ Using the module
 After activating the module the use should be fairly similar to your current workflow.
 
   .. code-block:: bash
-
-    ssh farm22    
+  
     module load ISG/conda
     conda activate yourFavouriteEnv
 
@@ -100,9 +99,9 @@ Create environments
 
 .. note::
     **Environment modification (creation/deletion) can only be done from head nodes**.
-    The environments are located inside the ``/software`` area. This filesystem is only writable from head nodes.
+    The environments are located inside the ``/software`` area. This filesystem is only writable from head nodes (``farm22-head1`` and ``farm22-head2``).
 
-To create an environment, first load the module, provide a name for your environment, and specify the package(s) you want to install, such as python=3.10:
+To create an environment, first load the module, provide a name for your environment, and specify the package(s) you want to install, such as python=3.12:
 
   .. code-block:: bash
     
@@ -120,7 +119,7 @@ Migrate your environments
 -------------------------
 
 
-.. error:: **The method of "copying your old envs directly to the new path" is not recommended anymore because we've detected issues with runtime environments.** Please avoid it. You will have to recreate the envionment. If that's not possible please use instead `<https://conda.github.io/conda-pack/>`__
+.. error:: **You will have to recreate the envionment**. If that's not possible please use instead `<https://conda.github.io/conda-pack/>`__
 
 
 If you already had your own install of Miniconda or Miniforge you must move all the environments to the central location. 
@@ -128,7 +127,7 @@ To do so follow the next steps:
 
 Before your start, **remove any previous conda instructions from your**  ``~/.bashrc``. Then exit the farm and re-connect.
 
-1. Load the ``ISG/conda`` module to guarantee the right folders are created:
+1. Make sure you're on a head node and load the ``ISG/conda`` module to guarantee the right folders are created:
 
   .. code-block:: bash
     
@@ -169,7 +168,7 @@ Common issues
 -------------
 
 - **Don't know where env is**: Search for it ``/software/conda/users/<userName>``.
-- **Permissions denied**: you probably didn't activate the right environment. Trying to install to the base env will produce this error. Trying to install packages from nodes *other than head nodes* (farm22-head1/farm22-head2) will produce this error.
+- **Permissions denied**: you probably didn't activate the right environment. Trying to install to the base env will produce this error. Trying to install packages from nodes *other than head nodes* (``farm22-head1`` / ``farm22-head2``) will produce this error.
 - **No space left on device**: very rare but it's possible that ``/software`` has filled up, please contact us to fix this.
 
 Conda and Jupyter

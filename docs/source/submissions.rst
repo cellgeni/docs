@@ -11,4 +11,4 @@ You can send us this information by submitting a ticket in `FreshService <https:
 EGA/ENA
 -------
 
-To submit your data to a public repository, e.g. `EGA <https://ega-archive.org/>`_ or `ENA <https://www.ebi.ac.uk/ena/browser/>`_, please contact data-release@sanger.ac.uk.
+To submit your data to a public repository, e.g. `EGA <https://ega-archive.org/>`_ or `ENA <https://www.ebi.ac.uk/ena/browser/>`_, please contact the Data Release team using their FreshService Catalogue items `"**EGA** dataset creation and publication" <https://sanger.freshservice.com/support/catalog/items/363>`_  or `"Sequence data release to **ENA**" <https://sanger.freshservice.com/support/catalog/items/362>`_ and let us know.

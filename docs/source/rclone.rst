@@ -18,19 +18,6 @@ On the FARM, you can load **rclone** using the ``cellgen/rclone`` module with fo
 You should now have the `rclone` module loaded! You can check with ``rclone --version``.
 If you want, you can add that line to your ``~/.bashrc`` to load the module by default.
 
-Manual Installation
--------------------
-
-.. note:: 
-
-    **rclone is avaiable as a module, don't install your own copy of rclone, use the module cellgen/rclone**
-
-If you are don't have rclone installed or you want the latest version in your VM use the followng command:
-
-  .. code-block:: bash
-
-    curl https://rclone.org/install.sh | sudo bash
-
 
 Configuration
 -------------
