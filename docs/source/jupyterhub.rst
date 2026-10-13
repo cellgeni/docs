@@ -69,6 +69,7 @@ Create an environment with Python 3.12 and the packages you need, activate it, a
 .. code-block:: bash
 
     # Choose a location in your project or team space
+    module load ISG/conda
     conda create my-conda-env python=3.12 ipykernel
     conda activate my-conda-env
 
